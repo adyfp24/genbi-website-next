@@ -33,9 +33,43 @@ const LandingPage: React.FC = () => {
                 </div>
             </section>
 
-            <section id='' className='my-20'>
-                <div>
-
+            <section id='ptn-mitra' className='my-10'>
+                <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
+                    <div className='w-2/3'>
+                        <h2 className='text-pr700 text-4xl font-semibold mb-4'>Kerja Sama Beasiswa Bank Indonesia dengan Perguruan Tinggi di Jember</h2>
+                        <p className=''>GenBI Jember bekerja sama dengan berbagai perguruan tinggi untuk mendukung generasi muda melalui program beasiswa Bank Indonesia.
+                            Dengan total 179 penerima dari Universitas Jember, Politeknik Negeri Jember, dan UIN KHAS Jember.
+                        </p>
+                    </div>
+                    <div className='flex w-full mt-20'>
+                        <div className='w-1/2 flex flex-col'>
+                            <div className='flex w-full'>
+                                <div className='w-max px-4 py-4'>
+                                    <img className='mb-3' src="/images/unej-logo.png" alt="" />
+                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>75+</h2>
+                                    <h6 className='font-semibold'>Universitas Jember</h6>
+                                    <p>Jumlah penerima beasiswa Bank Indonesia</p>
+                                </div>
+                                <div className='w-max px-4 py-4'>
+                                    <img className='mb-3' src="/images/polije-logo.png" alt="" />
+                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>64+</h2>
+                                    <h6 className='font-semibold'>Politeknik Negeri Jember</h6>
+                                    <p>Jumlah penerima beasiswa Bank Indonesia</p>
+                                </div>
+                            </div>
+                            <div className='flex mt-2'>
+                                <div className='w-1/2 px-4 py-4'>
+                                    <img className='mb-3' src="/images/uin-logo.png" alt="" />
+                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>56+</h2>
+                                    <h6 className='font-semibold'>UIN KHAS Jember</h6>
+                                    <p>Jumlah penerima beasiswa Bank Indonesia</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='w-1/2'>
+                            <img src="/images/genbi-pengurus.png" alt="" />
+                        </div>
+                    </div>
                 </div>
             </section>
 
