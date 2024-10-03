@@ -2,3 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --background: #f0f0f0;
+    --foreground: #333333;
+    --pr-50: #eaf2ff;
+    --pr-100: #bdd5ff;
+    --pr-200: #9dc1ff;
+    --pr-300: #70a5ff;
+    --pr-400: #5494ff;
+    --pr-500: #2979ff;
+    --pr-600: #256ee8;
+    --pr-700: #1d56b5;
+    --pr-800: #17438c;
+    --pr-900: #11336b;
+  }
