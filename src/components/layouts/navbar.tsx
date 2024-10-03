@@ -72,7 +72,7 @@ const Navbar: React.FC = () => {
 
           <div className=''>
               <button className='rounded-xl px-6 py-2 mr-2 hover:bg-blue-500'>Log in</button>
-              <button className='rounded-xl text-white bg-blue-500 px-6 py-2'>Sign Up</button>
+              <button className='rounded-xl text-white bg-pr500 px-6 py-2'>Sign Up</button>
           </div>
 
         </div>
