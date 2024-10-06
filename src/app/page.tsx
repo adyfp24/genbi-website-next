@@ -7,7 +7,7 @@ const LandingPage: React.FC = () => {
         <div className='w-full'>
             <Navbar />
 
-            <section id='jumbotron' className="bg-white">
+            <section id='hero-section' className="bg-white">
                 <div className="pt-20 text-center bg-pr100">
                     <a href="" className="inline-flex items-center text-pr700 px-2 py-1 bg-pr200 rounded-3xl"><span className='px-1.5 bg-pr100 rounded-xl mr-2'>Pendaftaran GenBI Jember 2025 dibuka!</span> Daftar disini
                         <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -33,7 +33,7 @@ const LandingPage: React.FC = () => {
                 </div>
             </section>
 
-            <section id='ptn-mitra' className='my-10'>
+            <section id='matrics-section' className='my-10'>
                 <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
                     <div className='w-2/3'>
                         <h2 className='text-pr700 text-4xl font-semibold mb-4'>Kerja Sama Beasiswa Bank Indonesia dengan Perguruan Tinggi di Jember</h2>
@@ -68,6 +68,57 @@ const LandingPage: React.FC = () => {
                         </div>
                         <div className='w-1/2'>
                             <img src="/images/genbi-pengurus.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id='testimonial-section' className='mb-32'>
+                <div className='max-w-screen-xl w-full h-full flex flex-wrap items-center mx-auto bg-pr800 rounded-3xl text-white'>
+                    <div className='w-2/3 flex h-full flex-col justify-between p-6'>
+                        <div className=''>rating</div>
+                        <p className=''>“Beasiswa Bank Indonesia ngebantu banget kuliah saya! Lewat GenBI, saya dapet banyak pengalaman seru.”</p>
+                        <div className='flex'>
+                            <img className='w-10 h-auto mr-6' src="images/unej-logo.png" alt="" />
+                            <div className=''>
+                                <h4>- Rizki Dwi Putra</h4>
+                                <h6>Penerima Beasiswa Bank Indonesia Universitas Jember</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='w-1/3'>
+                        <img className='max-w-full max-h-full rounded-r-3xl' src="/images/testi-image.png" alt="" />
+                    </div>
+                    <div>
+                        <button>left</button>
+                        <button>right</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id='benefit-section'>
+                <div className='max-w-screen-xl w-full h-full flex flex-col mx-auto mb-10'>
+                    <div className='flex flex-col w-3/5 mx-auto items-center justify-center text-center'>
+                        <h4 className='font-bold text-3xl'>Benefit yang akan kamu dapatkan jika tergabung dalam Generasi Bank Indonesia</h4>
+                        <p>Dapatkan banyak keuntungan saat menjadi bagian dari Generasi Baru Indonesia Jember.
+                            Mulai dari bantuan pendidikan hingga pengembangan diri, semuanya disiapkan untuk mendukung masa depanmu.
+                        </p>
+                    </div>
+                    <div className='flex w-full mt-12 justify-between'>
+                        <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
+                            <img className='mb-5' src="/images/benefit-1.png" alt="" />
+                            <h6 className='font-bold mb-2 text-lg'>Total Bantuan Biaya Pendidikan Dengan Total 24 Juta</h6>
+                            <p>Bantuan dana pendidikan sebesar 24 juta untuk mendukung perjalanan akademismu</p>
+                        </div>
+                        <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
+                            <img className='mb-5' src="/images/benefit-2.png" alt="" />
+                            <h6 className='font-bold mb-2 text-lg'>Menjadi Anggota Aktif Komunitas Generasi Baru Indonesia Jember</h6>
+                            <p>Tempat kamu berkolaborasi dan berbagi ide dengan sesama mahasiswa bervisi-misi besar</p>
+                        </div>
+                        <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
+                            <img className='mb-5' src="/images/benefit-3.png" alt="" />
+                            <h6 className='font-bold mb-2 text-lg'>Pembinaan Softskill dan Leadership bagi Seluruh Penerima Beasiswa</h6>
+                            <p>Pelatihan softskill dan leadership yang dirancang khusus untuk penerima beasiswa</p>
                         </div>
                     </div>
                 </div>
