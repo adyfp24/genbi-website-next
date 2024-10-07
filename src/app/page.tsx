@@ -1,20 +1,7 @@
+import ProkerSection from '@/components/fragments/proker-section';
 import Navbar from '@/components/layouts/navbar'
 import { title } from 'process';
 import React from 'react'
-
-interface ProkerBadgeProps {
-    data: {
-        nama_proker: string;
-    };
-}
-
-export const ProkerBadge: React.FC<ProkerBadgeProps> = ({ data }) => {
-    return (
-        <div>
-            <a className='p-3 block border border-pr200 text-white my-2 mx-2 rounded' href="/proker">{data.nama_proker}</a>
-        </div>
-    )
-}
 
 const LandingPage: React.FC = () => {
 
@@ -35,8 +22,8 @@ const LandingPage: React.FC = () => {
 
     const prokerDetail = {
         title: 'GenBI Mengajar',
-        deskripsi: 'GenBI Mengajar (BIJAR) merupakan program kerja yang bergerak dalam dunia pendidikan.Berdirinya BIJAR bertujuan untuk menjawab keresahan-keresahan dalam dunia pendidikan dengan harapan kontribusi dari BIJAR dapat membantu target sasaran serta bermanfaat bagi internal GenBI maupun eksternal GenBI atau masyarakat luas. Ini adalah beberapa program kerja yang ada pada GenBI Mengajar',
-        gambar : 'images/proker-mengajar.png',
+        description: 'GenBI Mengajar (BIJAR) merupakan program kerja yang bergerak dalam dunia pendidikan.Berdirinya BIJAR bertujuan untuk menjawab keresahan-keresahan dalam dunia pendidikan dengan harapan kontribusi dari BIJAR dapat membantu target sasaran serta bermanfaat bagi internal GenBI maupun eksternal GenBI atau masyarakat luas. Ini adalah beberapa program kerja yang ada pada GenBI Mengajar',
+        image: 'images/proker-mengajar.png',
         listKegiatan: [
             'BIJAR Creative Study',
             'BIJAR Childrens Day',
@@ -118,24 +105,33 @@ const LandingPage: React.FC = () => {
             </section>
 
             <section id='testimonial-section' className='mb-32'>
-                <div className='max-w-screen-xl w-full h-full flex flex-wrap items-center mx-auto bg-pr800 rounded-3xl text-white'>
-                    <div className='w-2/3 flex h-full flex-col justify-between p-6'>
-                        <div className=''>rating</div>
-                        <p className=''>“Beasiswa Bank Indonesia ngebantu banget kuliah saya! Lewat GenBI, saya dapet banyak pengalaman seru.”</p>
+                <div className='max-w-screen-xl w-full h-full flex flex-wrap mx-auto bg-pr800 rounded-3xl text-white'>
+                    <div className='w-3/5 flex flex-col justify-around p-12'>
+                        <div className=''>
+                            <img src="images/icon/5-star.png" alt="" />
+                        </div>
+                        <p className='text-4xl'>“Beasiswa Bank Indonesia ngebantu banget kuliah saya! Lewat GenBI, saya dapet banyak pengalaman seru.”</p>
                         <div className='flex'>
-                            <img className='w-10 h-auto mr-6' src="images/unej-logo.png" alt="" />
+                            <img className='w-12 h-auto mr-6' src="images/unej-logo.png" alt="" />
                             <div className=''>
-                                <h4>- Rizki Dwi Putra</h4>
+                                <h4 className='font-semibold text-xl'>- Rizki Dwi Putra</h4>
                                 <h6>Penerima Beasiswa Bank Indonesia Universitas Jember</h6>
                             </div>
                         </div>
+                        <div className='flex justify-between items-center'>
+                            <ul className='flex'>
+                                <li className='w-3 h-3 bg-pr300 mr-2 rounded-full'></li>
+                                <li className='w-3 h-3 bg-white mr-2 rounded-full'></li>
+                                <li className='w-3 h-3 bg-white rounded-full'></li>
+                            </ul>
+                            <div className='flex'>
+                                <img className='mr-4' src="images/icon/arrow-left.png" alt="" />
+                                <img src="images/icon/arrow-right.png" alt="" />
+                            </div>
+                        </div>
                     </div>
-                    <div className='w-1/3'>
-                        <img className='max-w-full max-h-full rounded-r-3xl' src="/images/testi-image.png" alt="" />
-                    </div>
-                    <div>
-                        <button>left</button>
-                        <button>right</button>
+                    <div className='w-2/5'>
+                        <img className='w-full rounded-r-3xl' src="/images/testi-image.png" alt="" />
                     </div>
                 </div>
             </section>
@@ -184,40 +180,7 @@ const LandingPage: React.FC = () => {
                 </div>
             </section>
 
-            <section id='work-program-section'>
-                <div className='w-full text-white mx-auto flex flex-col items-center bg-pr800 pt-20'>
-                    <h2 className='text-5xl font-bold mb-5'>Program Kerja GenBI Jember</h2>
-                    <p className='text-pr200 w-2/3 text-center mb-5'>GenBI Jember aktif dalam berbagai program yang mendukung pengembangan diri dan kontribusi sosial. Dari kegiatan sosial hingga pelatihan leadership, setiap program dirancang untuk mendorong anggotanya menjadi agen perubahan bagi masyarakat.</p>
-                    <div className='flex flex-wrap justify-center max-w-screen-xl mx-auto mb-10'>
-                        {prokerList.map((proker) => (
-                            <ProkerBadge key={proker} data={{ nama_proker: proker }} />
-                        ))}
-                    </div>
-                    <div className='flex flex-wrap w-full justify-between max-w-screen-xl mx-auto mb-10'>
-                        <div className='w-3/5 flex flex-col justify-center'>
-                            <h2 className='text-5xl font-bold mb-5'>
-                                {prokerDetail['title']}
-                            </h2>
-                            <p className='text-white pr-24 mb-5'>
-                                {prokerDetail['deskripsi']}
-                            </p>
-                            <div className='flex w-full'>
-                                <ul className='w-full grid grid-cols-2 gap-4'>
-                                    {prokerDetail['listKegiatan'].map((data) => (
-                                        <li className='my-1 flex items-center'>
-                                            <img src="images/icon/check-icon.png" alt="" />
-                                            <p className='ml-2'>{data}</p>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                        <div className='w-2/5'>
-                            <img className='w-full' src={prokerDetail['gambar']} alt="" />
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <ProkerSection prokerList={prokerList} prokerDetail={prokerDetail} />
         </div>
 
     )
