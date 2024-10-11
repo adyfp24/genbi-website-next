@@ -1,7 +1,9 @@
 import ProkerSection from '@/components/fragments/proker-section';
+import Footer from '@/components/layouts/footer';
 import Navbar from '@/components/layouts/navbar'
 import { title } from 'process';
 import React from 'react'
+import { ArrowRight, ArrowLeft, ChevronDown, Instagram, Facebook, Twitter, Linkedin, Youtube } from 'lucide-react';
 
 const LandingPage: React.FC = () => {
 
@@ -38,8 +40,8 @@ const LandingPage: React.FC = () => {
         <div className='w-full'>
             <Navbar />
 
-            <section id='hero-section' className="bg-white">
-                <div className="pt-20 text-center bg-pr100">
+            <section id='hero-section' className="bg-pr50">
+                <div className="pt-20 text-center">
                     <a href="" className="inline-flex items-center text-pr700 px-2 py-1 bg-pr200 rounded-3xl"><span className='px-1.5 bg-pr100 rounded-xl mr-2'>Pendaftaran GenBI Jember 2025 dibuka!</span> Daftar disini
                         <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
@@ -65,31 +67,31 @@ const LandingPage: React.FC = () => {
             </section>
 
             <section id='matrics-section' className='my-10'>
-                <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
+                <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto'>
                     <div className='w-2/3'>
                         <h2 className='text-pr700 text-4xl font-semibold mb-4'>Kerja Sama Beasiswa Bank Indonesia dengan Perguruan Tinggi di Jember</h2>
                         <p className=''>GenBI Jember bekerja sama dengan berbagai perguruan tinggi untuk mendukung generasi muda melalui program beasiswa Bank Indonesia.
                             Dengan total 179 penerima dari Universitas Jember, Politeknik Negeri Jember, dan UIN KHAS Jember.
                         </p>
                     </div>
-                    <div className='flex w-full mt-20'>
+                    <div className='flex w-full justify-between mt-20'>
                         <div className='w-1/2 flex flex-col'>
                             <div className='flex w-full'>
-                                <div className='w-max px-4 py-4'>
+                                <div className='w-max py-4'>
                                     <img className='mb-3' src="/images/unej-logo.png" alt="" />
-                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>75+</h2>
+                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>75</h2>
                                     <h6 className='font-semibold'>Universitas Jember</h6>
                                     <p>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
-                                <div className='w-max px-4 py-4'>
+                                <div className='w-max py-4'>
                                     <img className='mb-3' src="/images/polije-logo.png" alt="" />
-                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>64+</h2>
+                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>64</h2>
                                     <h6 className='font-semibold'>Politeknik Negeri Jember</h6>
                                     <p>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
                             </div>
                             <div className='flex mt-2'>
-                                <div className='w-1/2 px-4 py-4'>
+                                <div className='w-1/2 py-4'>
                                     <img className='mb-3' src="/images/uin-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>56+</h2>
                                     <h6 className='font-semibold'>UIN KHAS Jember</h6>
@@ -98,7 +100,7 @@ const LandingPage: React.FC = () => {
                             </div>
                         </div>
                         <div className='w-1/2'>
-                            <img src="/images/genbi-pengurus.png" alt="" />
+                            <img className='ml-3' src="/images/genbi-pengurus.png" alt="" />
                         </div>
                     </div>
                 </div>
@@ -175,12 +177,181 @@ const LandingPage: React.FC = () => {
                         <button className='bg-pr600 text-white p-3 rounded-lg'>Selengkapnya</button>
                     </div>
                     <div className='w-1/2'>
-                        <img className='w-full' src="images/hero-image.png" alt="" />
+                        <img className='w-full' src="" alt="" />
                     </div>
                 </div>
             </section>
 
-            <ProkerSection prokerList={prokerList} prokerDetail={prokerDetail} />
+            <div className="font-sans">
+                {/* Header Section */}
+                <header className="p-4">
+                    <div className="max-w-7xl mx-auto">
+                        <div className="flex justify-between items-center">
+                            <div className="text-blue-600 font-medium">Insight GenBI</div>
+                            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+                                Lihat semua
+                            </button>
+                        </div>
+
+                        <div className="mt-8">
+                            <h1 className="text-4xl font-bold text-navy-900 mb-4">
+                                Dapatkan informasi terbaru dari Generasi Baru Indonesia Jember
+                            </h1>
+                            <p className="text-gray-600">
+                                Ikuti kabar terbaru dari kegiatan dan program kerja GenBI Jember. Dari pelatihan hingga aksi sosial, temukan cerita inspiratif dan update penting yang tidak boleh kamu lewatkan.
+                            </p>
+                        </div>
+                    </div>
+                </header>
+
+                {/* News Cards Section */}
+                <section className="p-4">
+                    <div className="max-w-7xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {/* Map through news items */}
+                            {[1, 2, 3].map((_, index) => (
+                                <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
+                                    <div className="h-48 bg-gray-200"></div>
+                                    <div className="p-4">
+                                        <div className="text-sm text-gray-500 mb-2">
+                                            {20 - index} Januari 2024
+                                        </div>
+                                        <h3 className="text-lg font-semibold mb-2">
+                                            {index === 0 && "GenBI Jember Mengadakan Lomba Kampanye QRIS"}
+                                            {index === 1 && "Talkshow Entrepreneurship Jadi Ujung Tombak Inflasi"}
+                                            {index === 2 && "GenBI Goes to School Mendatangi UNEJ"}
+                                        </h3>
+                                        <div className="flex flex-wrap gap-2 mt-4">
+                                            <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
+                                                {index === 0 ? 'Preneur' : index === 1 ? 'Seminar' : 'Kampus'}
+                                            </span>
+                                            <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">
+                                                QRIS
+                                            </span>
+                                            <span className="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm">
+                                                {index === 0 ? 'Lomba' : index === 1 ? 'Preneur' : 'Sosialisasi'}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="flex justify-center mt-6 gap-4">
+                            <button className="p-2 rounded-full border border-blue-500">
+                                <ArrowLeft className="w-6 h-6 text-blue-500" />
+                            </button>
+                            <button className="p-2 rounded-full border border-blue-500">
+                                <ArrowRight className="w-6 h-6 text-blue-500" />
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                {/* FAQ Section */}
+                <section className="p-4 bg-gray-50">
+                    <div className="max-w-7xl mx-auto">
+                        <h2 className="text-2xl font-bold mb-4">Pertanyaan yang Sering Ditanyakan</h2>
+                        <p className="text-gray-600 mb-6">
+                            Punya pertanyaan tentang Beasiswa Bank Indonesia atau GenBI Jember? Temukan jawabannya di sini!
+                        </p>
+
+                        <div className="space-y-4">
+                            {[
+                                "Apa itu Beasiswa Bank Indonesia?",
+                                "Siapa yang bisa mendaftar Beasiswa Bank Indonesia?",
+                                "Bagaimana cara mendaftar Beasiswa Bank Indonesia?",
+                                "Apa manfaat bergabung dengan GenBI Jember?",
+                                "Berapa besar dana yang diberikan dalam Beasiswa Bank Indonesia?",
+                                "Apa saja kegiatan yang dilakukan oleh GenBI Jember?"
+                            ].map((question, index) => (
+                                <div key={index} className="bg-white p-4 rounded-lg flex justify-between items-center">
+                                    <span>{question}</span>
+                                    <ChevronDown className="w-6 h-6" />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* CTA Section */}
+                <section className="bg-pr800 py-20 text-white p-10 w-4/5 rounded-2xl mt-16 mx-auto">
+                    <div className="max-w-7xl mx-auto">
+                        <div className="flex justify-between items-center">
+                            <div className='w-4/5'>
+                                <h2 className="text-2xl font-bold mb-2">Siap Jadi Bagian dari GenBI Jember?</h2>
+                                <p>
+                                    Jangan lewatkan kesempatan untuk bergabung mahasiswa inspiratif dan dapatkan beasiswa Bank Indonesia! Mulai perjalananmu bersama GenBI Jember!
+                                </p>
+                            </div>
+                            <div className='w-1/5 flex justify-end'>
+                                <button className="bg-white text-blue-600 px-4 py-2 rounded-lg ">
+                                    Hubungi kami
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Footer */}
+                <footer className="bg-navy-900 text-gray-400 p-8 mt-10">
+                    <div className="max-w-7xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                            <div className='mr-20'>
+                                <h3 className="font-bold mb-4">GenBI</h3>
+                                <p className="text-gray-400">
+                                    GenBI adalah sebuah komunitas penerima beasiswa Bank Indonesia yang telah berdiri sejak tanggal 11 November 2011 dan tersebar disetiap perguruan tinggi negeri terpilih pada tiap provinsi di Indonesia.
+                                </p>
+                            </div>
+
+                            {/* Footer Links */}
+                            <div>
+                                <h3 className="font-bold mb-4">BERANDA</h3>
+                                <ul className="space-y-2">
+                                    <li>Tentang Beasiswa</li>
+                                    <li>Naungan Universitas</li>
+                                    <li>Testimoni</li>
+                                    <li>Benefit Beasiswa</li>
+                                    <li>Program Kerja</li>
+                                    <li>Artikel</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h3 className="font-bold mb-4">BEASISWA</h3>
+                                <ul className="space-y-2">
+                                    <li>Persyaratan Beasiswa</li>
+                                    <li>Jurusan & Universitas</li>
+                                    <li>Berkas dan Persyaratan</li>
+                                    <li>Ketentuan Video</li>
+                                    <li>Format Pengumuman</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h3 className="font-bold mb-4">ARTIKEL</h3>
+                                <ul className="space-y-2">
+                                    <li>Informasi</li>
+                                    <li>Berita</li>
+                                    <li>Edukasi</li>
+                                    <li>Tips & Tricks</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="mt-8 pt-8 border-t border-gray-700 flex justify-between items-center">
+                            <p className="text-gray-400">© 2024 GenBI Jember. Supported by Kantor Perwakilan Bank Indonesia Jember</p>
+                            <div className="flex space-x-4">
+                                <Instagram className="w-6 h-6" />
+                                <Facebook className="w-6 h-6" />
+                                <Twitter className="w-6 h-6" />
+                                <Linkedin className="w-6 h-6" />
+                                <Youtube className="w-6 h-6" />
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
         </div>
 
     )
