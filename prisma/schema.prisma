@@ -13,7 +13,7 @@ model User {
   username   String
   password   String
   phone      String?   @unique
-  instansiId Int?      
+  instansiId Int?
   roleId     Int
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
@@ -23,7 +23,7 @@ model User {
 
 model Role {
   id        Int      @id @default(autoincrement())
-  name      String   
+  name      String
   User      User[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -32,21 +32,14 @@ model Role {
 model Blog {
   id          Int           @id @default(autoincrement())
   title       String
+  caption     String
   content     String
   bannerImg   String
   categoryId  Int
-  Category    Category      @relation(fields: [categoryId], references: [id])
+  Category    Program       @relation(fields: [categoryId], references: [id])
   BlogKeyword BlogKeyword[]
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
-}
-
-model Category {
-  id        Int      @id @default(autoincrement())
-  name      String  
-  Blog      Blog[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 model Keyword {
@@ -74,6 +67,7 @@ model Program {
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
   ProgramList ProgramList[]
+  Blog        Blog[]
 }
 
 model List {
@@ -104,25 +98,25 @@ model FAQ {
 
 model Testimoni {
   id                 Int       @id @default(autoincrement())
-  rating             Int       
+  rating             Int
   testimoni          String
   name               String
   instansi           String
   videoUrl           String
   InstansiPenerima   Instansi? @relation(fields: [instansiPenerimaId], references: [id])
   instansiPenerimaId Int?
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
 }
 
 model Instansi {
   id           Int         @id @default(autoincrement())
   name         String
   totalAwardee Int
-  contact      String     
+  contact      String
   instansiImg  String
   Testimoni    Testimoni[]
   User         User[]
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
 }
