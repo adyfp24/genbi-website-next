@@ -3,19 +3,19 @@ import prisma from "@/lib/prisma";
 
 export async function GET(req: NextRequest) {
     try {
-        const allProgram = await prisma.program.findMany();
-        if(allProgram.length === 0) {
+        const allFaq = await prisma.fAQ.findMany();
+        if(allFaq.length === 0) {
             return NextResponse.json({
                 "success": true,
-                "message": "data program kerja belum tersedia",
+                "message": "data FAQ belum tersedia",
                 "data": null
             }, {status: 200})
         }
 
         return NextResponse.json({
             "success": true,
-            "message": "data program kerja berhasil didapatkan",
-            "data": allProgram
+            "message": "data FAQ berhasil didapatkan",
+            "data": allFaq
         }, { status: 200 })
     } catch (error) {
         return NextResponse.json({
@@ -28,8 +28,8 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
     try {
-        const data : ProgramCreateRequest = await req.json();
-        const newProgram = await prisma.program.create({
+        const data : FaqCreateRequest = await req.json();
+        const newFaq = await prisma.fAQ.create({
             data:{
                 ...data
             }
@@ -37,8 +37,8 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({
             "success": true,
-            "message": "Program baru berhasil dibuat",
-            "data": newProgram
+            "message": "FAQ baru berhasil dibuat",
+            "data": newFaq
         })
     } catch (error) {
         return NextResponse.json({

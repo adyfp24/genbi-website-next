@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,4 +5,118 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int       @id @default(autoincrement())
+  email      String    @unique
+  username   String
+  password   String
+  phone      String?   @unique
+  instansiId Int?
+  roleId     Int
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  Role       Role      @relation(fields: [roleId], references: [id])
+  Instansi   Instansi? @relation(fields: [instansiId], references: [id])
+}
+
+model Role {
+  id        Int      @id @default(autoincrement())
+  name      String
+  User      User[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Blog {
+  id          Int           @id @default(autoincrement())
+  title       String
+  caption     String
+  content     String
+  bannerImg   String
+  categoryId  Int
+  Category    Program       @relation(fields: [categoryId], references: [id])
+  BlogKeyword BlogKeyword[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Keyword {
+  id          Int           @id @default(autoincrement())
+  BlogKeyword BlogKeyword[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model BlogKeyword {
+  id        Int      @id @default(autoincrement())
+  blogId    Int
+  keywordId Int
+  Blog      Blog     @relation(fields: [blogId], references: [id])
+  Keyword   Keyword  @relation(fields: [keywordId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Program {
+  id          Int           @id @default(autoincrement())
+  bannerImg   String
+  title       String
+  content     String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  ProgramList ProgramList[]
+  Blog        Blog[]
+}
+
+model List {
+  id          Int           @id @default(autoincrement())
+  content     String
+  ProgramList ProgramList[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model ProgramList {
+  id        Int      @id @default(autoincrement())
+  programId Int
+  Program   Program  @relation(fields: [programId], references: [id])
+  listId    Int
+  List      List     @relation(fields: [listId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model FAQ {
+  id        Int      @id @default(autoincrement())
+  question  String
+  answer    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Testimoni {
+  id                 Int       @id @default(autoincrement())
+  rating             Int
+  testimoni          String
+  name               String
+  instansi           String
+  videoUrl           String
+  InstansiPenerima   Instansi? @relation(fields: [instansiPenerimaId], references: [id])
+  instansiPenerimaId Int?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+}
+
+model Instansi {
+  id           Int         @id @default(autoincrement())
+  name         String
+  totalAwardee Int
+  contact      String
+  instansiImg  String
+  Testimoni    Testimoni[]
+  User         User[]
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
 }
