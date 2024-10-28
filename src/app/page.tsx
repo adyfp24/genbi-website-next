@@ -181,6 +181,8 @@ const LandingPage: React.FC = () => {
                 </div>
             </section>
 
+            <ProkerSection />
+
             <div className="font-sans">
                 {/* Header Section */}
                 <header className="p-4">
