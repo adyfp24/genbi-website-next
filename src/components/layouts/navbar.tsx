@@ -1,6 +1,11 @@
+'use client'
+
 import React from 'react'
+import { useRouter } from 'next/navigation';
 
 const Navbar: React.FC = () => {
+  const router = useRouter();
+
   return (
     <div>
       <nav className="bg-pr50">
@@ -18,61 +23,31 @@ const Navbar: React.FC = () => {
               <img src="/images/GenBI-logo.png" className="w-24 h-auto" alt="GenBI Logo" />
             </a>
 
-            <ul className="flex flex-col text-dark font-medium p-4 md:p-0 mt-4 border md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
-              <li>
-                <a href="#" className="block py-2 px-2 text-dark md:dark:bg-transparent" aria-current="page">Beranda</a>
+            <ul className="flex flex-col text-dark font-medium p-4 md:p-0 mt-4 border md:space-x-7 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
+              <li onClick={() => router.push('/')} className="block py-2 px-2 text-pr900 md:dark:bg-transparent hover:cursor-pointer hover:text-pr500">
+                Beranda
               </li>
-              <li>
-                <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" className="flex items-center justify-between w-full py-2 px-2">Program Kerja <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-                </svg></button>
-
-                <div id="dropdownNavbar" className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                  <ul className="py-2 text-sm text-dark" aria-labelledby="dropdownLargeButton">
-                    <li>
-                      <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                    </li>
-                    <li aria-labelledby="dropdownNavbarLink">
-                      <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown" data-dropdown-placement="right-start" type="button" className="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dropdown<svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-                      </svg></button>
-                      <div id="doubleDropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                        <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Overview</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">My downloads</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Billing</a>
-                          </li>
-                          <li>
-                            <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Rewards</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li>
-                      <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                    </li>
-                  </ul>
-                  <div className="py-1">
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-                  </div>
-                </div>
+              <li onClick={() => router.push('/informasi')} className="text-pr900 block py-2 px-2 hover:cursor-pointer hover:text-pr500">
+                Informasi Beasiswa
               </li>
-
-              <li>
-                <a href="#" className="block py-2 px-2 ">Artikel</a>
+              <li onClick={() => router.push('/about')} className="text-pr900 block py-2 px-2 hover:cursor-pointer hover:text-pr500">
+                Tentang
+              </li>
+              <li onClick={() => router.push('/program')} className="text-pr900 block py-2 px-2 hover:cursor-pointer hover:text-pr500">
+                Program Kerja
+              </li>
+              <li onClick={() => router.push('/blog')} className="text-pr900 block py-2 px-2 hover:cursor-pointer hover:text-pr500">
+                Artikel
               </li>
             </ul>
 
           </div>
 
           <div className=''>
-              <button className='rounded-xl px-6 py-2 mr-2 hover:bg-blue-500'>Log in</button>
-              <button className='rounded-xl text-white bg-pr500 px-6 py-2'>Sign Up</button>
+            <label className="inline-flex items-center cursor-pointer">
+              <input type="checkbox" value="" className="sr-only peer" />
+              <div className="relative w-11 h-6 bg-pr500 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-pr500 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+            </label>
           </div>
 
         </div>

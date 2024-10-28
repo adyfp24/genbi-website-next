@@ -6,7 +6,6 @@ import React from 'react'
 import { ArrowRight, ArrowLeft, ChevronDown, Instagram, Facebook, Twitter, Linkedin, Youtube } from 'lucide-react';
 
 const LandingPage: React.FC = () => {
-
     const prokerList = [
         'GenBI Mengajar',
         'Peduli Lingkungan',
@@ -208,7 +207,6 @@ const LandingPage: React.FC = () => {
                 <section className="p-4">
                     <div className="max-w-7xl mx-auto">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {/* Map through news items */}
                             {[1, 2, 3].map((_, index) => (
                                 <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
                                     <div className="h-48 bg-gray-200"></div>
@@ -277,7 +275,7 @@ const LandingPage: React.FC = () => {
                 </section>
 
                 <Footer />
-               </div>
+            </div>
         </div>
 
     )
