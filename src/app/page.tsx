@@ -6,7 +6,6 @@ import React from 'react'
 import { ArrowRight, ArrowLeft, ChevronDown, Instagram, Facebook, Twitter, Linkedin, Youtube } from 'lucide-react';
 
 const LandingPage: React.FC = () => {
-
     const prokerList = [
         'GenBI Mengajar',
         'Peduli Lingkungan',
@@ -182,7 +181,9 @@ const LandingPage: React.FC = () => {
                 </div>
             </section>
 
-            <div className="font-sans">
+            <ProkerSection />
+
+            <div className="font-sans mt-16">
                 {/* Header Section */}
                 <header className="p-4">
                     <div className="max-w-7xl mx-auto">
@@ -193,25 +194,37 @@ const LandingPage: React.FC = () => {
                             </button>
                         </div>
 
-                        <div className="mt-8">
-                            <h1 className="text-4xl font-bold text-navy-900 mb-4">
-                                Dapatkan informasi terbaru dari Generasi Baru Indonesia Jember
-                            </h1>
-                            <p className="text-gray-600">
-                                Ikuti kabar terbaru dari kegiatan dan program kerja GenBI Jember. Dari pelatihan hingga aksi sosial, temukan cerita inspiratif dan update penting yang tidak boleh kamu lewatkan.
-                            </p>
+                        <div className="mt-8 flex justify-between items-end">
+                            <div className='max-w-3xl'>
+                                <h1 className="text-4xl font-bold text-navy-900 mb-4">
+                                    Dapatkan informasi terbaru dari Generasi Baru Indonesia Jember
+                                </h1>
+                                <p className="text-gray-600">
+                                    Ikuti kabar terbaru dari kegiatan dan program kerja GenBI Jember. Dari pelatihan hingga aksi sosial, temukan cerita inspiratif dan update penting yang tidak boleh kamu lewatkan.
+                                </p>
+                            </div>
+
+                            <div className="flex justify-center mt-6 gap-4">
+                                <button className="p-2 rounded-full border border-blue-500">
+                                    <ArrowLeft className="w-6 h-6 text-blue-500" />
+                                </button>
+                                <button className="p-2 rounded-full border border-blue-500">
+                                    <ArrowRight className="w-6 h-6 text-blue-500" />
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </header>
 
                 {/* News Cards Section */}
-                <section className="p-4">
+                <section className="p-4 mb-16">
                     <div className="max-w-7xl mx-auto">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {/* Map through news items */}
                             {[1, 2, 3].map((_, index) => (
                                 <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
-                                    <div className="h-48 bg-gray-200"></div>
+                                    <div className=" ">
+                                        <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
+                                    </div>
                                     <div className="p-4">
                                         <div className="text-sm text-gray-500 mb-2">
                                             {20 - index} Januari 2024
@@ -220,6 +233,11 @@ const LandingPage: React.FC = () => {
                                             {index === 0 && "GenBI Jember Mengadakan Lomba Kampanye QRIS"}
                                             {index === 1 && "Talkshow Entrepreneurship Jadi Ujung Tombak Inflasi"}
                                             {index === 2 && "GenBI Goes to School Mendatangi UNEJ"}
+                                        </h3>
+                                        <h3 className="text-lg font-thin mb-2">
+                                            {index === 0 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
+                                            {index === 1 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
+                                            {index === 2 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
                                         </h3>
                                         <div className="flex flex-wrap gap-2 mt-4">
                                             <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
@@ -236,20 +254,11 @@ const LandingPage: React.FC = () => {
                                 </div>
                             ))}
                         </div>
-
-                        <div className="flex justify-center mt-6 gap-4">
-                            <button className="p-2 rounded-full border border-blue-500">
-                                <ArrowLeft className="w-6 h-6 text-blue-500" />
-                            </button>
-                            <button className="p-2 rounded-full border border-blue-500">
-                                <ArrowRight className="w-6 h-6 text-blue-500" />
-                            </button>
-                        </div>
                     </div>
                 </section>
 
                 {/* FAQ Section */}
-                <section className="p-4 bg-gray-50 pb-56">
+                <section className="p-4 bg-gray-50 pt-20 pb-56">
                     <div className="max-w-7xl mx-auto flex">
                         <div className='w-1/3'>
                             <h2 className="text-4xl text-pr900 font-bold mb-4">Pertanyaan yang Sering Ditanyakan</h2>
@@ -277,7 +286,7 @@ const LandingPage: React.FC = () => {
                 </section>
 
                 <Footer />
-               </div>
+            </div>
         </div>
 
     )
