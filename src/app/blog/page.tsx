@@ -6,7 +6,7 @@ const BlogPage = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar bgColor='bg-white' />
 
             <section id='blog-filter'>
 
