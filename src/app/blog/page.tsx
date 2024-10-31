@@ -1,3 +1,4 @@
+import BlogFilter from '@/components/fragments/blog-filter'
 import Footer from '@/components/layouts/footer'
 import Navbar from '@/components/layouts/navbar'
 import React from 'react'
@@ -8,11 +9,11 @@ const BlogPage = () => {
         <>
             <Navbar bgColor='bg-white' />
 
-            <section id='blog-filter'>
-
+            <section id='blog-filter' className='mt-8'>
+                <BlogFilter />
             </section>
 
-            <section id='blog-highlight' className='mt-16 mb-8'>
+            <section id='blog-highlight' className='mt-10 mb-8'>
                 <div className="max-w-7xl mx-auto flex">
                     <div className='w-1/2 mr-3'>
                         <div className=''>
