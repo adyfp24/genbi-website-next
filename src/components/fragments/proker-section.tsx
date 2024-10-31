@@ -35,7 +35,7 @@ interface iProkerDetail {
     title: string,
     description: string,
     image: string,
-    listKegiatan: []
+    listKegiatan: string[]
 }
 
 // ProkerBadge component
