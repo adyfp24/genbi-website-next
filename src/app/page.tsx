@@ -5,6 +5,8 @@ import Navbar from '@/components/layouts/navbar'
 import { title } from 'process';
 import React, { useState } from 'react'
 import { ArrowRight, ArrowLeft, ChevronDown, Instagram, Facebook, Twitter, Linkedin, Youtube, ChevronUp } from 'lucide-react';
+import lootieFile from '../../public/lootie/Ease-In-Animation-About-GenBI.json';
+import LootieAnimation from '@/components/fragments/lootie-animation';
 
 const LandingPage: React.FC = () => {
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -144,7 +146,7 @@ const LandingPage: React.FC = () => {
             </section>
 
             <section id='benefit-section'>
-                <div className='max-w-screen-xl w-full h-full flex flex-col mx-auto mb-32'>
+                <div className='max-w-screen-xl w-full h-full flex flex-col mx-auto mb-28'>
                     <div className='flex flex-col w-3/5 mx-auto items-center justify-center text-center'>
                         <h4 className='font-bold text-pr900 text-3xl mb-2'>Benefit yang akan kamu dapatkan jika tergabung dalam Generasi Bank Indonesia</h4>
                         <p className='text-gray-700'>Dapatkan banyak keuntungan saat menjadi bagian dari Generasi Baru Indonesia Jember.
@@ -172,7 +174,7 @@ const LandingPage: React.FC = () => {
             </section>
 
             <section id="about-us-section">
-                <div className='max-w-screen-xl w-full flex mx-auto items-center mb-32'>
+                <div className='max-w-7xl flex mx-auto p-4 items-center mb-28 justify-between'>
                     <div className='w-1/2 pr-12'>
                         <h4 className='mb-8 text-4xl font-semibold text-pr900'>Tentang Program Beasiswa Bank Indonesia - GenBI Jember</h4>
                         <p className='mb-8 text-xl text-gray-600'>Beasiswa Bank Indonesia adalah program dukungan pendidikan bagi mahasiswa berprestasi di seluruh Indonesia.
@@ -181,8 +183,14 @@ const LandingPage: React.FC = () => {
                         </p>
                         <button className='bg-pr600 text-white py-2 px-4 rounded-lg font-semibold'>Selengkapnya</button>
                     </div>
-                    <div className='w-1/2'>
-                        <img className='w-full' src="" alt="" />
+                    <div className='w-1/2 flex justify-end'>
+                        <LootieAnimation 
+                            animationData={lootieFile}
+                            width='550px'
+                            height='550px'
+                            play={true}
+                            loop={true}
+                        />
                     </div>
                 </div>
             </section>
