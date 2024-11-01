@@ -1,9 +1,14 @@
+"use client"
+
 import BlogFilter from '@/components/fragments/blog-filter'
 import Footer from '@/components/layouts/footer'
 import Navbar from '@/components/layouts/navbar'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const BlogPage = () => {
+
+    const router = useRouter();
 
     return (
         <>
@@ -15,7 +20,7 @@ const BlogPage = () => {
 
             <section id='blog-highlight' className='mt-10 mb-8'>
                 <div className="max-w-7xl mx-auto flex">
-                    <div className='w-1/2 mr-3'>
+                    <div onClick={() => { router.push('/blog/1') }} className='w-1/2 mr-3 hover:cursor-pointer'>
                         <div className=''>
                             <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
                         </div>
@@ -43,7 +48,7 @@ const BlogPage = () => {
                         </div>
                     </div>
                     <div className='w-1/2 flex-col ml-3'>
-                        <div className='flex mb-6'>
+                        <div onClick={() => { router.push('/blog/2') }} className='flex mb-6 hover:cursor-pointer'>
                             <div className='w-1/2'>
                                 <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
                             </div>
@@ -70,7 +75,7 @@ const BlogPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='flex'>
+                        <div onClick={() => { router.push('/blog/3') }} className='flex hover:cursor-pointer'>
                             <div className='w-1/2'>
                                 <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
                             </div>
@@ -101,11 +106,11 @@ const BlogPage = () => {
                 </div>
             </section>
 
-            <section id='blog-list' className="p-4 mb-60">
+            <section id='blog-list' className="p-4 mb-20">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
                         {[1, 2, 3].map((_, index) => (
-                            <div key={index} className="bg-white rounded-lg overflow-hidden">
+                            <div onClick={() => { router.push('/blog/1') }} key={index} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
                                 <div className=" ">
                                     <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
                                 </div>
@@ -140,7 +145,7 @@ const BlogPage = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
                         {[1, 2, 3].map((_, index) => (
-                            <div key={index} className="bg-white rounded-lg overflow-hidden">
+                            <div key={index} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
                                 <div className=" ">
                                     <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
                                 </div>
@@ -175,7 +180,7 @@ const BlogPage = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[1, 2, 3].map((_, index) => (
-                            <div key={index} className="bg-white rounded-lg overflow-hidden">
+                            <div key={index} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
                                 <div className=" ">
                                     <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
                                 </div>
@@ -207,6 +212,30 @@ const BlogPage = () => {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+
+            <section id='pagination' className='pb-40'>
+                <div className="flex flex-col items-center">
+                    <span className="text-sm text-gray-700 dark:text-gray-400">
+                        <span className="font-semibold text-gray-900 dark:text-white">1</span> sampai <span className="font-semibold text-gray-900 dark:text-white">10</span> dari <span className="font-semibold text-gray-900 dark:text-white">100</span> Artikel
+                    </span>
+                    <div className="inline-flex mt-2 xs:mt-0">
+
+                        <button className="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <svg className="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4" />
+                            </svg>
+                            Prev
+                        </button>
+                        <button className="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 border-0 border-s border-gray-700 rounded-e hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            Next
+                            <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </section>
