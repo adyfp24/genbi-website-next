@@ -174,12 +174,12 @@ const LandingPage: React.FC = () => {
             <section id="about-us-section">
                 <div className='max-w-screen-xl w-full flex mx-auto items-center mb-32'>
                     <div className='w-1/2 pr-12'>
-                        <h4 className='mb-5 text-3xl font-bold text-pr900'>Tentang Program Beasiswa Bank Indonesia - GenBI Jember</h4>
-                        <p className='mb-5'>Beasiswa Bank Indonesia adalah program dukungan pendidikan bagi mahasiswa berprestasi di seluruh Indonesia.
+                        <h4 className='mb-8 text-4xl font-semibold text-pr900'>Tentang Program Beasiswa Bank Indonesia - GenBI Jember</h4>
+                        <p className='mb-8 text-xl text-gray-600'>Beasiswa Bank Indonesia adalah program dukungan pendidikan bagi mahasiswa berprestasi di seluruh Indonesia.
                             Selain bantuan finansial, penerima beasiswa juga mendapatkan pembinaan softskill dan leadership untuk mempersiapkan
                             mereka menjadi pemimpin masa depan yang mampu berkontribusi bagi negeri.
                         </p>
-                        <button className='bg-pr600 text-white p-3 rounded-lg'>Selengkapnya</button>
+                        <button className='bg-pr600 text-white py-2 px-4 rounded-lg font-semibold'>Selengkapnya</button>
                     </div>
                     <div className='w-1/2'>
                         <img className='w-full' src="" alt="" />

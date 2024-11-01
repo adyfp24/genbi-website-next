@@ -1,6 +1,7 @@
 "use client"
 
 import RelatedBlog from '@/components/fragments/related-blog'
+import Footer from '@/components/layouts/footer'
 import Navbar from '@/components/layouts/navbar'
 import { useParams } from 'next/navigation'
 import React, { use, useEffect, useState } from 'react'
@@ -96,9 +97,11 @@ const BlogDetail = () => {
         </div>
       </section>
 
-      <section id='related-blog' className='mt-10'>
+      <section id='related-blog' className='mt-10 pb-44'>
         <RelatedBlog blogKategoriId='1' />
       </section>
+
+      <Footer />
     </>
   )
 }
