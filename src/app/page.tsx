@@ -1,39 +1,45 @@
+'use client'
 import ProkerSection from '@/components/fragments/proker-section';
 import Footer from '@/components/layouts/footer';
 import Navbar from '@/components/layouts/navbar'
 import { title } from 'process';
-import React from 'react'
-import { ArrowRight, ArrowLeft, ChevronDown, Instagram, Facebook, Twitter, Linkedin, Youtube } from 'lucide-react';
+import React, { useState } from 'react'
+import { ArrowRight, ArrowLeft, ChevronDown, Instagram, Facebook, Twitter, Linkedin, Youtube, ChevronUp } from 'lucide-react';
 
 const LandingPage: React.FC = () => {
-    const prokerList = [
-        'GenBI Mengajar',
-        'Peduli Lingkungan',
-        'Healthy Care',
-        'Sosial Action',
-        'QRIS',
-        'Intelektual',
-        'Personality Development',
-        'Farming',
-        'Goes to Campus',
-        'Preneur',
-        'PDD GenBI',
-        'Humas GenBI'
-    ]
+    const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+    const handleDropdownFaq = (index: number) => {
+        setOpenFaqIndex(openFaqIndex === index ? null : index);
+    };
 
-    const prokerDetail = {
-        title: 'GenBI Mengajar',
-        description: 'GenBI Mengajar (BIJAR) merupakan program kerja yang bergerak dalam dunia pendidikan.Berdirinya BIJAR bertujuan untuk menjawab keresahan-keresahan dalam dunia pendidikan dengan harapan kontribusi dari BIJAR dapat membantu target sasaran serta bermanfaat bagi internal GenBI maupun eksternal GenBI atau masyarakat luas. Ini adalah beberapa program kerja yang ada pada GenBI Mengajar',
-        image: 'images/proker-mengajar.png',
-        listKegiatan: [
-            'BIJAR Creative Study',
-            'BIJAR Childrens Day',
-            'BIJAR Creative Home',
-            'Buku Untuk Semua',
-            'One Step After',
-            'Happy Tummy'
-        ]
-    }
+    // Dummy questions and answers
+    const faqData = [
+        {
+            question: "Apa itu Beasiswa Bank Indonesia?",
+            answer: "Beasiswa Bank Indonesia adalah program bantuan pendidikan dari Bank Indonesia yang diberikan kepada mahasiswa berprestasi."
+        },
+        {
+            question: "Siapa yang bisa mendaftar Beasiswa Bank Indonesia?",
+            answer: "Mahasiswa aktif yang memenuhi persyaratan dari Bank Indonesia dapat mendaftar."
+        },
+        {
+            question: "Bagaimana cara mendaftar Beasiswa Bank Indonesia?",
+            answer: "Anda dapat mendaftar melalui situs resmi Bank Indonesia atau melalui lembaga yang bekerja sama."
+        },
+        {
+            question: "Apa manfaat bergabung dengan GenBI Jember?",
+            answer: "Bergabung dengan GenBI Jember memberikan kesempatan berkontribusi di masyarakat serta jaringan dan pengalaman baru."
+        },
+        {
+            question: "Berapa besar dana yang diberikan dalam Beasiswa Bank Indonesia?",
+            answer: "Dana yang diberikan bervariasi tergantung kebijakan Bank Indonesia setiap tahunnya."
+        },
+        {
+            question: "Apa saja kegiatan yang dilakukan oleh GenBI Jember?",
+            answer: "Kegiatan GenBI Jember mencakup aksi sosial, pelatihan, seminar, dan pengembangan diri lainnya."
+        }
+    ];
+
 
     return (
         <div className='w-full'>
@@ -268,23 +274,27 @@ const LandingPage: React.FC = () => {
                         </div>
 
                         <div className="space-y-4 w-2/3 ml-10">
-                            {[
-                                "Apa itu Beasiswa Bank Indonesia?",
-                                "Siapa yang bisa mendaftar Beasiswa Bank Indonesia?",
-                                "Bagaimana cara mendaftar Beasiswa Bank Indonesia?",
-                                "Apa manfaat bergabung dengan GenBI Jember?",
-                                "Berapa besar dana yang diberikan dalam Beasiswa Bank Indonesia?",
-                                "Apa saja kegiatan yang dilakukan oleh GenBI Jember?"
-                            ].map((question, index) => (
-                                <div key={index} className="bg-white p-4 rounded-lg flex justify-between items-center">
-                                    <span>{question}</span>
-                                    <ChevronDown className="w-6 h-6" />
+                            {faqData.map((faq, index) => (
+                                <div key={index} className="bg-white p-4 rounded-lg">
+                                    <div
+                                        className="flex justify-between items-center cursor-pointer"
+                                        onClick={() => handleDropdownFaq(index)}
+                                    >
+                                        <span>{faq.question}</span>
+                                        {openFaqIndex === index ? (
+                                            <ChevronUp className="w-6 h-6" />
+                                        ) : (
+                                            <ChevronDown className="w-6 h-6" />
+                                        )}
+                                    </div>
+                                    {openFaqIndex === index && (
+                                        <p className="text-gray-600 mt-3">{faq.answer}</p>
+                                    )}
                                 </div>
                             ))}
                         </div>
                     </div>
                 </section>
-
                 <Footer />
             </div>
         </div>
