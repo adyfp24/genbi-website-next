@@ -4,7 +4,10 @@ import Footer from '@/components/layouts/footer';
 import Navbar from '@/components/layouts/navbar'
 import { title } from 'process';
 import React, { useState } from 'react'
+import 'animate.css'
 import { ArrowRight, ArrowLeft, ChevronDown, Instagram, Facebook, Twitter, Linkedin, Youtube, ChevronUp } from 'lucide-react';
+import lootieFile from '../../public/lootie/Ease-In-Animation-About-GenBI.json';
+import LootieAnimation from '@/components/fragments/lootie-animation';
 
 const LandingPage: React.FC = () => {
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -47,7 +50,7 @@ const LandingPage: React.FC = () => {
 
             <section id='hero-section' className="bg-pr50">
                 <div className="pt-20 text-center">
-                    <a href="" className="inline-flex items-center text-pr700 px-2 py-1 bg-pr200 rounded-3xl"><span className='px-1.5 bg-pr100 rounded-xl mr-2'>Pendaftaran GenBI Jember 2025 dibuka!</span> Daftar disini
+                    <a href="" className="animate__animated animate__fadeIn inline-flex items-center text-pr700 px-2 py-1 bg-pr200 rounded-3xl"><span className='px-1.5 bg-pr100 rounded-xl mr-2'>Pendaftaran GenBI Jember 2025 dibuka!</span> Daftar disini
                         <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                         </svg>
@@ -66,7 +69,7 @@ const LandingPage: React.FC = () => {
                         </a>
                     </div>
                 </div>
-                <div className='z-10 mt-10 w-full flex justify-center items-center'>
+                <div className='animate__animated animate__fadeInUp z-10 mt-10 w-full flex justify-center items-center'>
                     <img className='w-2/3 h-auto flex justify-center rounded-3xl' src="/images/hero-image.png" alt="" />
                 </div>
             </section>
@@ -86,7 +89,7 @@ const LandingPage: React.FC = () => {
                                     <img className='mb-3' src="/images/unej-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>75</h2>
                                     <h6 className='font-semibold'>Universitas Jember</h6>
-                                    <p>Jumlah penerima beasiswa Bank Indonesia</p>
+                                    <p className='mr-10'>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
                                 <div className='w-max py-4'>
                                     <img className='mb-3' src="/images/polije-logo.png" alt="" />
@@ -100,11 +103,11 @@ const LandingPage: React.FC = () => {
                                     <img className='mb-3' src="/images/uin-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>56+</h2>
                                     <h6 className='font-semibold'>UIN KHAS Jember</h6>
-                                    <p>Jumlah penerima beasiswa Bank Indonesia</p>
+                                    <p className='mr-10'>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
                             </div>
                         </div>
-                        <div className='w-1/2'>
+                        <div className='animate__animated animate__fadeInRight w-1/2'>
                             <img className='ml-3' src="/images/genbi-pengurus.png" alt="" />
                         </div>
                     </div>
@@ -144,7 +147,7 @@ const LandingPage: React.FC = () => {
             </section>
 
             <section id='benefit-section'>
-                <div className='max-w-screen-xl w-full h-full flex flex-col mx-auto mb-32'>
+                <div className='max-w-screen-xl w-full h-full flex flex-col mx-auto mb-28'>
                     <div className='flex flex-col w-3/5 mx-auto items-center justify-center text-center'>
                         <h4 className='font-bold text-pr900 text-3xl mb-2'>Benefit yang akan kamu dapatkan jika tergabung dalam Generasi Bank Indonesia</h4>
                         <p className='text-gray-700'>Dapatkan banyak keuntungan saat menjadi bagian dari Generasi Baru Indonesia Jember.
@@ -172,17 +175,23 @@ const LandingPage: React.FC = () => {
             </section>
 
             <section id="about-us-section">
-                <div className='max-w-screen-xl w-full flex mx-auto items-center mb-32'>
+                <div className='max-w-7xl flex mx-auto p-4 items-center mb-28 justify-between'>
                     <div className='w-1/2 pr-12'>
-                        <h4 className='mb-5 text-3xl font-bold text-pr900'>Tentang Program Beasiswa Bank Indonesia - GenBI Jember</h4>
-                        <p className='mb-5'>Beasiswa Bank Indonesia adalah program dukungan pendidikan bagi mahasiswa berprestasi di seluruh Indonesia.
+                        <h4 className='mb-8 text-4xl font-semibold text-pr900'>Tentang Program Beasiswa Bank Indonesia - GenBI Jember</h4>
+                        <p className='mb-8 text-xl text-gray-600'>Beasiswa Bank Indonesia adalah program dukungan pendidikan bagi mahasiswa berprestasi di seluruh Indonesia.
                             Selain bantuan finansial, penerima beasiswa juga mendapatkan pembinaan softskill dan leadership untuk mempersiapkan
                             mereka menjadi pemimpin masa depan yang mampu berkontribusi bagi negeri.
                         </p>
-                        <button className='bg-pr600 text-white p-3 rounded-lg'>Selengkapnya</button>
+                        <button className='bg-pr600 text-white py-2 px-4 rounded-lg font-semibold'>Selengkapnya</button>
                     </div>
-                    <div className='w-1/2'>
-                        <img className='w-full' src="" alt="" />
+                    <div className='w-1/2 flex justify-end'>
+                        <LootieAnimation 
+                            animationData={lootieFile}
+                            width='550px'
+                            height='550px'
+                            play={true}
+                            loop={true}
+                        />
                     </div>
                 </div>
             </section>
