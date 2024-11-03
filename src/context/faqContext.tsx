@@ -1,3 +1,4 @@
+"use client"
 import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 interface FaqContextType {
@@ -31,7 +32,7 @@ export const FaqProvider: React.FC<FaqProviderProps> = ({ children }) => {
             const response = await fetch('/api/faq');
             if (!response.ok) throw new Error('Error fetching FAQ data');
             const data = await response.json();
-            setFaqs(data);
+            if (data.success && Array.isArray(data.data)) setFaq(data.data)
         } catch (error: any) {
             setError(error.message);
         } finally {
@@ -46,7 +47,7 @@ export const FaqProvider: React.FC<FaqProviderProps> = ({ children }) => {
             const response = await fetch(`/api/faq/${id}`);
             if (!response.ok) throw new Error('Error fetching FAQ by ID');
             const data = await response.json();
-            setFaq(data);
+            setFaq(data.data);
         } catch (error: any) {
             setError(error.message);
         } finally {
@@ -82,7 +83,7 @@ export const FaqProvider: React.FC<FaqProviderProps> = ({ children }) => {
                 body: JSON.stringify(updatedFaq),
             });
             if (!response.ok) throw new Error('Error updating FAQ');
-            await getAllFaq(); 
+            await getAllFaq();
         } catch (error: any) {
             setError(error.message);
         } finally {
@@ -98,7 +99,7 @@ export const FaqProvider: React.FC<FaqProviderProps> = ({ children }) => {
                 method: 'DELETE',
             });
             if (!response.ok) throw new Error('Error deleting FAQ');
-            await getAllFaq(); 
+            await getAllFaq();
         } catch (error: any) {
             setError(error.message);
         } finally {
