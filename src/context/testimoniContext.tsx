@@ -1,24 +1,18 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
-interface Testimoni {
-  id: string;
-  name: string;
-  message: string;
-}
+export const TestimoniContext = createContext<TestimoniContextType | undefined>(undefined);
 
 interface TestimoniContextType {
-  testimonies: Testimoni[];
-  testimoni: Testimoni | null;
-  loading: boolean;
-  error: string | null;
-  getAllTestimoni: () => void;
-  getTestimoniById: (id: string) => void;
-  addTestimoni: (data: Omit<Testimoni, 'id'>) => void;
-  deleteTestimoni: (id: string) => void;
-  updateTestimoni: (id: string, data: Partial<Testimoni>) => void;
+    testimonies: Testimoni[];
+    testimoni: Testimoni | null;
+    loading: boolean;
+    error: string | null;
+    getAllTestimoni: () => void;
+    getTestimoniById: (id: string) => void;
+    addTestimoni: (data: Omit<Testimoni, 'id'>) => void;
+    deleteTestimoni: (id: string) => void;
+    updateTestimoni: (id: string, data: Partial<Testimoni>) => void;
 }
-
-export const TestimoniContext = createContext<TestimoniContextType | undefined>(undefined);
 
 interface TestimoniProviderProps {
   children: ReactNode;

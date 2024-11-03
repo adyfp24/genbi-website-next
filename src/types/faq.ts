@@ -7,3 +7,9 @@ interface FaqUpdateRequest {
     question?: string
     answer?: string
 }
+
+interface FAQ {
+    id: string;
+    question: string;
+    answer: string;
+}
