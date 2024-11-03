@@ -32,7 +32,7 @@ export const TestimoniProvider: React.FC<TestimoniProviderProps> = ({ children }
       const response = await fetch('/api/testimoni');
       if (!response.ok) throw new Error('Failed to fetch testimonies');
       const data = await response.json();
-      setTestimonies(data);
+      if(data.success && Array.isArray(data.data)) setTestimonies(data);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -47,7 +47,7 @@ export const TestimoniProvider: React.FC<TestimoniProviderProps> = ({ children }
       const response = await fetch(`/api/testimoni/${id}`);
       if (!response.ok) throw new Error('Failed to fetch testimoni');
       const data = await response.json();
-      setTestimoni(data);
+      setTestimoni(data.data);
     } catch (err: any) {
       setError(err.message);
     } finally {
