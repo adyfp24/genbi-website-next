@@ -13,3 +13,9 @@ interface TestimoniCreateRequest {
     instansi: string,
     videoUrl: string
 }
+
+interface Testimoni {
+    id: string;
+    name: string;
+    message: string;
+}
