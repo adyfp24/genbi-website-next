@@ -1,8 +1,10 @@
 import prisma from "@/lib/prisma";
 import faqSeed from "./faqSeeder";
+import testimoniSeed from "./testimoniSeeder";
 
 async function main() {
     await faqSeed();
+    await testimoniSeed();
     console.log("Seeding completed.");
 }
 

@@ -25,7 +25,7 @@ export default async function faqSeed() {
             },
             {
                 question: "Apa saja kegiatan yang dilakukan oleh GenBI Jember?",
-                answer: "Kegiatan GenBI Jember mencakup aksi sosial, pelatihan, seminar, dan pengembangan diri lainnya."
+                answer: "p"
             }    
         ]   
     })

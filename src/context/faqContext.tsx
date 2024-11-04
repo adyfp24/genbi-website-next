@@ -32,7 +32,7 @@ export const FaqProvider: React.FC<FaqProviderProps> = ({ children }) => {
             const response = await fetch('/api/faq');
             if (!response.ok) throw new Error('Error fetching FAQ data');
             const data = await response.json();
-            if (data.success && Array.isArray(data.data)) setFaq(data.data)
+            if (data.success && Array.isArray(data.data)) setFaqs(data.data)
         } catch (error: any) {
             setError(error.message);
         } finally {
