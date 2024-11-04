@@ -15,7 +15,11 @@ interface TestimoniCreateRequest {
 }
 
 interface Testimoni {
-    id: string;
-    name: string;
-    message: string;
+    id: string,
+    name: string,
+    testimoni: string,
+    rating: number,
+    instansiId: string | number,
+    InstansiPenerima : Instansi
 }
+
