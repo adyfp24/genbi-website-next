@@ -101,7 +101,6 @@ model Testimoni {
   rating             Int
   testimoni          String
   name               String
-  instansi           String
   videoUrl           String
   InstansiPenerima   Instansi? @relation(fields: [instansiPenerimaId], references: [id])
   instansiPenerimaId Int?

@@ -51,7 +51,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 
         return NextResponse.json({
             "success": false,
-            "message": "data FAQ tidak ditemukan / tidak berhasil diperbarui",
+            "message": "data FAQ berhasil diperbarui",
             "data": updatedFaq
         })
     } catch (error) {
