@@ -8,7 +8,6 @@ export default async function testimoniSeed() {
                 testimoni: "Beasiswa Bank Indonesia ngebantu banget kuliah saya! Lewat GenBI, saya dapet banyak pengalaman seru.",
                 rating: 5,
                 videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                instansi: "universitas jember",
                 instansiPenerimaId: 1
             },
             {
@@ -16,7 +15,6 @@ export default async function testimoniSeed() {
                 testimoni: "Beasiswa Bank Indonesia ngebantu banget kuliah saya! Lewat GenBI, saya dapet banyak pengalaman seru.",
                 rating: 5,
                 videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                instansi: "universitas jember",
                 instansiPenerimaId: 1
             },
             {
@@ -24,7 +22,6 @@ export default async function testimoniSeed() {
                 testimoni: "Beasiswa Bank Indonesia ngebantu banget kuliah saya! Lewat GenBI, saya dapet banyak pengalaman seru.",
                 rating: 5,
                 videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                instansi: "universitas jember",
                 instansiPenerimaId: 1
             }
         ]

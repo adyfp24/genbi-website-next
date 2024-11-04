@@ -3,7 +3,11 @@ import prisma from "@/lib/prisma";
 
 export async function GET(req: NextRequest) {
     try {
-        const allTestimoni = await prisma.testimoni.findMany();
+        const allTestimoni = await prisma.testimoni.findMany({
+            include:{
+                InstansiPenerima: true
+            }
+        });
         if(allTestimoni.length === 0) {
             return NextResponse.json({
                 "success": true,
