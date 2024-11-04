@@ -25,6 +25,13 @@ export const FaqProvider: React.FC<FaqProviderProps> = ({ children }) => {
     const [faqs, setFaqs] = useState<FAQ[]>([]);
     const [faq, setFaq] = useState<FAQ | null>(null);
 
+/*************  ✨ Codeium Command ⭐  *************/
+    /**
+     * Fetches all FAQs and sets them to the state. If there's an error
+     * it will be stored in the state and the loading state will be set
+     * back to false.
+     */
+/******  e8f7c4cb-36ca-4547-b628-5d7250a1f348  *******/
     const getAllFaq = async () => {
         setLoading(true);
         setError(null);
