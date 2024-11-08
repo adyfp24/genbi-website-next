@@ -33,9 +33,6 @@ const Navbar: React.FC<{bgColor? : string}>  = ({bgColor = "bg-pr50"}) => {
               <li onClick={() => router.push('/about')} className="text-pr900 block py-2 px-2 hover:cursor-pointer hover:text-pr500">
                 Tentang
               </li>
-              <li onClick={() => router.push('/program')} className="text-pr900 block py-2 px-2 hover:cursor-pointer hover:text-pr500">
-                Program Kerja
-              </li>
               <li onClick={() => router.push('/blog')} className="text-pr900 block py-2 px-2 hover:cursor-pointer hover:text-pr500">
                 Artikel
               </li>

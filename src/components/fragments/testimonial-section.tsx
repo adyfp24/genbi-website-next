@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTestimoni } from '@/context/testimoniContext';
-import styles from './TestimonialSection.module.css'; // Import custom CSS module for animations
+import styles from '../../css/testimoni.module.css'; 
 
 const TestimonialSection: React.FC = () => {
   const { loading, error, testimonies } = useTestimoni();
@@ -14,7 +14,7 @@ const TestimonialSection: React.FC = () => {
         prevIndex === 0 ? testimonies.length - 1 : prevIndex - 1
       );
       setSlideDirection('');
-    }, 300); // Reset slide direction after animation duration
+    }, 300); 
   };
 
   const handleRightArrowClick = () => {
@@ -24,7 +24,7 @@ const TestimonialSection: React.FC = () => {
         prevIndex === testimonies.length - 1 ? 0 : prevIndex + 1
       );
       setSlideDirection('');
-    }, 300); // Reset slide direction after animation duration
+    }, 300); 
   };
 
   if (loading) return <p>Loading...</p>;
