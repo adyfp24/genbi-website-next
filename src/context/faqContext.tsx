@@ -9,7 +9,7 @@ interface FaqContextType {
     getAllFaq: () => Promise<void>;
     getFaqById: (id: string) => Promise<void>;
     addFaq: (faq: Omit<FAQ, 'id'>) => Promise<void>;
-    updateFaq: (id: string, updatedFaq: Omit<FAQ, 'id'>) => Promise<void>;
+    updateFaq: (id: string, updatedFaq: Partial<FAQ>) => Promise<void>;
     deleteFaq: (id: string) => Promise<void>;
 }
 
@@ -25,13 +25,11 @@ export const FaqProvider: React.FC<FaqProviderProps> = ({ children }) => {
     const [faqs, setFaqs] = useState<FAQ[]>([]);
     const [faq, setFaq] = useState<FAQ | null>(null);
 
-/*************  ✨ Codeium Command ⭐  *************/
     /**
      * Fetches all FAQs and sets them to the state. If there's an error
      * it will be stored in the state and the loading state will be set
      * back to false.
      */
-/******  e8f7c4cb-36ca-4547-b628-5d7250a1f348  *******/
     const getAllFaq = async () => {
         setLoading(true);
         setError(null);
@@ -80,7 +78,7 @@ export const FaqProvider: React.FC<FaqProviderProps> = ({ children }) => {
         }
     };
 
-    const updateFaq = async (id: string, updatedFaq: Omit<FAQ, 'id'>) => {
+    const updateFaq = async (id: string, updatedFaq: Partial<FAQ>) => {
         setLoading(true);
         setError(null);
         try {

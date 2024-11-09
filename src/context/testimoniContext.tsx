@@ -8,11 +8,11 @@ interface TestimoniContextType {
     testimoni: Testimoni | null;
     loading: boolean;
     error: string | null;
-    getAllTestimoni: () => void;
-    getTestimoniById: (id: string) => void;
-    addTestimoni: (data: Omit<Testimoni, 'id'>) => void;
-    deleteTestimoni: (id: string) => void;
-    updateTestimoni: (id: string, data: Partial<Testimoni>) => void;
+    getAllTestimoni: () => Promise<void>;
+    getTestimoniById: (id: string) => Promise<void>;
+    addTestimoni: (data: Omit<Testimoni, 'id'>) => Promise<void>;
+    deleteTestimoni: (id: string) => Promise<void>;
+    updateTestimoni: (id: string, data: Partial<Testimoni>) => Promise<void>;
 }
 
 interface TestimoniProviderProps {
