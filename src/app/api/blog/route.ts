@@ -27,8 +27,8 @@ export async function GET(req: NextRequest, res: NextResponse) {
 
 export async function POST(req: NextRequest, res: NextResponse) {
     try {
-        const { title, caption, content, bannerImg, categoryId, keywords } = await req.json();
-
+        const { title, caption, content, categoryId, keywords } = await req.json();
+        const bannerImg = 'statis-sementara.jpg'
         const result = await prisma.$transaction(async (prisma) => {
             
             const newBlog = await prisma.blog.create({
@@ -43,7 +43,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
             const keywordIds = await Promise.all(
                 keywords.map(async (keyword: string) => {
-                    let existingKeyword = await prisma.keyword.findUnique({
+                    let existingKeyword = await prisma.keyword.findFirst({
                         where: { name: keyword },
                     });
 
@@ -51,8 +51,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
                         existingKeyword = await prisma.keyword.create({
                             data: { name: keyword },
                         });
-                    }
-
+                    };
                     return existingKeyword.id;
                 })
             );
