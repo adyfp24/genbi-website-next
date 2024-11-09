@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: Request, res: Response) {
+export async function GET(req: NextRequest, res: NextResponse) {
     try {
         const allBlog = await prisma.blog.findMany();
         if (allBlog.length === 0) {
@@ -25,3 +25,64 @@ export async function GET(req: Request, res: Response) {
     }
 }
 
+export async function POST(req: NextRequest, res: NextResponse) {
+    try {
+        const { title, caption, content, bannerImg, categoryId, keywords } = await req.json();
+
+        const result = await prisma.$transaction(async (prisma) => {
+            
+            const newBlog = await prisma.blog.create({
+                data: {
+                    title,
+                    caption,
+                    content,
+                    bannerImg,
+                    categoryId,
+                },
+            });
+
+            const keywordIds = await Promise.all(
+                keywords.map(async (keyword: string) => {
+                    let existingKeyword = await prisma.keyword.findUnique({
+                        where: { name: keyword },
+                    });
+
+                    if (!existingKeyword) {
+                        existingKeyword = await prisma.keyword.create({
+                            data: { name: keyword },
+                        });
+                    }
+
+                    return existingKeyword.id;
+                })
+            );
+
+            await prisma.blogKeyword.createMany({
+                data: keywordIds.map((keywordId) => ({
+                    blogId: newBlog.id,
+                    keywordId: keywordId,
+                })),
+            });
+
+            return newBlog; 
+        });
+
+        return NextResponse.json(
+            {
+                success: true,
+                message: "New blog successfully created",
+                data: result,
+            },
+            { status: 201 }
+        );
+    } catch (error) {
+        return NextResponse.json(
+            {
+                success: false,
+                message: "Internal server error",
+                error: (error as Error).message,
+            },
+            { status: 500 }
+        );
+    }
+}
