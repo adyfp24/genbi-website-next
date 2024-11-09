@@ -10,6 +10,7 @@ import lootieFile from '../../public/lootie/Ease-In-Animation-About-GenBI.json';
 import LootieAnimation from '@/components/fragments/lootie-animation';
 import TestimonialSection from '@/components/fragments/testimonial-section';
 import FaqSection from '@/components/fragments/faq-section';
+import CountUp from 'react-countup';
 
 const LandingPage: React.FC = () => {
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -61,13 +62,17 @@ const LandingPage: React.FC = () => {
                             <div className='flex w-full'>
                                 <div className='w-max py-4'>
                                     <img className='mb-3' src="/images/unej-logo.png" alt="" />
-                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>75</h2>
+                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>
+                                        <CountUp start={0} end={126} duration={3.0} />
+                                    </h2>
                                     <h6 className='font-semibold'>Universitas Jember</h6>
                                     <p className='mr-10'>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
                                 <div className='w-max py-4'>
                                     <img className='mb-3' src="/images/polije-logo.png" alt="" />
-                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>64</h2>
+                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>
+                                        <CountUp start={0} end={110} duration={3.0} />
+                                    </h2>
                                     <h6 className='font-semibold'>Politeknik Negeri Jember</h6>
                                     <p>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
@@ -75,7 +80,9 @@ const LandingPage: React.FC = () => {
                             <div className='flex mt-2'>
                                 <div className='w-1/2 py-4'>
                                     <img className='mb-3' src="/images/uin-logo.png" alt="" />
-                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>56+</h2>
+                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>
+                                        <CountUp start={0} end={75} duration={3.0} />
+                                    </h2>
                                     <h6 className='font-semibold'>UIN KHAS Jember</h6>
                                     <p className='mr-10'>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
@@ -129,7 +136,7 @@ const LandingPage: React.FC = () => {
                         <button className='bg-pr600 text-white py-2 px-4 rounded-lg font-semibold'>Selengkapnya</button>
                     </div>
                     <div className='w-1/2 flex justify-end'>
-                        <LootieAnimation 
+                        <LootieAnimation
                             animationData={lootieFile}
                             width='550px'
                             height='550px'
@@ -217,7 +224,7 @@ const LandingPage: React.FC = () => {
                 </section>
 
                 {/* FAQ Section */}
-               <FaqSection />
+                <FaqSection />
                 <Footer />
             </div>
         </div>
