@@ -47,7 +47,8 @@ const TestimonialSection: React.FC = () => {
             <div className="flex mt-4">
               <img
                 className="w-12 h-auto mr-6"
-                src={currentTestimonial?.InstansiPenerima?.instansiImg || '/images/default-institute.png'}
+                // src={currentTestimonial?.InstansiPenerima?.instansiImg || '/images/default-institute.png'}
+                src='/images/unej-logo.png'
                 alt="Institute"
               />
               <div>

@@ -71,7 +71,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Blog",
-        route: "/blog",
+        route: "/dashboard/admin/blog",
       },
       {
         icon: (
