@@ -1,3 +1,5 @@
+"use client"
+
 import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
 const BlogContext = createContext<BlogContextType | undefined>(undefined);
@@ -9,7 +11,7 @@ interface BlogContextType {
     blog: Blog | null
     getAllBlog: () => Promise<void>
     getBlogById: (id: string) => Promise<void>
-    addBlog: (data: Omit<Blog, 'id'>) => Promise<void>
+    addBlog: (data: CreateBlogProps) => Promise<void>
     updateBlog: (id: string, data: Partial<Blog>) => Promise<void>
     deleteBlog: (id: string) => Promise<void>
 }
@@ -54,7 +56,7 @@ export const BlogProvider
         }
     }
 
-    const addBlog = async (data: Omit<Blog, 'id'>) => {
+    const addBlog = async (data: CreateBlogProps) => {
         setLoading(true)
         setError(null)
         try {

@@ -1,3 +1,12 @@
+interface CreateBlogProps {
+    title: string;
+    caption: string;
+    content: string;
+    bannerImg: File | null;
+    categoryId: number;
+    keywords: string[];
+}
+
 interface Blog {
     id: number;
     title: string;
@@ -5,8 +14,6 @@ interface Blog {
     content: string;
     bannerImg: string;
     categoryId: number;
-    createdAt: Date;
-    updatedAt: Date;
     Category: Program; 
     BlogKeywords: BlogKeyword[]; 
 }
