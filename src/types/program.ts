@@ -9,3 +9,9 @@ interface ProgramCreateRequest {
     bannerImg: string,
     content: string
 }
+
+interface Program{
+    title: string,
+    bannerImg: string,
+    content: string
+}

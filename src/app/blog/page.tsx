@@ -3,11 +3,13 @@
 import BlogFilter from '@/components/fragments/blog-filter'
 import Footer from '@/components/layouts/footer'
 import Navbar from '@/components/layouts/navbar'
+import { useBlog } from '@/context/blogContext'
 import { useRouter } from 'next/navigation'
+import { parseDate } from '@/lib/helper'
 import React from 'react'
 
 const BlogPage = () => {
-
+    const { blogs, loading, error } = useBlog();
     const router = useRouter();
 
     return (
@@ -24,7 +26,7 @@ const BlogPage = () => {
                         <div className=''>
                             <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
                         </div>
-                        <div className='p-4'>
+                        <div className='py-4'>
                             <div className="text-sm text-gray-500 mb-2">
                                 20 Januari 2024
                             </div>
@@ -109,110 +111,39 @@ const BlogPage = () => {
             <section id='blog-list' className="p-4 mb-20">
                 <div className="max-w-7xl mx-auto p-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-                        {[1, 2, 3].map((_, index) => (
-                            <div onClick={() => { router.push('/blog/1') }} key={index} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
+                        {blogs.map((blog) => (
+                            <div onClick={() => { router.push('/blog/1') }} key={blog.id} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
                                 <div className=" ">
                                     <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
                                 </div>
-                                <div className="p-4">
-                                    <div className="text-sm text-gray-500 mb-2">
-                                        {20 - index} Januari 2024
+                                <div className="py-4">
+                                    <div className="flex justify-between">
+                                        <h6 className='text-sm font-semibold text-pr600'>
+                                            {blog.Category.title}
+                                        </h6>
+                                        <h6 className="text-sm text-gray-500 mb-2">
+                                            {parseDate(blog.createdAt)}
+                                        </h6>
                                     </div>
                                     <h3 className="text-lg font-semibold mb-2">
-                                        {index === 0 && "GenBI Jember Mengadakan Lomba Kampanye QRIS"}
-                                        {index === 1 && "Talkshow Entrepreneurship Jadi Ujung Tombak Inflasi"}
-                                        {index === 2 && "GenBI Goes to School Mendatangi UNEJ"}
+                                        {blog.title}
                                     </h3>
                                     <h3 className="text-lg font-thin mb-2">
-                                        {index === 0 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
-                                        {index === 1 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
-                                        {index === 2 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
+                                        {blog.caption}
                                     </h3>
                                     <div className="flex flex-wrap gap-2 mt-4">
-                                        <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
-                                            {index === 0 ? 'Preneur' : index === 1 ? 'Seminar' : 'Kampus'}
-                                        </span>
-                                        <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">
-                                            QRIS
-                                        </span>
-                                        <span className="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm">
-                                            {index === 0 ? 'Lomba' : index === 1 ? 'Preneur' : 'Sosialisasi'}
-                                        </span>
+                                        {blog.BlogKeyword.map((keyword) => (
+                                            <span key={keyword.id} className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
+                                                {keyword.Keyword.name}
+                                            </span>
+                                        ))
+                                        }
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-                        {[1, 2, 3].map((_, index) => (
-                            <div key={index} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
-                                <div className=" ">
-                                    <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
-                                </div>
-                                <div className="p-4">
-                                    <div className="text-sm text-gray-500 mb-2">
-                                        {20 - index} Januari 2024
-                                    </div>
-                                    <h3 className="text-lg font-semibold mb-2">
-                                        {index === 0 && "GenBI Jember Mengadakan Lomba Kampanye QRIS"}
-                                        {index === 1 && "Talkshow Entrepreneurship Jadi Ujung Tombak Inflasi"}
-                                        {index === 2 && "GenBI Goes to School Mendatangi UNEJ"}
-                                    </h3>
-                                    <h3 className="text-lg font-thin mb-2">
-                                        {index === 0 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
-                                        {index === 1 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
-                                        {index === 2 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
-                                    </h3>
-                                    <div className="flex flex-wrap gap-2 mt-4">
-                                        <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
-                                            {index === 0 ? 'Preneur' : index === 1 ? 'Seminar' : 'Kampus'}
-                                        </span>
-                                        <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">
-                                            QRIS
-                                        </span>
-                                        <span className="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm">
-                                            {index === 0 ? 'Lomba' : index === 1 ? 'Preneur' : 'Sosialisasi'}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {[1, 2, 3].map((_, index) => (
-                            <div key={index} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
-                                <div className=" ">
-                                    <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
-                                </div>
-                                <div className="p-4">
-                                    <div className="text-sm text-gray-500 mb-2">
-                                        {20 - index} Januari 2024
-                                    </div>
-                                    <h3 className="text-lg font-semibold mb-2">
-                                        {index === 0 && "GenBI Jember Mengadakan Lomba Kampanye QRIS"}
-                                        {index === 1 && "Talkshow Entrepreneurship Jadi Ujung Tombak Inflasi"}
-                                        {index === 2 && "GenBI Goes to School Mendatangi UNEJ"}
-                                    </h3>
-                                    <h3 className="text-lg font-thin mb-2">
-                                        {index === 0 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
-                                        {index === 1 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
-                                        {index === 2 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
-                                    </h3>
-                                    <div className="flex flex-wrap gap-2 mt-4">
-                                        <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
-                                            {index === 0 ? 'Preneur' : index === 1 ? 'Seminar' : 'Kampus'}
-                                        </span>
-                                        <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">
-                                            QRIS
-                                        </span>
-                                        <span className="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm">
-                                            {index === 0 ? 'Lomba' : index === 1 ? 'Preneur' : 'Sosialisasi'}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+
                 </div>
             </section>
 
