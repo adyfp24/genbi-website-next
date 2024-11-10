@@ -11,6 +11,7 @@ import LootieAnimation from '@/components/fragments/lootie-animation';
 import TestimonialSection from '@/components/fragments/testimonial-section';
 import FaqSection from '@/components/fragments/faq-section';
 import CountUp from 'react-countup';
+import BlogSection from '@/components/fragments/blog-section';
 
 const LandingPage: React.FC = () => {
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -183,45 +184,7 @@ const LandingPage: React.FC = () => {
                 </header>
 
                 {/* News Cards Section */}
-                <section className="p-4 mb-16">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {[1, 2, 3].map((_, index) => (
-                                <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
-                                    <div className=" ">
-                                        <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
-                                    </div>
-                                    <div className="p-4">
-                                        <div className="text-sm text-gray-500 mb-2">
-                                            {20 - index} Januari 2024
-                                        </div>
-                                        <h3 className="text-lg font-semibold mb-2">
-                                            {index === 0 && "GenBI Jember Mengadakan Lomba Kampanye QRIS"}
-                                            {index === 1 && "Talkshow Entrepreneurship Jadi Ujung Tombak Inflasi"}
-                                            {index === 2 && "GenBI Goes to School Mendatangi UNEJ"}
-                                        </h3>
-                                        <h3 className="text-lg font-thin mb-2">
-                                            {index === 0 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
-                                            {index === 1 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
-                                            {index === 2 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
-                                        </h3>
-                                        <div className="flex flex-wrap gap-2 mt-4">
-                                            <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
-                                                {index === 0 ? 'Preneur' : index === 1 ? 'Seminar' : 'Kampus'}
-                                            </span>
-                                            <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">
-                                                QRIS
-                                            </span>
-                                            <span className="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm">
-                                                {index === 0 ? 'Lomba' : index === 1 ? 'Preneur' : 'Sosialisasi'}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
+                <BlogSection />
 
                 {/* FAQ Section */}
                 <FaqSection />
