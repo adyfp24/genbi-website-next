@@ -188,6 +188,8 @@ const LandingPage: React.FC = () => {
 
                 {/* FAQ Section */}
                 <FaqSection />
+
+                {/* Footer */}
                 <Footer />
             </div>
         </div>
