@@ -11,5 +11,7 @@ interface ProgramCreateRequest {
 }
 
 interface Program{
-    
+    title: string,
+    bannerImg: string,
+    content: string
 }

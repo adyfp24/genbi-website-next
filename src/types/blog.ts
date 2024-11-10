@@ -15,11 +15,14 @@ interface Blog {
     bannerImg: string;
     categoryId: number;
     Category: Program; 
-    BlogKeywords: BlogKeyword[]; 
+    BlogKeyword: BlogKeyword[]; 
+    createdAt: string;
+    updatedAt: string;
 }
 
 interface Keyword {
     id: number;
+    name: string,
     createdAt: Date;
     updatedAt: Date;
     BlogKeywords: BlogKeyword[]; 

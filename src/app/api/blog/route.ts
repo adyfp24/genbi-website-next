@@ -3,7 +3,16 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest, res: NextResponse) {
     try {
-        const allBlog = await prisma.blog.findMany();
+        const allBlog = await prisma.blog.findMany({
+            include:{
+                Category:true,
+                BlogKeyword: {
+                    include:{
+                        Keyword: true
+                    }
+                }
+            }
+        });
         if (allBlog.length === 0) {
             return NextResponse.json({
                 "success": true,
