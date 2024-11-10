@@ -11,13 +11,16 @@ const AboutPage: React.FC = () => {
   return (
     <>
       <Navbar bgColor="bg-white" />
-      <div className="w-full h-96 bg-pr500 flex flex-col justify-center items-center">
+      <div
+        className="w-full h-96 bg-[url('/images/header-about.png')] bg-cover bg-center flex flex-col justify-center items-center"
+      >
         <h1 className="text-7xl font-semibold text-white mb-5">Tentang GenBI</h1>
-        <p className="font-normal text-xl text-white w-2/3 text-center">Generasi Baru Indonesia atau yang biasa disebut GenBI adalah sebuah komunitas penerima beasiswa Bank Indonesia yang berperan aktif dalam pembangunan Indonesia sebagai generasi bangsa.
-          GenBI terdiri dari mahasiswa berprestasi yang tersebar di berbagai perguruan tinggi negeri terpilih di seluruh provinsi Indonesia.</p>
+        <p className="font-normal text-xl text-white w-2/3 text-center">
+          Generasi Baru Indonesia atau yang biasa disebut GenBI adalah sebuah komunitas penerima beasiswa Bank Indonesia yang berperan aktif dalam pembangunan Indonesia sebagai generasi bangsa. GenBI terdiri dari mahasiswa berprestasi yang tersebar di berbagai perguruan tinggi negeri terpilih di seluruh provinsi Indonesia.
+        </p>
       </div>
 
-      <section id="history-section" className="mb-16">
+      <section id="history-section" className="mb-8">
         <h2 className="text-3xl font-semibold text-pr900 text-center my-10">Sejarah GenBI Jember</h2>
         <div className="flex max-w-7xl mx-auto">
           <div className="w-1/3">
@@ -38,7 +41,7 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      <section id="visi-section" className="mb-16 bg-pr50">
+      <section id="visi-section" className="mb-8 bg-pr50">
         <div className="max-w-7xl flex mx-auto py-14">
           <div className="w-2/3 flef flex-col items-end justify-end pr-50">
             <h2 className="text-3xl font-semibold text-pr900 text-center mb-10">Visi Misi GenBI</h2>
@@ -60,7 +63,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       <section id="goals-section" className="mb-16">
-        <h2 className="text-3xl font-semibold text-pr900 text-center mb-10">Visi Misi GenBI</h2>
+        <h2 className="text-3xl font-semibold text-pr900 text-center mb-10">Tujuan GenBI</h2>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-3 gap-5">
             <div className="bg-pr25 flex flex-col items-start justify-center p-6 rounded-3xl shadow-sm border border-pr50 shadow-gray-300">
@@ -111,12 +114,12 @@ const AboutPage: React.FC = () => {
       <section id="structur-section" className="pb-40">
         <div className="max-w-6xl mx-auto flex">
           <div className="w-1/2 flex flex-col justify-center items-start">
-              <h2 className="text-pr900 text-5xl mb-8 font-semibold">Keanggotaan dan Susunan Kepengurusan GenBI Jember</h2>
-              <p className="mb-8">GenBI Jember telah memiliki anggota aktif sebanyak 175 mahasiswa yang tersebar dari tiga Perguruan Tinggi besar di 
-                Jember meliputi Universitas Jember, Politeknik Negeri Jember, dan UIN KHAS Jember.</p>
-              <button className="p-4 bg-pr500 rounded-xl text-white hover:bg-pr200 font-semibold">
-                  Selengkapnya
-              </button>
+            <h2 className="text-pr900 text-5xl mb-8 font-semibold">Keanggotaan dan Susunan Kepengurusan GenBI Jember</h2>
+            <p className="mb-8">GenBI Jember telah memiliki anggota aktif sebanyak 175 mahasiswa yang tersebar dari tiga Perguruan Tinggi besar di
+              Jember meliputi Universitas Jember, Politeknik Negeri Jember, dan UIN KHAS Jember.</p>
+            <button className="p-4 bg-pr500 rounded-xl text-white hover:bg-pr200 font-semibold">
+              Selengkapnya
+            </button>
           </div>
           <div className="w-1/2 flex justify-center items-center">
             <div className="w-full mx-5 h-80 bg-gray-200 rounded-2xl">
