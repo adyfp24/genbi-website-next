@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTestimoni } from '@/context/testimoniContext';
-import styles from '../../css/testimoni.module.css'; 
+import styles from '../../css/testimoni.module.css';
+import Spinner from '../elements/spinner';
 
 const TestimonialSection: React.FC = () => {
   const { loading, error, testimonies } = useTestimoni();
@@ -10,26 +11,38 @@ const TestimonialSection: React.FC = () => {
   const handleLeftArrowClick = () => {
     setSlideDirection('left');
     setTimeout(() => {
-      setCurrentTestimonialIndex((prevIndex) => 
+      setCurrentTestimonialIndex((prevIndex) =>
         prevIndex === 0 ? testimonies.length - 1 : prevIndex - 1
       );
       setSlideDirection('');
-    }, 300); 
+    }, 300);
   };
 
   const handleRightArrowClick = () => {
     setSlideDirection('right');
     setTimeout(() => {
-      setCurrentTestimonialIndex((prevIndex) => 
+      setCurrentTestimonialIndex((prevIndex) =>
         prevIndex === testimonies.length - 1 ? 0 : prevIndex + 1
       );
       setSlideDirection('');
-    }, 300); 
+    }, 300);
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center" style={{ height: '500px' }}>
+        <Spinner />
+      </div>
+    );
+  }
   if (error) return <p>Error loading testimonials.</p>;
-  if (!testimonies || testimonies.length === 0) return <p>No testimonials available.</p>;
+  if (!testimonies || testimonies.length === 0) {
+    return (
+      <div className="flex justify-center items-center" style={{ height: '500px' }}>
+        No testimonial data available
+      </div>
+    );
+  }
 
   const currentTestimonial = testimonies[currentTestimonialIndex];
 
@@ -58,7 +71,7 @@ const TestimonialSection: React.FC = () => {
             </div>
             <div className="flex justify-between items-center mt-6">
               <ul className="flex">
-                {testimonies.map((_, index) => (
+                {testimonies && testimonies.map((_, index) => (
                   <li
                     key={index}
                     className={`w-3 h-3 ${index === currentTestimonialIndex ? 'bg-pr300' : 'bg-white'} mr-2 rounded-full`}
