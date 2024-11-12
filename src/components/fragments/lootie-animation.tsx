@@ -1,25 +1,33 @@
-import React from 'react'
-import Player from 'react-lottie-player'
+import React from 'react';
+import Lottie, { LottieRef } from 'lottie-react';
 
-interface LootieProps{
-    animationData: object
-    loop: boolean
-    play: boolean
-    height: string
-    width: string
+interface LootieAnimationProps {
+    animationData: any;
+    width?: string;
+    height?: string;
+    play?: boolean;
+    loop?: boolean;
+    lottieRef?: LottieRef; 
 }
 
-const LootieAnimation: React.FC<LootieProps> = ({play, loop, animationData, height, width}) => {
+const LootieAnimation: React.FC<LootieAnimationProps> = ({ 
+    animationData, 
+    width = '100%', 
+    height = '100%', 
+    play = true, 
+    loop = true,
+    lottieRef
+}) => {
     return (
-        <>
-           <Player 
-            loop={loop}
-            animationData={animationData}
-            play={play}
-            style={{height: height, width: width}}
-           /> 
-        </>
-    )
-}
+        <div style={{ width, height }}>
+            <Lottie 
+                animationData={animationData}
+                loop={loop}
+                autoplay={play}
+                lottieRef={lottieRef}
+            />
+        </div>
+    );
+};
 
-export default LootieAnimation 
+export default LootieAnimation;

@@ -1,42 +1,52 @@
-// import React, { useEffect, useRef }  from 'react'
+import React, { useEffect, useRef, useState, ReactNode } from 'react';
+import { LottieRefCurrentProps } from 'lottie-react';
 
-// const AnimationObserver: React.FC = ({ children, animationClass = 'animate__fadeIn', threshold = 0.2 }) => {
-//   const elementRef = useRef(null);
+interface AnimationObserverProps {
+    children: ReactNode;
+    threshold?: number; 
+}
 
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       ([entry]) => {
-//         if (entry.isIntersecting) {
-//           // Tambahkan kelas animasi ketika elemen terlihat
-//           entry.target.classList.add('animate__animated', animationClass);
-//           // Hentikan observasi setelah animasi dijalankan
-//           observer.unobserve(entry.target);
-//         }
-//       },
-//       {
-//         threshold: threshold, 
-//         rootMargin: '0px'
-//       }
-//     );
+const AnimationObserver: React.FC<AnimationObserverProps> = ({ children, threshold = 0.6 }) => {
+    const [isInView, setIsInView] = useState(false);
+    const containerRef = useRef<HTMLDivElement | null>(null);
+    const animationInstanceRef = useRef<LottieRefCurrentProps | null>(null);  
 
-//     if (elementRef.current) {
-//       // Hapus kelas animasi terlebih dahulu
-//       elementRef.current.classList.remove('animate__animated', animationClass);
-//       observer.observe(elementRef.current);
-//     }
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    setIsInView(entry.isIntersecting);
+                });
+            },
+            { threshold }
+        );
 
-//     return () => {
-//       if (elementRef.current) {
-//         observer.unobserve(elementRef.current);
-//       }
-//     };
-//   }, [animationClass, threshold]);
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
 
-//   return (
-//     <div ref={elementRef} className="opacity-0">
-//       {children}
-//     </div>
-//   );
-// };
+        return () => {
+            if (containerRef.current) {
+                observer.unobserve(containerRef.current);
+            }
+        };
+    }, [threshold]);
 
+    useEffect(() => {
+        if (animationInstanceRef.current) {
+            if (isInView) {
+                animationInstanceRef.current.play(); 
+            } else {
+                animationInstanceRef.current.stop(); 
+            }
+        }
+    }, [isInView]);
 
+    const clonedChild = React.cloneElement(children as React.ReactElement<any>, { 
+        lottieRef: animationInstanceRef 
+    });
+
+    return <div ref={containerRef}>{clonedChild}</div>;
+};
+
+export default AnimationObserver;

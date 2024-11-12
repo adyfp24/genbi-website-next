@@ -13,6 +13,7 @@ import FaqSection from '@/components/fragments/faq-section';
 import CountUp from 'react-countup';
 import BlogSection from '@/components/fragments/blog-section';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
+import AnimationObserver from '@/components/layouts/animation-observer';
 
 const LandingPage: React.FC = () => {
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -142,13 +143,14 @@ const LandingPage: React.FC = () => {
                         <button className='bg-pr600 text-white py-2 px-4 rounded-lg font-semibold'>Selengkapnya</button>
                     </div>
                     <div className='w-1/2 flex justify-end'>
-                        <LootieAnimation
-                            animationData={lootieFile}
-                            width='550px'
-                            height='550px'
-                            play={true}
-                            loop={true}
-                        />
+                        <AnimationObserver threshold={0.5}>
+                            <LootieAnimation
+                                animationData={lootieFile}
+                                width="550px"
+                                height="550px"
+                                loop={false} 
+                            />
+                        </AnimationObserver>
                     </div>
                 </div>
             </section>
