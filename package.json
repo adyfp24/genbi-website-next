@@ -26,7 +26,8 @@
     "react-lottie-player": "^2.1.0",
     "react-quill": "^2.0.0",
     "react-spinners": "^0.14.1",
-    "react-swipeable": "^7.0.2"
+    "react-swipeable": "^7.0.2",
+    "react-type-animation": "^3.2.0"
   },
   "devDependencies": {
     "@types/formidable": "^3.4.5",

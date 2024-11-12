@@ -13,6 +13,7 @@ import FaqSection from '@/components/fragments/faq-section';
 import CountUp from 'react-countup';
 import BlogSection from '@/components/fragments/blog-section';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { TypeAnimation } from 'react-type-animation';
 import AnimationObserver from '@/components/layouts/animation-observer';
 
 const LandingPage: React.FC = () => {
@@ -27,8 +28,9 @@ const LandingPage: React.FC = () => {
             <Navbar />
 
             <section id='hero-section' className="bg-pr50">
-                <div className="pt-20 text-center">
-                    <a href="" className="animate__animated animate__fadeIn inline-flex items-center text-pr700 px-2 py-1 bg-pr200 rounded-3xl"><span className='px-1.5 bg-pr100 rounded-xl mr-2'>Pendaftaran GenBI Jember 2025 dibuka!</span> Daftar disini
+                {/* <AnimationOnScroll animateIn='animate__fadeIn' animatePreScroll={true}> */}
+                <div className="pt-20 text-center animate__animated animate__fadeIn">
+                    <a href="" className="inline-flex items-center text-pr700 px-2 py-1 bg-pr200 rounded-3xl"><span className='px-1.5 bg-pr100 rounded-xl mr-2'>Pendaftaran GenBI Jember 2025 dibuka!</span> Daftar disini
                         <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                         </svg>
@@ -47,6 +49,7 @@ const LandingPage: React.FC = () => {
                         </a>
                     </div>
                 </div>
+                {/* </AnimationOnScroll> */}
                 <div className='animate__animated animate__fadeInUp z-10 mt-10 w-full flex justify-center items-center'>
                     <img className='w-2/3 h-auto flex justify-center rounded-3xl' src="/images/hero-image.png" alt="" />
                 </div>
@@ -61,7 +64,8 @@ const LandingPage: React.FC = () => {
                         </p>
                     </div>
                     <div className='flex w-full justify-between mt-20'>
-                        <div className='w-1/2 flex flex-col'>
+                        <AnimationOnScroll animateIn='animate__fadeIn' className='w-1/2'>
+                        <div className='flex flex-col'>
                             <div className='flex w-full'>
                                 <div className='w-max py-4'>
                                     <img className='mb-3' src="/images/unej-logo.png" alt="" />
@@ -91,6 +95,7 @@ const LandingPage: React.FC = () => {
                                 </div>
                             </div>
                         </div>
+                        </AnimationOnScroll>
                         <AnimationOnScroll animateIn='animate__fadeInRight' className='w-1/2'>
                             <div className=''>
                                 <img className='ml-3' src="/images/genbi-pengurus.png" alt="" />
