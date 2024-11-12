@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTestimoni } from '@/context/testimoniContext';
-import styles from '../../css/testimoni.module.css';
+import styles from '../../css/testimoni.module.css'; 
 import Spinner from '../elements/spinner';
 
 const TestimonialSection: React.FC = () => {
@@ -11,26 +11,26 @@ const TestimonialSection: React.FC = () => {
   const handleLeftArrowClick = () => {
     setSlideDirection('left');
     setTimeout(() => {
-      setCurrentTestimonialIndex((prevIndex) =>
+      setCurrentTestimonialIndex((prevIndex) => 
         prevIndex === 0 ? testimonies.length - 1 : prevIndex - 1
       );
       setSlideDirection('');
-    }, 300);
+    }, 300); 
   };
 
   const handleRightArrowClick = () => {
     setSlideDirection('right');
     setTimeout(() => {
-      setCurrentTestimonialIndex((prevIndex) =>
+      setCurrentTestimonialIndex((prevIndex) => 
         prevIndex === testimonies.length - 1 ? 0 : prevIndex + 1
       );
       setSlideDirection('');
-    }, 300);
+    }, 300); 
   };
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center" style={{ height: '500px' }}>
+      <div className="flex justify-center items-center" style={{ height: '500px' }}> 
         <Spinner />
       </div>
     );
@@ -38,7 +38,7 @@ const TestimonialSection: React.FC = () => {
   if (error) return <p>Error loading testimonials.</p>;
   if (!testimonies || testimonies.length === 0) {
     return (
-      <div className="flex justify-center items-center" style={{ height: '500px' }}>
+      <div className="flex justify-center items-center" style={{ height: '500px' }}> 
         No testimonial data available
       </div>
     );

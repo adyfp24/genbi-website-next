@@ -12,6 +12,7 @@ import TestimonialSection from '@/components/fragments/testimonial-section';
 import FaqSection from '@/components/fragments/faq-section';
 import CountUp from 'react-countup';
 import BlogSection from '@/components/fragments/blog-section';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 const LandingPage: React.FC = () => {
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -64,7 +65,7 @@ const LandingPage: React.FC = () => {
                                 <div className='w-max py-4'>
                                     <img className='mb-3' src="/images/unej-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp start={0} end={126} duration={3.0} />
+                                        <CountUp enableScrollSpy={true} start={0} end={126} duration={2.0} />
                                     </h2>
                                     <h6 className='font-semibold'>Universitas Jember</h6>
                                     <p className='mr-10'>Jumlah penerima beasiswa Bank Indonesia</p>
@@ -72,7 +73,7 @@ const LandingPage: React.FC = () => {
                                 <div className='w-max py-4'>
                                     <img className='mb-3' src="/images/polije-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp start={0} end={110} duration={3.0} />
+                                        <CountUp enableScrollSpy={true} start={0} end={110} duration={2.0} />
                                     </h2>
                                     <h6 className='font-semibold'>Politeknik Negeri Jember</h6>
                                     <p>Jumlah penerima beasiswa Bank Indonesia</p>
@@ -82,16 +83,18 @@ const LandingPage: React.FC = () => {
                                 <div className='w-1/2 py-4'>
                                     <img className='mb-3' src="/images/uin-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp start={0} end={75} duration={3.0} />
+                                        <CountUp enableScrollSpy={true} start={0} end={75} duration={2.0} />
                                     </h2>
                                     <h6 className='font-semibold'>UIN KHAS Jember</h6>
                                     <p className='mr-10'>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
                             </div>
                         </div>
-                        <div className='animate__animated animate__fadeInRight w-1/2'>
-                            <img className='ml-3' src="/images/genbi-pengurus.png" alt="" />
-                        </div>
+                        <AnimationOnScroll animateIn='animate__fadeInRight' className='w-1/2'>
+                            <div className=''>
+                                <img className='ml-3' src="/images/genbi-pengurus.png" alt="" />
+                            </div>
+                        </AnimationOnScroll>
                     </div>
                 </div>
             </section>
@@ -106,23 +109,25 @@ const LandingPage: React.FC = () => {
                             Mulai dari bantuan pendidikan hingga pengembangan diri, semuanya disiapkan untuk mendukung masa depanmu.
                         </p>
                     </div>
-                    <div className='flex w-full mt-12 justify-between'>
-                        <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
-                            <img className='mb-5' src="/images/benefit-1.png" alt="" />
-                            <h6 className='font-semibold mb-2 text-lg'>Total Bantuan Biaya Pendidikan Dengan Total 24 Juta</h6>
-                            <p className='text-gray-700'>Bantuan dana pendidikan sebesar 24 juta untuk mendukung perjalanan akademismu</p>
+                    <AnimationOnScroll animateIn='animate__fadeInUp' >
+                        <div className='flex w-full mt-12 justify-between'>
+                            <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
+                                <img className='mb-5' src="/images/benefit-1.png" alt="" />
+                                <h6 className='font-semibold mb-2 text-lg'>Total Bantuan Biaya Pendidikan Dengan Total 24 Juta</h6>
+                                <p className='text-gray-700'>Bantuan dana pendidikan sebesar 24 juta untuk mendukung perjalanan akademismu</p>
+                            </div>
+                            <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
+                                <img className='mb-5' src="/images/benefit-2.png" alt="" />
+                                <h6 className='font-semibold mb-2 text-lg'>Menjadi Anggota Aktif Komunitas Generasi Baru Indonesia Jember</h6>
+                                <p className='text-gray-700'>Tempat kamu berkolaborasi dan berbagi ide dengan sesama mahasiswa bervisi-misi besar</p>
+                            </div>
+                            <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
+                                <img className='mb-5' src="/images/benefit-3.png" alt="" />
+                                <h6 className='font-semibold mb-2 text-lg'>Pembinaan Softskill dan Leadership bagi Seluruh Penerima Beasiswa</h6>
+                                <p className='text-gray-700'>Pelatihan softskill dan leadership yang dirancang khusus untuk penerima beasiswa</p>
+                            </div>
                         </div>
-                        <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
-                            <img className='mb-5' src="/images/benefit-2.png" alt="" />
-                            <h6 className='font-semibold mb-2 text-lg'>Menjadi Anggota Aktif Komunitas Generasi Baru Indonesia Jember</h6>
-                            <p className='text-gray-700'>Tempat kamu berkolaborasi dan berbagi ide dengan sesama mahasiswa bervisi-misi besar</p>
-                        </div>
-                        <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
-                            <img className='mb-5' src="/images/benefit-3.png" alt="" />
-                            <h6 className='font-semibold mb-2 text-lg'>Pembinaan Softskill dan Leadership bagi Seluruh Penerima Beasiswa</h6>
-                            <p className='text-gray-700'>Pelatihan softskill dan leadership yang dirancang khusus untuk penerima beasiswa</p>
-                        </div>
-                    </div>
+                    </AnimationOnScroll>
                 </div>
             </section>
 

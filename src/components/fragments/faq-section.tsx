@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useFaq } from '@/context/faqContext';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import Spinner from '../elements/spinner';
 
 const FaqSection: React.FC = () => {
     const { faqs, loading, error } = useFaq();
@@ -24,7 +25,7 @@ const FaqSection: React.FC = () => {
                 </div>
 
                 <div className="space-y-4 w-2/3 ml-10">
-                    {loading && <p>Loading...</p>}
+                    {loading && <Spinner />}
                     {error && <p>Error: {error}</p>}
                     {faqs.length === 0 && !loading && <p>No FAQs available.</p>}
                     {faqs.map((faq, index) => (
