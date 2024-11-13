@@ -12,6 +12,9 @@ import TestimonialSection from '@/components/fragments/testimonial-section';
 import FaqSection from '@/components/fragments/faq-section';
 import CountUp from 'react-countup';
 import BlogSection from '@/components/fragments/blog-section';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { TypeAnimation } from 'react-type-animation';
+import AnimationObserver from '@/components/layouts/animation-observer';
 
 const LandingPage: React.FC = () => {
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -25,8 +28,9 @@ const LandingPage: React.FC = () => {
             <Navbar />
 
             <section id='hero-section' className="bg-pr50">
-                <div className="pt-20 text-center">
-                    <a href="" className="animate__animated animate__fadeIn inline-flex items-center text-pr700 px-2 py-1 bg-pr200 rounded-3xl"><span className='px-1.5 bg-pr100 rounded-xl mr-2'>Pendaftaran GenBI Jember 2025 dibuka!</span> Daftar disini
+                {/* <AnimationOnScroll animateIn='animate__fadeIn' animatePreScroll={true}> */}
+                <div className="pt-20 text-center animate__animated animate__fadeIn">
+                    <a href="" className="inline-flex items-center text-pr700 px-2 py-1 bg-pr200 rounded-3xl"><span className='px-1.5 bg-pr100 rounded-xl mr-2'>Pendaftaran GenBI Jember 2025 dibuka!</span> Daftar disini
                         <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                         </svg>
@@ -45,6 +49,7 @@ const LandingPage: React.FC = () => {
                         </a>
                     </div>
                 </div>
+                {/* </AnimationOnScroll> */}
                 <div className='animate__animated animate__fadeInUp z-10 mt-10 w-full flex justify-center items-center'>
                     <img className='w-2/3 h-auto flex justify-center rounded-3xl' src="/images/hero-image.png" alt="" />
                 </div>
@@ -59,12 +64,13 @@ const LandingPage: React.FC = () => {
                         </p>
                     </div>
                     <div className='flex w-full justify-between mt-20'>
-                        <div className='w-1/2 flex flex-col'>
+                        <AnimationOnScroll animateIn='animate__fadeIn' className='w-1/2'>
+                        <div className='flex flex-col'>
                             <div className='flex w-full'>
                                 <div className='w-max py-4'>
                                     <img className='mb-3' src="/images/unej-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp start={0} end={126} duration={3.0} />
+                                        <CountUp enableScrollSpy={true} start={0} end={126} duration={2.0} />
                                     </h2>
                                     <h6 className='font-semibold'>Universitas Jember</h6>
                                     <p className='mr-10'>Jumlah penerima beasiswa Bank Indonesia</p>
@@ -72,7 +78,7 @@ const LandingPage: React.FC = () => {
                                 <div className='w-max py-4'>
                                     <img className='mb-3' src="/images/polije-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp start={0} end={110} duration={3.0} />
+                                        <CountUp enableScrollSpy={true} start={0} end={110} duration={2.0} />
                                     </h2>
                                     <h6 className='font-semibold'>Politeknik Negeri Jember</h6>
                                     <p>Jumlah penerima beasiswa Bank Indonesia</p>
@@ -82,16 +88,19 @@ const LandingPage: React.FC = () => {
                                 <div className='w-1/2 py-4'>
                                     <img className='mb-3' src="/images/uin-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp start={0} end={75} duration={3.0} />
+                                        <CountUp enableScrollSpy={true} start={0} end={75} duration={2.0} />
                                     </h2>
                                     <h6 className='font-semibold'>UIN KHAS Jember</h6>
                                     <p className='mr-10'>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
                             </div>
                         </div>
-                        <div className='animate__animated animate__fadeInRight w-1/2'>
-                            <img className='ml-3' src="/images/genbi-pengurus.png" alt="" />
-                        </div>
+                        </AnimationOnScroll>
+                        <AnimationOnScroll animateIn='animate__fadeInRight' className='w-1/2'>
+                            <div className=''>
+                                <img className='ml-3' src="/images/genbi-pengurus.png" alt="" />
+                            </div>
+                        </AnimationOnScroll>
                     </div>
                 </div>
             </section>
@@ -106,23 +115,25 @@ const LandingPage: React.FC = () => {
                             Mulai dari bantuan pendidikan hingga pengembangan diri, semuanya disiapkan untuk mendukung masa depanmu.
                         </p>
                     </div>
-                    <div className='flex w-full mt-12 justify-between'>
-                        <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
-                            <img className='mb-5' src="/images/benefit-1.png" alt="" />
-                            <h6 className='font-semibold mb-2 text-lg'>Total Bantuan Biaya Pendidikan Dengan Total 24 Juta</h6>
-                            <p className='text-gray-700'>Bantuan dana pendidikan sebesar 24 juta untuk mendukung perjalanan akademismu</p>
+                    <AnimationOnScroll animateIn='animate__fadeInUp' >
+                        <div className='flex w-full mt-12 justify-between'>
+                            <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
+                                <img className='mb-5' src="/images/benefit-1.png" alt="" />
+                                <h6 className='font-semibold mb-2 text-lg'>Total Bantuan Biaya Pendidikan Dengan Total 24 Juta</h6>
+                                <p className='text-gray-700'>Bantuan dana pendidikan sebesar 24 juta untuk mendukung perjalanan akademismu</p>
+                            </div>
+                            <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
+                                <img className='mb-5' src="/images/benefit-2.png" alt="" />
+                                <h6 className='font-semibold mb-2 text-lg'>Menjadi Anggota Aktif Komunitas Generasi Baru Indonesia Jember</h6>
+                                <p className='text-gray-700'>Tempat kamu berkolaborasi dan berbagi ide dengan sesama mahasiswa bervisi-misi besar</p>
+                            </div>
+                            <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
+                                <img className='mb-5' src="/images/benefit-3.png" alt="" />
+                                <h6 className='font-semibold mb-2 text-lg'>Pembinaan Softskill dan Leadership bagi Seluruh Penerima Beasiswa</h6>
+                                <p className='text-gray-700'>Pelatihan softskill dan leadership yang dirancang khusus untuk penerima beasiswa</p>
+                            </div>
                         </div>
-                        <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
-                            <img className='mb-5' src="/images/benefit-2.png" alt="" />
-                            <h6 className='font-semibold mb-2 text-lg'>Menjadi Anggota Aktif Komunitas Generasi Baru Indonesia Jember</h6>
-                            <p className='text-gray-700'>Tempat kamu berkolaborasi dan berbagi ide dengan sesama mahasiswa bervisi-misi besar</p>
-                        </div>
-                        <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
-                            <img className='mb-5' src="/images/benefit-3.png" alt="" />
-                            <h6 className='font-semibold mb-2 text-lg'>Pembinaan Softskill dan Leadership bagi Seluruh Penerima Beasiswa</h6>
-                            <p className='text-gray-700'>Pelatihan softskill dan leadership yang dirancang khusus untuk penerima beasiswa</p>
-                        </div>
-                    </div>
+                    </AnimationOnScroll>
                 </div>
             </section>
 
@@ -137,13 +148,14 @@ const LandingPage: React.FC = () => {
                         <button className='bg-pr600 text-white py-2 px-4 rounded-lg font-semibold'>Selengkapnya</button>
                     </div>
                     <div className='w-1/2 flex justify-end'>
-                        <LootieAnimation
-                            animationData={lootieFile}
-                            width='550px'
-                            height='550px'
-                            play={true}
-                            loop={true}
-                        />
+                        <AnimationObserver threshold={0.5}>
+                            <LootieAnimation
+                                animationData={lootieFile}
+                                width="550px"
+                                height="550px"
+                                loop={false} 
+                            />
+                        </AnimationObserver>
                     </div>
                 </div>
             </section>

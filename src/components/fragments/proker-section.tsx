@@ -1,5 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 // Dummy data for now
 const dummyProkerList = [
@@ -17,7 +18,7 @@ const dummyProkerList = [
   'Humas GenBI'
 ];
 
-const dummyProkerDetail : iProkerDetail = {
+const dummyProkerDetail: iProkerDetail = {
   title: 'GenBI Mengajar',
   description: 'GenBI Mengajar (BIJAR) merupakan program kerja yang bergerak dalam dunia pendidikan...',
   image: 'images/proker-mengajar.png',
@@ -32,10 +33,10 @@ const dummyProkerDetail : iProkerDetail = {
 };
 
 interface iProkerDetail {
-    title: string,
-    description: string,
-    image: string,
-    listKegiatan: string[]
+  title: string,
+  description: string,
+  image: string,
+  listKegiatan: string[]
 }
 
 // ProkerBadge component
@@ -80,27 +81,33 @@ const ProkerSection: React.FC = () => {
           </p>
           <div className='flex flex-wrap justify-center max-w-screen-xl mx-auto mb-10'>
             {prokerList.map((proker) => (
-              <ProkerBadge key={proker} data={{ nama_proker: proker }} />
+              <AnimationOnScroll animateIn='animate__zoomIn'>
+                <ProkerBadge key={proker} data={{ nama_proker: proker }} />
+              </AnimationOnScroll>
             ))}
           </div>
           <div className='flex flex-wrap w-full justify-between max-w-screen-xl mx-auto mb-10'>
-            <div className='w-3/5 flex flex-col justify-center'>
-              <h2 className='text-5xl font-bold mb-5'>{prokerDetail.title}</h2>
-              <p className='text-white pr-24 mb-5'>{prokerDetail.description}</p>
-              <div className='flex w-full'>
-                <ul className='w-full grid grid-cols-2 gap-4'>
-                  {prokerDetail.listKegiatan.map((data, index) => (
-                    <li key={index} className='my-1 flex items-center'>
-                      <img src="images/icon/check-icon.png" alt="" />
-                      <p className='ml-2'>{data}</p>
-                    </li>
-                  ))}
-                </ul>
+            <AnimationOnScroll animateIn='animate__fadeInLeft' className='w-3/5'>
+              <div className='flex flex-col justify-center'>
+                <h2 className='text-5xl font-bold mb-5'>{prokerDetail.title}</h2>
+                <p className='text-white pr-24 mb-5'>{prokerDetail.description}</p>
+                <div className='flex w-full'>
+                  <ul className='w-full grid grid-cols-2 gap-4'>
+                    {prokerDetail.listKegiatan.map((data, index) => (
+                      <li key={index} className='my-1 flex items-center'>
+                        <img src="images/icon/check-icon.png" alt="" />
+                        <p className='ml-2'>{data}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
-            <div className='w-2/5'>
-              <img className='w-full' src={prokerDetail.image} alt="" />
-            </div>
+            </AnimationOnScroll>
+            <AnimationOnScroll animateIn='animate__fadeInRight' className='w-2/5'>
+              <div className=''>
+                <img className='w-full' src={prokerDetail.image} alt="" />
+              </div>
+            </AnimationOnScroll>
           </div>
         </div>
       </section>

@@ -15,15 +15,19 @@
     "@prisma/client": "^5.21.1",
     "animate.css": "^4.1.1",
     "formidable": "^3.5.2",
+    "lottie-react": "^2.4.0",
     "lucide-react": "^0.451.0",
     "next": "14.2.13",
     "react": "^18",
+    "react-animation-on-scroll": "^5.1.0",
     "react-apexcharts": "^1.5.0",
     "react-countup": "^6.5.3",
     "react-dom": "^18",
     "react-lottie-player": "^2.1.0",
     "react-quill": "^2.0.0",
-    "react-swipeable": "^7.0.2"
+    "react-spinners": "^0.14.1",
+    "react-swipeable": "^7.0.2",
+    "react-type-animation": "^3.2.0"
   },
   "devDependencies": {
     "@types/formidable": "^3.4.5",

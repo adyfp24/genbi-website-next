@@ -2,6 +2,7 @@ import { useBlog } from '@/context/blogContext'
 import { parseDate } from '@/lib/helper'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import Spinner from '../elements/spinner'
 
 const BlogSection = () => {
   const {loading, error, blogs} = useBlog()
@@ -9,9 +10,11 @@ const BlogSection = () => {
 
   return (
     <>
-      <section id='blog-list' className="p-4 mb-16">
+      <section id='blog-list' className="p-4 mb-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+          {loading && <Spinner />}
+          {error && <p>Error: {error}</p>}
             {blogs.map((blog) => (
               <div onClick={() => { router.push('/blog/1') }} key={blog.id} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
                 <div className=" ">
