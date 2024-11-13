@@ -13,7 +13,6 @@ import FaqSection from '@/components/fragments/faq-section';
 import CountUp from 'react-countup';
 import BlogSection from '@/components/fragments/blog-section';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
-import { TypeAnimation } from 'react-type-animation';
 import AnimationObserver from '@/components/layouts/animation-observer';
 
 const LandingPage: React.FC = () => {
