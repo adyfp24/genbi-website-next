@@ -1,15 +1,16 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const Navbar: React.FC<{bgColor? : string}>  = ({bgColor = "bg-pr50"}) => {
   const router = useRouter();
+  const currentPath = usePathname();
 
   return (
     <div>
       <nav className={bgColor}>
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto px-12 p-4">
 
           <button data-collapse-toggle="navbar-multi-level" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-multi-level" aria-expanded="false">
             <span className="sr-only">Open main menu</span>
@@ -23,17 +24,17 @@ const Navbar: React.FC<{bgColor? : string}>  = ({bgColor = "bg-pr50"}) => {
               <img src="/images/GenBI-logo.png" className="w-24 h-auto" alt="GenBI Logo" />
             </a>
 
-            <ul className="flex flex-col text-dark font-medium p-4 md:p-0 mt-4 border md:space-x-7 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
-              <li onClick={() => router.push('/')} className="block py-2 px-2 text-pr900 md:dark:bg-transparent hover:cursor-pointer hover:text-pr500">
+            <ul className="flex flex-col text-dark text-lg font-medium p-4 md:p-0 mt-4 border md:space-x-7 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
+              <li onClick={() => router.push('/')} className={`block py-2 px-2 ${currentPath === '/' ? 'text-pr500' : 'text-pr900'} md:dark:bg-transparent hover:cursor-pointer hover:text-pr500`}>
                 Beranda
               </li>
-              <li onClick={() => router.push('/informasi')} className="text-pr900 block py-2 px-2 hover:cursor-pointer hover:text-pr500">
+              <li onClick={() => router.push('/informasi')} className={`block py-2 px-2 ${currentPath === '/informasi' ? 'text-pr500' : 'text-pr900'} md:dark:bg-transparent hover:cursor-pointer hover:text-pr500`}>
                 Informasi Beasiswa
               </li>
-              <li onClick={() => router.push('/about')} className="text-pr900 block py-2 px-2 hover:cursor-pointer hover:text-pr500">
+              <li onClick={() => router.push('/about')} className={`block py-2 px-2 ${currentPath === '/about' ? 'text-pr500' : 'text-pr900'} md:dark:bg-transparent hover:cursor-pointer hover:text-pr500`}>
                 Tentang
               </li>
-              <li onClick={() => router.push('/blog')} className="text-pr900 block py-2 px-2 hover:cursor-pointer hover:text-pr500">
+              <li onClick={() => router.push('/blog')} className={`block py-2 px-2 ${currentPath === '/blog' ? 'text-pr500' : 'text-pr900'} md:dark:bg-transparent hover:cursor-pointer hover:text-pr500`}>
                 Artikel
               </li>
             </ul>
