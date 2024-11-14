@@ -29,7 +29,7 @@ const brandData = [
     logo: "/images/brand/brand-04.svg",
     name: "Vimeo",
     visitors: 1.5,
-    revenues: "3,580",
+    revenues:  "3,580",
     sales: 389,
     conversion: 2.5,
   },

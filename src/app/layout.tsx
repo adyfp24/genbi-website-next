@@ -5,10 +5,9 @@ import { FaqProvider } from "@/context/faqContext";
 import { TestimoniProvider } from "@/context/testimoniContext";
 import AppProvider from "@/provider/AppProvider";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const manrope = localFont({
+  src: "./fonts/manrope/Manrope-Regular.ttf",
+  variable: "--font-manrope",
 });
 
 const geistMono = localFont({
@@ -30,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${manrope.variable} antialiased`}
       >
         <AppProvider>
           {children}

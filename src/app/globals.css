@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+    --font-manrope: 'Manrope', sans-serif;
     --background: #f0f0f0;
     --foreground: #333333;
     --pr-25: #FAFCFF;
@@ -17,3 +18,7 @@
     --pr-800: #17438c;
     --pr-900: #11336b;
   }
+
+body{
+  font-family: var(--font-manrope);
+}
