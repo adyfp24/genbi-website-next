@@ -35,7 +35,7 @@ const LandingPage: React.FC = () => {
                         </svg>
                     </a>
                     <h1
-                        style={{ fontWeight: 470 }} 
+                        style={{ fontWeight: 470 }}
                         className="mb-6 mt-5 font-normal tracking-tight text-pr900 leading-none text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[86px]"
                     >
                         Jadilah bagian dari Generasi Baru <br /> Indonesia Jember!
@@ -61,47 +61,50 @@ const LandingPage: React.FC = () => {
             </section>
 
             <section id='matrics-section' className='my-10'>
-                <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto'>
+                <div className='max-w-7xl flex flex-wrap items-center justify-between mx-auto px-12'>
                     <AnimationOnScroll animateIn='animate__fadeInLeft'>
                         <div className='w-2/3'>
-                            <h2 className='text-pr700 text-4xl font-semibold mb-4'>Kerja Sama Beasiswa Bank Indonesia dengan Perguruan Tinggi di Jember</h2>
-                            <p className=''>GenBI Jember bekerja sama dengan berbagai perguruan tinggi untuk mendukung generasi muda melalui program beasiswa Bank Indonesia.
-                                Dengan total 179 penerima dari Universitas Jember, Politeknik Negeri Jember, dan UIN KHAS Jember.
+                            <h2 className='text-pr900 text-4xl font-semibold mb-4 mr-24'>Kerja Sama Bank Indonesia dengan Perguruan Tinggi Negeri di Jember</h2>
+                            <p className='text-xl mr-20 text-left'>Kantor Perwakilan Bank Indonesia Jember bekerja sama dengan beberapa perguruan tinggi negeri
+                                untuk mendukung generasi muda melalui program Beasiswa Bank Indonesia. Dengan total 175 penerima dari Universitas Jember,
+                                Politeknik Negeri Jember, dan UIN KHAS Jember.
                             </p>
                         </div>
                     </AnimationOnScroll>
                     <div className='flex w-full justify-between mt-20'>
                         <AnimationOnScroll animateIn='animate__fadeIn' className='w-1/2'>
-                            <div className='flex flex-col'>
-                                <div className='flex w-full'>
-                                    <div className='w-max py-4'>
-                                        <img className='mb-3' src="/images/unej-logo.png" alt="" />
-                                        <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                            <CountUp enableScrollSpy={true} start={0} end={126} duration={2.0} />
-                                        </h2>
-                                        <h6 className='font-semibold'>Universitas Jember</h6>
-                                        <p className='mr-10'>Jumlah penerima beasiswa Bank Indonesia</p>
-                                    </div>
-                                    <div className='w-max py-4'>
-                                        <img className='mb-3' src="/images/polije-logo.png" alt="" />
-                                        <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                            <CountUp enableScrollSpy={true} start={0} end={110} duration={2.0} />
-                                        </h2>
-                                        <h6 className='font-semibold'>Politeknik Negeri Jember</h6>
-                                        <p>Jumlah penerima beasiswa Bank Indonesia</p>
-                                    </div>
+                            <div className='grid grid-cols-2 gap-2'>
+
+                                <div className='p-4 border rounded-3xl w-full'>
+                                    <img className='mb-3 w-1/2' src="/images/unej-logo.png" alt="" />
+                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>
+                                        <CountUp enableScrollSpy={true} start={0} end={126} duration={2.0} />
+                                    </h2>
+                                    <h6 className='font-semibold'>Universitas Jember</h6>
+                                    <p>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
-                                <div className='flex mt-2'>
-                                    <div className='w-1/2 py-4'>
-                                        <img className='mb-3' src="/images/uin-logo.png" alt="" />
-                                        <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                            <CountUp enableScrollSpy={true} start={0} end={75} duration={2.0} />
-                                        </h2>
-                                        <h6 className='font-semibold'>UIN KHAS Jember</h6>
-                                        <p className='mr-10'>Jumlah penerima beasiswa Bank Indonesia</p>
-                                    </div>
+
+                                <div className='p-4 border rounded-3xl'>
+                                    <img className='mb-3' src="/images/polije-logo.png" alt="" />
+                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>
+                                        <CountUp enableScrollSpy={true} start={0} end={110} duration={2.0} />
+                                    </h2>
+                                    <h6 className='font-semibold'>Politeknik Negeri Jember</h6>
+                                    <p>Jumlah penerima beasiswa Bank Indonesia</p>
+                                </div>
+
+                                <div className='p-4 border rounded-3xl'>
+                                    <img className='mb-3' src="/images/uin-logo.png" alt="" />
+                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>
+                                        <CountUp enableScrollSpy={true} start={0} end={75} duration={2.0} />
+                                    </h2>
+                                    <h6 className='font-semibold'>UIN KHAS Jember</h6>
+                                    <p>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
                             </div>
+
+
+
                         </AnimationOnScroll>
                         <AnimationOnScroll animateIn='animate__fadeInRight' className='w-1/2'>
                             <div className=''>
@@ -115,7 +118,7 @@ const LandingPage: React.FC = () => {
             <TestimonialSection />
 
             <section id='benefit-section'>
-                <div className='max-w-screen-xl w-full h-full flex flex-col mx-auto mb-28'>
+                <div className='max-w-7xl px-12 w-full h-full flex flex-col mx-auto mb-28'>
                     <AnimationOnScroll animateIn='animate__fadeIn'>
                         <div className='flex flex-col w-3/5 mx-auto items-center justify-center text-center'>
                             <h4 className='font-bold text-pr900 text-3xl mb-2'>Benefit yang akan kamu dapatkan jika tergabung dalam Generasi Bank Indonesia</h4>
@@ -147,7 +150,7 @@ const LandingPage: React.FC = () => {
             </section>
 
             <section id="about-us-section">
-                <div className='max-w-7xl flex mx-auto p-4 items-center mb-28 justify-between'>
+                <div className='max-w-7xl px-12 flex mx-auto p-4 items-center mb-28 justify-between'>
                     <div className='w-1/2 pr-12'>
                         <h4 className='mb-8 text-4xl font-semibold text-pr900'>Tentang Program Beasiswa Bank Indonesia - GenBI Jember</h4>
                         <p className='mb-8 text-xl text-gray-600'>Beasiswa Bank Indonesia adalah program dukungan pendidikan bagi mahasiswa berprestasi di seluruh Indonesia.
@@ -174,7 +177,7 @@ const LandingPage: React.FC = () => {
             <div className="font-sans mt-16">
                 {/* Header Section */}
                 <header className="p-4">
-                    <div className="max-w-7xl mx-auto">
+                    <div className="max-w-7xl px-12 mx-auto">
                         <div className="flex justify-between items-center">
                             <div className="text-blue-600 font-medium">Insight GenBI</div>
                             <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">

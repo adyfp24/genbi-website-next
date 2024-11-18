@@ -18,7 +18,7 @@ const FaqSection: React.FC = () => {
     return (
         <section className="p-4 bg-gray-50 pt-20 pb-56">
             <AnimationOnScroll animateIn='animate__fadeInUp'>
-                <div className="max-w-7xl mx-auto flex">
+                <div className="max-w-7xl px-12 mx-auto flex">
                     <div className='w-1/3'>
                         <h2 className="text-4xl text-pr900 font-bold mb-4">Pertanyaan yang Sering Ditanyakan</h2>
                         <p className="text-gray-600 mb-6 mr-10">

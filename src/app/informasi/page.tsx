@@ -9,6 +9,7 @@ const InformasiPage: React.FC = () => {
                 <div className='flex flex-col'>
                     <h1 className='text-4xl font-semibold text-pr400 mb-2'>Halaman Informasi Beasiswa</h1>
                     <p className='italic text-gray-400'>- Belum ada informasi beasiswa tersedia</p>
+                    wowkwkwk
                 </div>
             </section>
         </>

@@ -86,7 +86,7 @@ const ProkerSection: React.FC = () => {
               </AnimationOnScroll>
             ))}
           </div>
-          <div className='flex flex-wrap w-full justify-between max-w-screen-xl mx-auto mb-10'>
+          <div className='flex flex-wrap w-full justify-between max-w-7xl px-12 mx-auto mb-10'>
             <AnimationOnScroll animateIn='animate__fadeInLeft' className='w-3/5'>
               <div className='flex flex-col justify-center'>
                 <h2 className='text-5xl font-bold mb-5'>{prokerDetail.title}</h2>
