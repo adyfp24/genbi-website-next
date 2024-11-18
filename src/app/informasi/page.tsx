@@ -11,44 +11,46 @@ const InformasiPage: React.FC = () => {
             <Navbar bgColor='bg-pr50' />
             <section id='jumbotron' className='max-w-full mx-auto flex flex-col pt-4 px-32 bg-pr50'>
                 <div className='flex flex-col max-w-5xl mt-12'>
-                    <h1 className='text-6xl font-light text-pr400 mb-8'>Bersama Bank Indonesia, Wujudkan Impian Pendidikanmu!</h1>
-                    <h3 className='italic text-gray-400 mb-10'>Raih kesempatan beasiswa prestisius untuk mahasiswa berprestasi di seluruh Indonesia. Dapatkan dukungan finansial, bimbingan, dan akses jaringan yang luas untuk berkembang bersama generasi terbaik bangsa.</h3>
+                    <h1 className='text-6xl font-light text-pr900 mb-8'>Bersama Bank Indonesia, Wujudkan Impian Pendidikanmu!</h1>
+                    <h3 className='text-xl text-pr600 mb-10'>Raih kesempatan beasiswa prestisius untuk mahasiswa berprestasi di seluruh Indonesia. Dapatkan dukungan finansial, bimbingan, dan akses jaringan yang luas untuk berkembang bersama generasi terbaik bangsa.</h3>
                     <div className="mb-10 flex flex-col space-y-4 sm:flex-row sm:justify-start sm:space-y-0">
                         <a href="#" className="inline-flex bg-white hover:bg-gray-200 justify-center rounded-lg items-center py-4 px-7 text-lg border border-gray-300 font-semibold text-center text-dark rounded-lgfocus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                             <img className='w-5 mr-2' src="/images/icon/play-circle.png" alt="" />
                             Selengkapnya
                         </a>
-                        <a href="#" className="inline-flex text-lg py-4 px-7 sm:ms-4 font-semibold text-white focus:outline-none bg-pr500 rounded-lg border border-gray-200 hover:bg-pr700 hover:text-white focus:z-10 dark:hover:bg-gray-70">
+                        <a href="#" className="inline-flex text-lg py-4 px-7 sm:ms-4 font-semibold text-white focus:outline-none bg-pr100 rounded-lg  hover:bg-pr700 hover:text-white focus:z-10 dark:hover:bg-gray-70">
                             Daftar Sekarang
                         </a>
                     </div>
                 </div>
-                <div className='w-full'>
+                <div className='flex w-full'>
                     <img className='w-full' src="/images/head-scholar.png" alt="" />
                 </div>
             </section>
 
-            <section id='daftar-instansi' className='mt-12'>
+            <section id='daftar-instansi' className='mt-16'>
                 <div className='max-w-7xl mx-auto px-12 flex flex-col justify-center items-center'>
-                    <h5 className='mb-8'>Daftar mitra beasiswa Perguruan Tinggi dibawang naungan Kantor Perwakilan Bank Indonesia Jember</h5>
+                    <h5 className='mb-10'>Daftar mitra beasiswa Perguruan Tinggi dibawang naungan Kantor Perwakilan Bank Indonesia Jember</h5>
                     <div className='flex justify-around items-center w-full text-pr900 font-semibold'>
                         <div className='flex flex-col justify-center items-center'>
-                            <img className='mb-4' src="/images/unej-logo.png" alt="" />
+                            <img className='mb-5' src="/images/unej-logo.png" alt="" />
                             <h3 className=''>Universitas Jember</h3>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
-                            <img className='mb-4' src="/images/polije-logo.png" alt="" />
+                            <img className='mb-5' src="/images/polije-logo.png" alt="" />
                             <h3>Politeknik Negeri Jember</h3>
                         </div>
                         <div className='flex flex-col justify-center items-center'>
-                            <img className='mb-4' src="/images/uin-logo.png" alt="" />
+                            <img className='mb-5' src="/images/uin-logo.png" alt="" />
                             <h3>UIN KHAS Jember</h3>
                         </div>
                     </div>
                 </div>  
             </section>
 
-            <section id='benefit-section' className='mt-12'>
+            <div className='max-w-7xl px-12 mx-auto h-0.5 bg-gray-800 mt-16'></div>
+
+            <section id='benefit-section' className='mt-22'>
                 <div className='max-w-7xl px-12 w-full h-full flex flex-col mx-auto mb-28'>
                     <AnimationOnScroll animateIn='animate__fadeIn'>
                         <div className='flex flex-col w-3/5 mx-auto items-center justify-center text-center'>
@@ -80,8 +82,42 @@ const InformasiPage: React.FC = () => {
                 </div>
             </section>
 
-            <div className='h-32 mb-32'>
-            </div>
+            <section id='alur-penerimaan' className='mt-12'>
+                <div className='max-w-full mx-auto flex flex-col px-32 bg-pr900 py-32 justify-center items-center'>
+                    <h4 className='text-white text-4xl text-center font-semibold mb-8'>Bagaimana Alur Penerimaan Beasiswa Generasi Baru Indonesia?</h4>
+                    <p className='text-gray-200 text-xl text-center mb-12'>Ikuti setiap tahap seleksi dengan seksama untuk meraih kesempatan menjadi penerima Beasiswa Bank Indonesia. 
+                        Mulai dari seleksi berkas hingga pengumuman hasil, pastikan kamu selalu siap di setiap langkahnya!</p>
+                    <img src="/images/alur-scholar.png" alt="" />
+                </div>
+            </section>
+
+            <section id='kontak' className='pb-48 mt-16'>
+                <div className='max-w-7xl px-12 w-full h-full flex flex-col mx-auto text-pr900'>
+                    <h6 className='mb-5 text-xl font-semibold'>Masih memiliki pertanyaan?</h6>
+                    <h4 className='mb-5 text-4xl font-semibold'>Kamu butuh info lebih lanjut? kami siap membantu!</h4>
+                    <p className='text-gray-600 text-xl mb-8'>Jika kamu adalah mahasiswa Perguruan Tinggi dan membutuhkan informasi lebih lanjut mengenai alur seleksi penerimaan 
+                        Beasiswa Bank Indonesia dapat menghubungi contact person dibawah ini</p>
+                    <img className='flex w-full mb-8' src="/images/behind-scholar.png" alt="" />
+                </div>
+                <div className='grid grid-cols-3 px-32'>
+                    <div className='flex flex-col items-center justify-center'>
+                        <img className='mb-3' src="/images/unej-logo.png" alt="" />
+                        <h3 className='mb-3 font-semibold'>Universitas Jember</h3>
+                        <h6>+1 555 666 888 </h6>
+                    </div>
+                    <div className='flex flex-col items-center justify-center'>
+                        <img className='mb-3' src="/images/polije-logo.png" alt="" />
+                        <h3 className='mb-3 font-semibold'>Politeknik Negeri Jember</h3>
+                        <h6>+1 555 666 888 </h6>
+                    </div>
+                    <div className='flex flex-col items-center justify-center'>
+                        <img className='mb-3' src="/images/uin-logo.png" alt="" />
+                        <h3 className='mb-3 font-semibold'>UIN KHAS Jember</h3>
+                        <h6>+1 555 666 888 </h6>
+                    </div>
+                </div>
+            </section>
+
             <Footer />
         </>
     )

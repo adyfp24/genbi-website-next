@@ -28,14 +28,14 @@ const LandingPage: React.FC = () => {
 
             <section id='hero-section' className="bg-pr50">
                 {/* <AnimationOnScroll animateIn='animate__fadeIn' animatePreScroll={true}> */}
-                <div className="pt-20 text-center animate__animated animate__fadeIn">
+                <div className="pt-10 text-center animate__animated animate__fadeIn">
                     <a href="" className="inline-flex items-center text-pr700 px-1 pr-2 py-1 bg-pr100 rounded-3xl"><span className='px-2 bg-pr50 rounded-2xl mr-2'>Pendaftaran GenBI 2025 dibuka!</span> Daftar disini
                         <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                         </svg>
                     </a>
                     <h1
-                        style={{ fontWeight: 470 }}
+                        style={{ fontWeight: 450 }}
                         className="mb-6 mt-5 font-normal tracking-tight text-pr900 leading-none text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[86px]"
                     >
                         Jadilah bagian dari Generasi Baru <br /> Indonesia Jember!
