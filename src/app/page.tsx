@@ -117,18 +117,18 @@ const LandingPage: React.FC = () => {
 
             <TestimonialSection />
 
-            <section id='benefit-section'>
+            <section id='benefit-section' className='mt-22'>
                 <div className='max-w-7xl px-12 w-full h-full flex flex-col mx-auto mb-28'>
                     <AnimationOnScroll animateIn='animate__fadeIn'>
-                        <div className='flex flex-col w-3/5 mx-auto items-center justify-center text-center'>
-                            <h4 className='font-bold text-pr900 text-3xl mb-2'>Benefit yang akan kamu dapatkan jika tergabung dalam Generasi Bank Indonesia</h4>
-                            <p className='text-gray-700'>Dapatkan banyak keuntungan saat menjadi bagian dari Generasi Baru Indonesia Jember.
+                        <div className='flex flex-col w-4/5 mx-auto items-center justify-center text-center'>
+                            <h4 className='font-semibold text-pr900 text-4xl mb-5'>Benefit yang akan kamu dapatkan jika menjadi penerima Beasiswa Bank Indonesia</h4>
+                            <p className='text-gray-700 text-xl'>Dapatkan banyak keuntungan saat menjadi bagian dari Generasi Baru Indonesia Jember.
                                 Mulai dari bantuan pendidikan hingga pengembangan diri, semuanya disiapkan untuk mendukung masa depanmu.
                             </p>
                         </div>
                     </AnimationOnScroll>
                     <AnimationOnScroll animateIn='animate__fadeInUp' >
-                        <div className='flex w-full mt-12 justify-between'>
+                        <div className='flex w-full mt-22 justify-between'>
                             <div className='w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
                                 <img className='mb-5' src="/images/benefit-1.png" alt="" />
                                 <h6 className='font-semibold mb-2 text-lg'>Total Bantuan Biaya Pendidikan Dengan Total 24 Juta</h6>

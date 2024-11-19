@@ -12,6 +12,9 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^43.2.0",
     "@ckeditor/ckeditor5-react": "^9.3.1",
+    "@fortawesome/fontawesome-svg-core": "^6.7.0",
+    "@fortawesome/free-solid-svg-icons": "^6.7.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@prisma/client": "^5.21.1",
     "animate.css": "^4.1.1",
     "formidable": "^3.5.2",
