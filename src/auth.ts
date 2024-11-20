@@ -59,6 +59,9 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
+        console.log(credentials.password)
+        console.log(user.password)
+
         return {
           id: String(user.id), 
           email: user.email,

@@ -1,3 +1,5 @@
+"use client"
+
 import { BlogProvider } from "@/context/blogContext"
 import { FaqProvider } from "@/context/faqContext"
 import { TestimoniProvider } from "@/context/testimoniContext"
