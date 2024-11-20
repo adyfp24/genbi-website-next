@@ -16,11 +16,6 @@ import { AnimationOnScroll } from 'react-animation-on-scroll';
 import AnimationObserver from '@/components/layouts/animation-observer';
 
 const LandingPage: React.FC = () => {
-    const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-    const handleDropdownFaq = (index: number) => {
-        setOpenFaqIndex(openFaqIndex === index ? null : index);
-    };
-
 
     return (
         <div className='w-full'>
@@ -106,7 +101,7 @@ const LandingPage: React.FC = () => {
 
 
                         </AnimationOnScroll>
-                        <AnimationOnScroll animateIn='animate__fadeInRight' className='w-1/2'>
+                        <AnimationOnScroll animateIn='animate__fadeInUp' className='w-1/2'>
                             <div className=''>
                                 <img className='ml-3' src="/images/genbi-pengurus.png" alt="" />
                             </div>
