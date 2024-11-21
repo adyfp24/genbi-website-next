@@ -1,7 +1,6 @@
-import { BRAND } from "@/types/brand";
 import Image from "next/image";
 
-const brandData: BRAND[] = [
+const brandData = [
   {
     logo: "/images/brand/brand-01.svg",
     name: "Google",
@@ -30,7 +29,7 @@ const brandData: BRAND[] = [
     logo: "/images/brand/brand-04.svg",
     name: "Vimeo",
     visitors: 1.5,
-    revenues: "3,580",
+    revenues:  "3,580",
     sales: 389,
     conversion: 2.5,
   },

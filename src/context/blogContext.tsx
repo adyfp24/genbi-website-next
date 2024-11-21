@@ -26,6 +26,7 @@ export const BlogProvider
     const [error, setError] = useState<string | null>(null)
     const [blogs, setBlogs] = useState<Blog[]>([])
     const [blog, setBlog] = useState<Blog | null>(null)
+
     const getAllBlog = async () => {
         setLoading(true)
         setError(null)

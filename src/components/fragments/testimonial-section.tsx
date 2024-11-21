@@ -49,9 +49,9 @@ const TestimonialSection: React.FC = () => {
   return (
     <section id="testimonial-section" className="mb-32">
       <div
-        className={`${styles.cardContainer} ${slideDirection === 'left' ? styles.slideLeft : slideDirection === 'right' ? styles.slideRight : ''}`}
+        className={`max-w-7xl px-12 mx-auto ${styles.cardContainer} ${slideDirection === 'left' ? styles.slideLeft : slideDirection === 'right' ? styles.slideRight : ''}`}
       >
-        <div className="max-w-screen-xl w-full h-full flex flex-wrap mx-auto bg-pr800 rounded-3xl text-white">
+        <div className="h-full flex flex-wrap bg-pr800 rounded-3xl text-white">
           <div className="w-3/5 flex flex-col justify-around p-12">
             <div>
               <img src="/images/icon/5-star.png" alt="5 star rating" />
