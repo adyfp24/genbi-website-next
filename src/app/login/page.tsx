@@ -15,7 +15,7 @@ const LoginPage : React.FC =() => {
       redirect: true,
       email,
       password,
-      callbackUrl: "/", // Halaman setelah login berhasil
+      callbackUrl: "/", 
     });
 
     if (!res?.ok) {
