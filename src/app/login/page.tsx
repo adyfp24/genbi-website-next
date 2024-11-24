@@ -24,7 +24,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-pr50 from-pr50 via-pr300 to-pr900 text-gray-800 dark:text-gray-100 dark:from-pr700 dark:via-pr800 dark:to-pr900 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-pr50 text-gray-800 dark:text-gray-100 dark:from-pr700 dark:via-pr800 dark:to-pr900 flex items-center justify-center p-6">
       <div className="bg-white dark:bg-gray-900 shadow-md rounded-2xl p-8 w-full max-w-md">
         <h1 className="text-2xl font-semibold text-center mb-6">Silahkan Login 👋🏻</h1>
         {error && (
