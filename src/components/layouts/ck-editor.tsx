@@ -8,6 +8,7 @@ interface CKeditorProps {
   editorLoaded: boolean;
   name: string;
   value: string;
+  className: string;
 }
 
 interface UploadResponse {
@@ -83,6 +84,7 @@ const CKeditor: React.FC<CKeditorProps> = ({
   editorLoaded,
   name,
   value,
+  className
 }: CKeditorProps) => {
   const editorRef = useRef<{
     CKEditor: typeof CKEditor;
