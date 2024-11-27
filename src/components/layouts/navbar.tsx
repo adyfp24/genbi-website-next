@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation';
+import { useSession, signOut } from 'next-auth/react';
 
-const Navbar: React.FC<{bgColor? : string}>  = ({bgColor = "bg-pr50"}) => {
+const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
   const router = useRouter();
   const currentPath = usePathname();
+  const { data: session } = useSession();
 
   return (
     <div>
