@@ -112,7 +112,7 @@ const BlogPage = () => {
                 <div className="max-w-7xl mx-auto p-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
                         {blogs.map((blog) => (
-                            <div onClick={() => { router.push('/blog/1') }} key={blog.id} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
+                            <div onClick={() => { router.push('/blog/' + blog.id) }} key={blog.id} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
                                 <div className=" ">
                                     <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
                                 </div>
