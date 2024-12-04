@@ -58,24 +58,34 @@ export const BlogProvider
     }
 
     const addBlog = async (data: CreateBlogProps) => {
-        setLoading(true)
-        setError(null)
+        setLoading(true);
+        setError(null);
+    
         try {
+            const formData = new FormData();
+            formData.append('title', data.title);
+            formData.append('caption', data.caption);
+            formData.append('content', data.content);
+            formData.append('categoryId', data.categoryId.toString());
+            formData.append('keywords', JSON.stringify(data.keywords));
+            if (data.bannerImg) {
+                formData.append('bannerImg', data.bannerImg);
+            }
+    
             const response = await fetch('/api/blog', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            if (!response.ok) throw new Error('Error add blog data')
-            await getAllBlog()
+                body: formData, 
+            });
+    
+            if (!response.ok) throw new Error('Error adding blog data');
+            await getAllBlog();
         } catch (error: any) {
-            setError(error.message)
+            setError(error.message);
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
-    }
+    };
+    
 
     const updateBlog = async (id: string, data: Partial<Blog>) => {
         setLoading(true)

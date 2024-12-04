@@ -6,7 +6,7 @@ import Navbar from '@/components/layouts/navbar'
 import { useBlog } from '@/context/blogContext'
 import { useParams } from 'next/navigation'
 import { parseDate } from '@/lib/helper'
-import Spinner from '@/components/elements/spinner'
+import Skeleton from 'react-loading-skeleton'
 import React, { use, useEffect, useState } from 'react'
 
 const BlogDetail = () => {
@@ -33,7 +33,7 @@ const BlogDetail = () => {
         <>
           <section id='blog-head' className='mt-6'>
             <div className="max-w-7xl mx-auto p-4">
-              <h1 className='font-semibold text-5xl mb-6'>{blog.title}</h1>
+              <h1 className='font-semibold text-5xl mb-6'>{blog.title || <Skeleton count={2} />}</h1>
               <div className='flex mt-4 justify-between mb-6'>
                 <div className='flex gap-16'>
                   <div className=''>
@@ -60,12 +60,12 @@ const BlogDetail = () => {
 
           <section id='blog-caption' className='mt-8'>
             <div className='max-w-7xl mx-auto p-4'>
-              <p className='text-gray-600'>{blog.caption}</p>
+              <p className='text-gray-600'>{blog.caption || <Skeleton count={5} />}</p>
             </div>
           </section>
 
           <section id='blog-section' className='mt-6'>
-            <div className='max-w-7xl mx-auto p-4' dangerouslySetInnerHTML={{ __html: blog.content }} />
+            <div className='max-w-7xl mx-auto p-4' dangerouslySetInnerHTML={{ __html: blog.content || <Skeleton count={2} /> }} />
           </section>
 
           <section id='blog-footer' className='mt-6'>
