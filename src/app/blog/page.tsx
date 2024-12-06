@@ -114,7 +114,7 @@ const BlogPage = () => {
                         {blogs.map((blog) => (
                             <div onClick={() => { router.push('/blog/' + blog.id) }} key={blog.id} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
                                 <div className=" ">
-                                    <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
+                                    <img className='w-full h-full' src={blog.bannerImg} alt={blog.title} />
                                 </div>
                                 <div className="py-4">
                                     <div className="flex justify-between">
