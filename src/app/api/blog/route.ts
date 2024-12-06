@@ -47,6 +47,7 @@ export async function POST(req: NextRequest) {
         const categoryId = parseInt(formData.get("categoryId") as string);
         const keywords = JSON.parse(formData.get("keywords") as string) as string[];
         const file = formData.get("bannerImg");
+        const isHighlight = false
 
         if (!file || typeof file === "string" || !(file instanceof File)) {
             return NextResponse.json({ error: "No valid file received." }, { status: 400 });
@@ -63,6 +64,7 @@ export async function POST(req: NextRequest) {
                     title,
                     caption,
                     content,
+                    isHighlight: false,
                     bannerImg: `/images/blog/${filename}`,
                     categoryId,
                 },

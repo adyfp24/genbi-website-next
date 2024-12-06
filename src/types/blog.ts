@@ -16,6 +16,7 @@ interface Blog {
     categoryId: number;
     Category: Program; 
     BlogKeyword: BlogKeyword[]; 
+    isHighlight: boolean;
     createdAt: string;
     updatedAt: string;
 }
