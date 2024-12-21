@@ -57,6 +57,9 @@ const BlogAdmin: React.FC = () => {
         }
     };
 
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+
     return (
         <DefaultLayout>
             <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-6 md:p-8 lg:p-10 space-y-8">
