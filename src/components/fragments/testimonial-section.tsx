@@ -49,15 +49,15 @@ const TestimonialSection: React.FC = () => {
   return (
     <section id="testimonial-section" className="mb-32">
       <div
-        className={`max-w-7xl px-12 mx-auto ${styles.cardContainer} ${slideDirection === 'left' ? styles.slideLeft : slideDirection === 'right' ? styles.slideRight : ''}`}
+        className={`max-w-7xl px-6 md:px-12 mx-auto ${styles.cardContainer} ${slideDirection === 'left' ? styles.slideLeft : slideDirection === 'right' ? styles.slideRight : ''}`}
       >
-        <div className="h-full flex flex-wrap bg-pr800 rounded-3xl text-white">
-          <div className="w-3/5 flex flex-col justify-around p-12">
+        <div className="h-full flex flex-col md:flex-row flex-wrap bg-pr800 rounded-3xl text-white">
+          <div className="w-full md:w-3/5 flex flex-col justify-around p-12">
             <div>
               <img src="/images/icon/5-star.png" alt="5 star rating" />
             </div>
-            <p className="text-4xl">{currentTestimonial?.testimoni}</p>
-            <div className="flex mt-4">
+            <p className="text-3xl md:text-4xl mt-6">{currentTestimonial?.testimoni}</p>
+            <div className="flex mt-6">
               <img
                 className="w-12 h-auto mr-6"
                 // src={currentTestimonial?.InstansiPenerima?.instansiImg || '/images/default-institute.png'}
@@ -94,7 +94,7 @@ const TestimonialSection: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="w-2/5">
+          <div className="w-full md:w-2/5">
             <img className="w-full rounded-r-3xl" src="/images/testi-image.png" alt="Testimonial image" />
           </div>
         </div>

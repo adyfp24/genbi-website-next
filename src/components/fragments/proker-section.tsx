@@ -45,7 +45,7 @@ const dummyProkerDetails: Record<string, iProkerDetail> = {
       'Program kerja ini fokus pada pelestarian lingkungan melalui kegiatan seperti penanaman pohon dan pengelolaan sampah.',
     image: 'images/proker-lingkungan.png',
     listKegiatan: ['Penanaman Pohon', 'Pengelolaan Sampah', 'Kampanye Go Green'],
-  }, 
+  },
 };
 
 interface iProkerBadgeProps {
@@ -64,9 +64,8 @@ const ProkerBadge: React.FC<iProkerBadgeProps> = ({
   return (
     <button
       onClick={() => onSelect(data.nama_proker)}
-      className={`p-3 block border ${
-        isActive ? 'bg-pr200' : 'border-pr200'
-      } text-white my-2 mx-2 rounded`}
+      className={`p-3 font-semibold block border whitespace-nowrap ${isActive ? 'bg-white text-pr900' : 'border-pr200 text-white'
+        }  my-2 mx-2 rounded`}
     >
       {data.nama_proker}
     </button>
@@ -91,13 +90,13 @@ const ProkerSection: React.FC = () => {
     <div>
       <section id="work-program-section">
         <div className="w-full text-white mx-auto flex flex-col items-center bg-pr800 pt-20">
-          <h2 className="text-5xl font-bold mb-5">Program Kerja GenBI Jember</h2>
-          <p className="text-pr200 w-2/3 text-center mb-5">
+          <h2 className="text-center mx-3 text-4xl md:text-5xl font-bold mb-5">Program Kerja GenBI Jember</h2>
+          <p className="text-center text-pr200 w-5/6 md:w-2/3  mb-5">
             GenBI Jember aktif dalam berbagai program yang mendukung pengembangan diri dan kontribusi
             sosial. Dari kegiatan sosial hingga pelatihan leadership, setiap program dirancang
             untuk mendorong anggotanya menjadi agen perubahan bagi masyarakat.
           </p>
-          <div className="flex flex-wrap justify-center max-w-screen-xl mx-auto mb-10">
+          <div className="px-10 flex md:flex-wrap overflow-x-auto md:overflow-visible w-full max-w-screen-xl mx-auto mb-10 scrollbar-none md:justify-center">
             {prokerList.map((proker) => (
               <AnimationOnScroll animateIn="animate__zoomIn" key={proker}>
                 <ProkerBadge
@@ -109,11 +108,11 @@ const ProkerSection: React.FC = () => {
             ))}
           </div>
           {prokerDetail && (
-            <div className="flex flex-wrap w-full justify-between max-w-7xl px-12 mx-auto mb-10">
-              <AnimationOnScroll animateIn="animate__fadeInLeft" className="w-3/5">
+            <div className="flex flex-col md:flex-row flex-wrap w-full justify-between max-w-7xl px-12 mx-auto mb-10">
+              <AnimationOnScroll animateIn="animate__fadeInLeft" className="w-full md:w-3/5">
                 <div className="flex flex-col justify-center">
-                  <h2 className="text-5xl font-bold mb-5">{prokerDetail.title}</h2>
-                  <p className="text-white pr-24 mb-5">{prokerDetail.description}</p>
+                  <h2 className="text-4xl md:text-5xl font-bold mb-5">{prokerDetail.title}</h2>
+                  <p className="text-white md:pr-24 mb-5">{prokerDetail.description}</p>
                   <div className="flex w-full">
                     <ul className="w-full grid grid-cols-2 gap-4">
                       {prokerDetail.listKegiatan.map((data, index) => (
@@ -126,7 +125,7 @@ const ProkerSection: React.FC = () => {
                   </div>
                 </div>
               </AnimationOnScroll>
-              <AnimationOnScroll animateIn="animate__fadeInRight" className="w-2/5">
+              <AnimationOnScroll animateIn="animate__fadeInRight" className="w-full md:w-2/5 mt-8 md:mt-0">
                 <div className="">
                   <img className="w-full" src={prokerDetail.image} alt="" />
                 </div>

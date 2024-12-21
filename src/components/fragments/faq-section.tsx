@@ -18,15 +18,15 @@ const FaqSection: React.FC = () => {
     return (
         <section className="p-4 bg-gray-50 pt-20 pb-56">
             <AnimationOnScroll animateIn='animate__fadeInUp'>
-                <div className="max-w-7xl px-12 mx-auto flex">
-                    <div className='w-1/3'>
+                <div className="max-w-7xl px-6 md:px-12 mx-auto flex flex-col md:flex-row">
+                    <div className='w-full md:w-1/3'>
                         <h2 className="text-4xl text-pr900 font-bold mb-4">Pertanyaan yang Sering Ditanyakan</h2>
                         <p className="text-gray-600 mb-6 mr-10">
                             Punya pertanyaan tentang Beasiswa Bank Indonesia atau GenBI Jember? Temukan jawabannya di sini!
                         </p>
                     </div>
 
-                    <div className="space-y-4 w-2/3 ml-10">
+                    <div className="space-y-4 w-full md:w-2/3 md:ml-10">
                         {loading && <Spinner />}
                         {error && <p>Error: {error}</p>}
                         {faqs.length === 0 && !loading && <p>No FAQs available.</p>}
