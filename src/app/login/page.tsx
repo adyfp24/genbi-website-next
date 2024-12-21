@@ -15,7 +15,7 @@ const LoginPage: React.FC = () => {
       redirect: true,
       email,
       password,
-      callbackUrl: "/",
+      callbackUrl: "/dashboard/admin",
     });
 
     if (!res?.ok) {
