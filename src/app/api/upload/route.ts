@@ -1,98 +1,94 @@
-// pages/api/upload.ts
-import { NextApiRequest, NextApiResponse } from 'next';
-import formidable, { File } from 'formidable';
-import path from 'path';
-import fs from 'fs/promises';
+// app/api/upload/route.ts
+import { NextRequest, NextResponse } from 'next/server';
+import { writeFile, mkdir } from 'fs/promises';
+import { join } from 'path';
+import { existsSync } from 'fs';
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// Tentukan tipe file yang diizinkan
+const ALLOWED_FILE_TYPES = [
+  'image/jpeg',
+  'image/png',
+  'image/gif',
+  'image/webp'
+];
 
-const uploadDir = path.join(process.cwd(), 'public/uploads');
+// Maksimum ukuran file (5MB)
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
-const ensureUploadDir = async () => {
+export async function POST(request: NextRequest) {
   try {
-    await fs.access(uploadDir);
-  } catch {
-    await fs.mkdir(uploadDir, { recursive: true });
-  }
-};
+    const formData = await request.formData();
+    const file = formData.get('file') as File;
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-  console.log('Upload request received');
+    if (!file) {
+      return NextResponse.json(
+        { error: { message: 'No file received' } },
+        { status: 400 }
+      );
+    }
 
-  try {
-    await ensureUploadDir();
-    console.log('Upload directory verified:', uploadDir);
+    // Validasi tipe file
+    if (!ALLOWED_FILE_TYPES.includes(file.type)) {
+      return NextResponse.json(
+        { error: { message: 'File type not allowed' } },
+        { status: 400 }
+      );
+    }
 
-    return new Promise((resolve, reject) => {
-      const form = formidable({
-        maxFiles: 1,
-        maxFileSize: 5 * 1024 * 1024, // 5MB
-        uploadDir,
-        filename: (_name, _ext, part) => {
-          const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-          const filename = `${uniqueSuffix}${path.extname(part.originalFilename || '')}`;
-          console.log('Generated filename:', filename);
-          return filename;
-        },
-      });
+    // Validasi ukuran file
+    if (file.size > MAX_FILE_SIZE) {
+      return NextResponse.json(
+        { error: { message: 'File size exceeds 5MB limit' } },
+        { status: 400 }
+      );
+    }
 
-      form.parse(req, async (err,  fields, files: formidable.Files) => {
-        if (err) {
-          console.error('Form parse error:', err);
-          res.status(500).json({ error: { message: err.message } });
-          return resolve(true);
-        }
+    // Buat direktori uploads jika belum ada
+    const uploadDir = join(process.cwd(), 'public', 'uploads');
+    if (!existsSync(uploadDir)) {
+      await mkdir(uploadDir, { recursive: true });
+    }
 
-        try {
-          console.log('Files received:', files);
-          const fileField = files.file;
-          
-          if (!fileField) {
-            throw new Error('No file received');
-          }
+    // Buat nama file unik
+    const fileExtension = file.name.split('.').pop();
+    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
+    const filename = `${uniqueSuffix}.${fileExtension}`;
+    const filepath = join(uploadDir, filename);
 
-          const file = Array.isArray(fileField) ? fileField[0] : fileField;
+    // Convert file ke buffer dan simpan
+    const buffer = Buffer.from(await file.arrayBuffer());
+    await writeFile(filepath, buffer);
 
-          if (!file) {
-            throw new Error('Invalid file received');
-          }
-
-          const filename = path.basename(file.filepath);
-          const url = `/uploads/${filename}`;
-
-          console.log('Upload successful:', {
-            originalName: file.originalFilename,
-            size: file.size,
-            url
-          });
-
-          res.status(200).json({
-            uploaded: true,
-            url
-          });
-          
-          return resolve(true);
-        } catch (error) {
-          console.error('Processing error:', error);
-          res.status(500).json({ 
-            error: { 
-              message: error instanceof Error ? error.message : 'Unknown error'
-            } 
-          });
-          return resolve(true);
-        }
-      });
+    // Kembalikan URL file
+    return NextResponse.json({
+      uploaded: true,
+      url: `/uploads/${filename}`
     });
+
   } catch (error) {
-    console.error('Server error:', error);
-    return res.status(500).json({ 
-      error: { 
-        message: error instanceof Error ? error.message : 'Unknown error'
-      } 
-    });
+    console.error('Upload error:', error);
+    
+    // Handle specific errors
+    if (error instanceof Error) {
+      if (error.message.includes('permission denied')) {
+        return NextResponse.json(
+          { error: { message: 'Permission denied when saving file' } },
+          { status: 500 }
+        );
+      }
+      
+      if (error.message.includes('disk full')) {
+        return NextResponse.json(
+          { error: { message: 'Server storage is full' } },
+          { status: 500 }
+        );
+      }
+    }
+
+    // Generic error
+    return NextResponse.json(
+      { error: { message: 'Failed to upload file' } },
+      { status: 500 }
+    );
   }
 }

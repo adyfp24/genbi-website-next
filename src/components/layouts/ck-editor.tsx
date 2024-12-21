@@ -1,4 +1,3 @@
-// components/layouts/ck-editor.tsx
 import React, { useEffect, useRef } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
@@ -8,7 +7,7 @@ interface CKeditorProps {
   editorLoaded: boolean;
   name: string;
   value: string;
-  className: string;
+  className?: string;  // Make className optional
 }
 
 interface UploadResponse {
@@ -33,8 +32,6 @@ class UploadAdapter {
           const formData = new FormData();
           formData.append("file", file);
 
-          console.log('Uploading file:', file.name, file.size);
-
           fetch("/api/upload", {
             method: "POST",
             body: formData,
@@ -42,18 +39,11 @@ class UploadAdapter {
             .then(async (response) => {
               if (!response.ok) {
                 const errorData = await response.json().catch(() => null);
-                console.error('Upload response error:', {
-                  status: response.status,
-                  statusText: response.statusText,
-                  errorData
-                });
                 throw new Error(`HTTP error! status: ${response.status}`);
               }
               return response.json() as Promise<UploadResponse>;
             })
             .then((response) => {
-              console.log('Upload response:', response);
-              
               if (response.error) {
                 throw new Error(response.error.message || 'Upload failed');
               }
@@ -62,8 +52,14 @@ class UploadAdapter {
                 throw new Error('No URL in response');
               }
 
+              // Store URLs as absolute paths
+              const baseUrl = window.location.origin;
+              const imageUrl = response.url.startsWith('http') 
+                ? response.url 
+                : `${baseUrl}${response.url}`;
+
               resolve({
-                default: response.url
+                default: imageUrl
               });
             })
             .catch((error) => {
@@ -79,30 +75,31 @@ class UploadAdapter {
   }
 }
 
-const CKeditor: React.FC<CKeditorProps> = ({
+export const CKeditorComponent: React.FC<CKeditorProps> = ({
   onChange,
   editorLoaded,
   name,
   value,
   className
-}: CKeditorProps) => {
-  const editorRef = useRef<{
-    CKEditor: typeof CKEditor;
-    ClassicEditor: typeof ClassicEditor;
-  }>();
-
-  useEffect(() => {
-    editorRef.current = {
-      CKEditor: require("@ckeditor/ckeditor5-react").CKEditor,
-      ClassicEditor: require("@ckeditor/ckeditor5-build-classic"),
-    };
-  }, []);
-
+}) => {
   function uploadPlugin(editor: any) {
     editor.plugins.get("FileRepository").createUploadAdapter = (loader: any) => {
       return new UploadAdapter(loader);
     };
   }
+
+  const processImageUrls = (content: string): string => {
+    return content.replace(
+      /<img[^>]+src="([^"]+)"/g,
+      (match: string, url: string) => {
+        const baseUrl = window.location.origin;
+        const absoluteUrl = url.startsWith('http') 
+          ? url 
+          : `${baseUrl}${url}`;
+        return match.replace(url, absoluteUrl);
+      }
+    );
+  };
 
   return (
     <>
@@ -110,12 +107,10 @@ const CKeditor: React.FC<CKeditorProps> = ({
         <CKEditor
           editor={ClassicEditor}
           data={value}
-          onChange={(event: any, editor: any) => {
+          onChange={(_event: any, editor: any) => {
             const data = editor.getData();
-            onChange(data);
-          }}
-          onError={(error: Error) => {
-            console.error('CKEditor error:', error);
+            const processedData = processImageUrls(data);
+            onChange(processedData);
           }}
           config={{
             extraPlugins: [uploadPlugin],
@@ -150,4 +145,7 @@ const CKeditor: React.FC<CKeditorProps> = ({
   );
 };
 
-export default CKeditor;
+// Named export
+export { CKeditorComponent as CKeditor };
+// Default export
+export default CKeditorComponent;
