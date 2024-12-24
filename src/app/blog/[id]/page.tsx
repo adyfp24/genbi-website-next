@@ -7,12 +7,12 @@ import { useBlog } from '@/context/blogContext'
 import { useParams } from 'next/navigation'
 import { parseDate } from '@/lib/helper'
 import Skeleton from 'react-loading-skeleton'
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 const BlogDetail = () => {
   const params = useParams();
   const blogId = typeof params.id === 'string' ? params.id : params.id?.[0];
-  const { getBlogById, blog, error, loading } = useBlog();
+  const { getBlogById, blog } = useBlog();
 
   useEffect(() => {
     if (blogId) {

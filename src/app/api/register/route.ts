@@ -15,6 +15,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({
             "success": true,
             "message": "user baru berhasil terdaftar",
+            "data": newUser
         }, { status: 200 })
 
     } catch (error) {

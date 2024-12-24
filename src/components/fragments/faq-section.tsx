@@ -16,7 +16,7 @@ const FaqSection: React.FC = () => {
     console.log({ faqs, loading, error });
 
     return (
-        <section className="p-4 bg-gray-50 pt-20 pb-56">
+        <section className="p-4 bg-gray-50 pt-20 pb-70 md:pb-56">
             <AnimationOnScroll animateIn='animate__fadeInUp'>
                 <div className="max-w-7xl px-6 md:px-12 mx-auto flex flex-col md:flex-row">
                     <div className='w-full md:w-1/3'>

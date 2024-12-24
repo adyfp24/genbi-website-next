@@ -42,10 +42,10 @@ const BlogPage = () => {
                                         {parseDate(highlightedBlogs[0]?.createdAt)}
                                     </div>
                                     <h3 className="text-lg font-semibold mb-2">
-                                        "{highlightedBlogs[0]?.title || "No Title"}"
+                                        {highlightedBlogs[0]?.title || "No Title"}
                                     </h3>
                                     <h3 className="text-base font-thin mb-2">
-                                        "{highlightedBlogs[0]?.caption || "No Caption"}"
+                                        {highlightedBlogs[0]?.caption || "No Caption"}
                                     </h3>
                                 </div>
                             </div>

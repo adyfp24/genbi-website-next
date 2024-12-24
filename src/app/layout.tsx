@@ -1,7 +1,5 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import { FaqProvider } from "@/context/faqContext";
-import { TestimoniProvider } from "@/context/testimoniContext";
 import AppProvider from "@/provider/AppProvider";
 
 const manrope = localFont({
@@ -9,11 +7,11 @@ const manrope = localFont({
   variable: "--font-manrope",
 });
 
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export default function RootLayout({
   children,

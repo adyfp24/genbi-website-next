@@ -10,16 +10,16 @@ const InformasiPage: React.FC = () => {
     return (
         <>
             <Navbar bgColor='bg-pr50' />
-            <section id='jumbotron' className='max-w-full mx-auto flex flex-col pt-4 px-32 bg-pr50'>
-                <div className='flex flex-col max-w-5xl mt-12'>
-                    <h1 className='text-6xl font-medium text-pr900 mb-8'>Bersama Bank Indonesia, Wujudkan Impian Pendidikanmu!</h1>
+            <section id='jumbotron' className='w-full flex flex-col pt-4 md:px-16 bg-pr50'>
+                <div className='flex flex-col max-w-7xl px-5 md:px-12 mx-auto mt-12'>
+                    <h1 className='text-4xl md:text-6xl font-medium text-pr900 mb-8'>Bersama Bank Indonesia, Wujudkan Impian Pendidikanmu!</h1>
                     <h3 className='text-xl text-pr600 mb-10'>Raih kesempatan beasiswa prestisius untuk mahasiswa berprestasi di seluruh Indonesia. Dapatkan dukungan finansial, bimbingan, dan akses jaringan yang luas untuk berkembang bersama generasi terbaik bangsa.</h3>
                     <div className="mb-10 flex flex-col space-y-4 sm:flex-row sm:justify-start sm:space-y-0">
                         <a href="#" className="inline-flex bg-white hover:bg-gray-200 justify-center rounded-lg items-center py-4 px-7 text-lg border border-gray-300 font-semibold text-center text-dark rounded-lgfocus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                             <img className='w-5 mr-2' src="/images/icon/play-circle.png" alt="" />
                             Selengkapnya
                         </a>
-                        <a href="#" className="inline-flex text-lg py-4 px-7 sm:ms-4 font-semibold text-white focus:outline-none bg-pr100 rounded-lg  hover:bg-pr700 hover:text-white focus:z-10 dark:hover:bg-gray-70">
+                        <a href="#" className="inline-flex justify-center items-center text-lg py-4 px-7 sm:ms-4 font-semibold text-white focus:outline-none bg-pr100 rounded-lg  hover:bg-pr700 hover:text-white focus:z-10 dark:hover:bg-gray-70">
                             Daftar Sekarang
                         </a>
                     </div>

@@ -1,14 +1,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import ClickOutside from "@/components/admin/ClickOutside";
 import { signOut } from "next-auth/react";
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <ClickOutside onClick={() => setDropdownOpen(false)} className="relative">
+    <>
       <Link
         onClick={() => setDropdownOpen(!dropdownOpen)}
         className="flex items-center gap-4"
@@ -51,7 +50,6 @@ const DropdownUser = () => {
         </svg>
       </Link>
 
-      {/* <!-- Dropdown Start --> */}
       {dropdownOpen && (
         <div
           className={`absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark`}
@@ -130,7 +128,7 @@ const DropdownUser = () => {
             </li>
           </ul>
 
-          <button onClick={() => signOut()}  className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
+          <button onClick={() => signOut()} className="flex items-center gap-3.5 px-6 py-4 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
             <svg
               className="fill-current"
               width="22"
@@ -153,8 +151,7 @@ const DropdownUser = () => {
 
         </div>
       )}
-      {/* <!-- Dropdown End --> */}
-    </ClickOutside>
+    </>
   );
 };
 

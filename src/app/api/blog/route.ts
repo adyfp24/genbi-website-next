@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import { writeFile } from "fs/promises";
 
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function GET() {
     try {
         const allBlog = await prisma.blog.findMany({
             include: {
