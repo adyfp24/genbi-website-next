@@ -33,13 +33,13 @@ const RulesSection: React.FC = () => {
 
     return (
         <section id="syarat-penerimaan" className="w-full bg-gray-100 py-20">
-            <div className="max-w-7xl px-12 flex flex-col mx-auto">
-                <h3 className="text-4xl font-semibold text-pr900 mb-5">Cek Syarat Beasiswa Sesuai Kampusmu!</h3>
-                <p className="w-2/3 text-gray-600 text-xl mb-10">
+            <div className="max-w-7xl px-5 md:px-12 flex flex-col mx-auto">
+                <h3 className="text-4xl fomt-medium md:font-semibold text-pr900 mb-5">Cek Syarat Beasiswa Sesuai Kampusmu!</h3>
+                <p className="w-full md:w-2/3 text-gray-600 text-xl mb-10">
                     Setiap perguruan tinggi memiliki persyaratan khusus untuk Beasiswa Bank Indonesia. Pilih universitas atau institusimu dan temukan syarat lengkapnya, agar kamu siap mendaftar dan meraih kesempatan ini.
                 </p>
-                <div className="flex w-full flex-row">
-                    <div className="w-1/2">
+                <div className="flex w-full flex-col-reverse md:flex-row">
+                    <div className="w-full md:w-1/2">
                         {universities.map((university) => (
                             <div
                                 key={university.id}
@@ -62,7 +62,7 @@ const RulesSection: React.FC = () => {
                     </div>
 
                     {/* Bagian Kanan: Gambar Universitas */}
-                    <div className="w-1/2 h-full flex flex-col">
+                    <div className="w-full md:w-1/2 h-full flex flex-col">
                         <img
                             className="w-full"
                             src={universities.find((university) => university.id === selectedCard)?.rulesImage}

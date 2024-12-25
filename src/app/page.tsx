@@ -19,7 +19,7 @@ const LandingPage: React.FC = () => {
         <div className='w-full'>
             <Navbar />
 
-            <section id="hero-section" className="relative w-full pb-12 md:pb-24">
+            <section id="hero-section" className="relative w-full pb-12 md:pb-24 pt-20 md:pt-28">
                 {/* Background Color Layer */}
                 <div className="absolute inset-0 bg-gradient-to-b from-pr50 to-white"></div>
 
@@ -42,7 +42,7 @@ const LandingPage: React.FC = () => {
                 {/* Hero Content */}
                 <div className="relative z-10 pt-10 text-center">
                     <a href="" className="max-w-7xl text-center mx-4 inline-flex items-center text-pr700 px-1 pr-1 md:pr-2 py-1 bg-pr100 rounded-3xl text-xs md:text-base">
-                        <span className="px-1 md:px-2 bg-pr25 rounded-2xl mr-1 md:mr-2 text-xs md:text-base">Pendaftaran GenBI 2025 dibuka!</span>
+                        <span className="px-1 md:px-2 bg-pr50 rounded-2xl mr-1 md:mr-2 text-xs md:text-base">Pendaftaran GenBI 2025 dibuka!</span>
                         Daftar disini
                         <svg className="w-3.5 h-3.5 ms-2 me-2 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path
@@ -67,14 +67,14 @@ const LandingPage: React.FC = () => {
                     <div className="mx-6 flex flex-col-reverse space-y-reverse space-y-2 md:flex-row md:justify-center">
                         <a
                             href="#"
-                            className="inline-flex bg-white hover:bg-gray-200 justify-center items-center py-2 md:py-4 px-7 text-lg border border-gray-300 font-semibold text-center text-dark rounded-lg focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                            className="inline-flex bg-white hover:bg-gray-200 justify-center items-center py-2 md:py-4 px-7 text-lg border border-gray-300 font-medium md:font-semibold text-center text-dark rounded-lg focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
                         >
                             <img className="w-5 mr-2" src="/images/icon/play-circle.png" alt="" />
                             Tonton Video
                         </a>
                         <a
                             href="#"
-                            className="text-center justify-center inline-flex text-lg py-2 md:py-4 px-7 sm:ms-4 font-semibold text-white focus:outline-none bg-pr500 rounded-lg border border-gray-200 hover:bg-pr700 hover:text-white focus:z-10 dark:hover:bg-gray-70"
+                            className="text-center justify-center inline-flex text-lg py-2 md:py-4 px-7 sm:ms-4 font-medium md:font-semibold text-white focus:outline-none bg-pr500 rounded-lg border border-gray-200 hover:bg-pr700 hover:text-white focus:z-10 dark:hover:bg-gray-70"
                         >
                             Tentang GenBI
                         </a>

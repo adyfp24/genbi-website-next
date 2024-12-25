@@ -8,7 +8,6 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
   const router = useRouter();
   const currentPath = usePathname();
   const { data: session } = useSession();
-
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -17,12 +16,11 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
 
   return (
     <div>
-      <nav className={`${bgColor} fixed top-0 left-0 w-full z-50`}>
+      <nav className={`${bgColor} fixed w-full top-0 left-0 z-50`}>
         <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto px-6 md:px-12 p-4">
-          <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse mr-10 md:hidden">
+        <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse mr-10 md:hidden">
             <img src="/images/GenBI-logo.png" className="w-24 h-auto" alt="GenBI Logo" />
           </a>
-
           <button
             onClick={toggleDropdown}
             type="button"
@@ -36,9 +34,8 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
             </svg>
           </button>
 
-          {/* Dropdown menu that shows or hides based on isDropdownOpen */}
           <div className={`w-full md:flex md:w-auto ${isDropdownOpen ? 'block' : 'hidden'}`} id="navbar-multi-level">
-            <a href="#" className="items-center space-x-3 rtl:space-x-reverse mr-10 hidden md:block">
+            <a href="#" className="md:flex items-center space-x-3 rtl:space-x-reverse mr-10 hidden">
               <img src="/images/GenBI-logo.png" className="w-24 h-auto" alt="GenBI Logo" />
             </a>
 
@@ -60,11 +57,11 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
               </li>
             </ul>
           </div>
+        
         </div>
       </nav>
-
     </div>
   )
 }
 
-export default Navbar
+export default Navbar 
