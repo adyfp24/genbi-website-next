@@ -9,20 +9,36 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
   const currentPath = usePathname();
   const { data: session } = useSession();
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
+  }
+
   return (
     <div>
-      <nav className={bgColor}>
+      <nav className={`${bgColor} fixed top-0 left-0 w-full z-50`}>
         <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto px-6 md:px-12 p-4">
+          <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse mr-10 md:hidden">
+            <img src="/images/GenBI-logo.png" className="w-24 h-auto" alt="GenBI Logo" />
+          </a>
 
-          <button data-collapse-toggle="navbar-multi-level" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-multi-level" aria-expanded="false">
+          <button
+            onClick={toggleDropdown}
+            type="button"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-pr900 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-multi-level"
+            aria-expanded={isDropdownOpen ? "true" : "false"}
+          >
             <span className="sr-only">Open main menu</span>
             <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
             </svg>
           </button>
 
-          <div className="hidden w-full md:flex md:w-auto" id="navbar-multi-level">
-            <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse mr-10">
+          {/* Dropdown menu that shows or hides based on isDropdownOpen */}
+          <div className={`w-full md:flex md:w-auto ${isDropdownOpen ? 'block' : 'hidden'}`} id="navbar-multi-level">
+            <a href="#" className="items-center space-x-3 rtl:space-x-reverse mr-10 hidden md:block">
               <img src="/images/GenBI-logo.png" className="w-24 h-auto" alt="GenBI Logo" />
             </a>
 
@@ -43,20 +59,12 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
                 Artikel
               </li>
             </ul>
-
           </div>
-
-          <div className=''>
-            <label className="inline-flex items-center cursor-pointer">
-              <input type="checkbox" value="" className="sr-only peer" />
-              <div className="relative w-11 h-6 bg-pr500 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-pr500 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-            </label>
-          </div>
-
         </div>
       </nav>
+
     </div>
   )
 }
 
-export default Navbar 
+export default Navbar
