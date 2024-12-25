@@ -101,7 +101,7 @@ const InformasiPage: React.FC = () => {
             <section id='kontak' className='pb-64 md:pb-48 mt-16'>
                 <div className='max-w-7xl px-5 md:px-12 w-full h-full flex flex-col mx-auto text-pr900'>
                     <h6 className='mb-5 text-xl text-pr200'>Masih memiliki pertanyaan?</h6>
-                    <h4 className='mb-5 text-4xl font-semibold'>Kamu butuh info lebih lanjut? kami siap membantu!</h4>
+                    <h4 className='mb-5 text-4xl font-medium md:font-semibold'>Kamu butuh info lebih lanjut? kami siap membantu!</h4>
                     <p className='text-gray-600 text-xl mb-8'>Jika kamu adalah mahasiswa Perguruan Tinggi dan membutuhkan informasi lebih lanjut mengenai alur seleksi penerimaan 
                         Beasiswa Bank Indonesia dapat menghubungi contact person dibawah ini</p>
                     <img className='flex w-full mb-8' src="/images/behind-scholar.png" alt="" />

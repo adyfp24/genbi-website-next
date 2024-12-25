@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="w-full md:w-4/6 mb-4 md:mb-0">
               <h2 className="text-2xl font-medium mb-2">Siap Jadi Bagian dari GenBI Jember?</h2>
-              <p className="text-xl text-gray-400 font-light">
+              <p className="text-xl text-pr200 font-light mb-1">
                 Jangan lewatkan kesempatan untuk bergabung mahasiswa inspiratif dan dapatkan beasiswa Bank Indonesia! Mulai perjalananmu bersama GenBI Jember!
               </p>
             </div>
@@ -26,8 +26,8 @@ const Footer: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 p-8 pt-64 md:pt-48 pb-48 relative">
-        <div className="w-full md:max-w-7xl mx-auto md:px-12 px-6">
+      <footer className="bg-gray-900 text-gray-400 p-3 md:p-8 pt-64 md:pt-48 pb-48 relative">
+        <div className="max-w-7xl mx-auto md:px-12 px-5">
           <div className="flex flex-col md:flex-row justify-between">
             <div className="w-full md:w-2/5 mb-8 md:mb-0">
               <div className="mb-8">
