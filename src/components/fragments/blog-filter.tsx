@@ -1,13 +1,21 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 
 const BlogFilter: React.FC = () => {
+    const [dropdownKategoriOpen, setDropdownKategoriOpen] = useState<boolean>(false);
+
+    const handleDropdownKategori = () => {
+        setDropdownKategoriOpen(!dropdownKategoriOpen)
+    }
+
     return (
         <>
-            <div className='font-thin text-gray-600 flex mx-auto max-w-7xl p-4 space-x-2'>
+            <div className='font-thin text-gray-600 flex mx-auto max-w-7xl p-5 space-x-2'>
                 <div className='md:w-5/6 w-1/3 flex flex-col md:flex-row'>
-                    <div className='flex w-full md:w-1/3'>
+                    <div className='relative flex flex-col w-full md:w-1/3'>
                         {/* Dropdown button */}
-                        <button id="button-kategori" data-dropdown-toggle="dropdown" className="relative w-full text-dark bg-white hover:bg-blue-200 border border-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                        <button onClick={handleDropdownKategori} id="button-kategori" data-dropdown-toggle="dropdown" className="z-0 relative w-full text-dark bg-white hover:bg-blue-200 border border-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                             Kategori
                             <svg className="absolute w-2.5 h-2.5 right-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
@@ -15,19 +23,19 @@ const BlogFilter: React.FC = () => {
                         </button>
 
                         {/* Dropdown menu */}
-                        <div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                        <div id="dropdown" className={`absolute top-full mt-2 z-20 ${dropdownKategoriOpen ? 'block' : 'hidden'} bg-white divide-y divide-gray-100 rounded-lg shadow  dark:bg-gray-700 w-full`}>
+                            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200 w-full" aria-labelledby="dropdownDefaultButton">
                                 <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Genbi Mengajar</a>
                                 </li>
                                 <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Genbi QRIS</a>
                                 </li>
                                 <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Intelektual</a>
                                 </li>
                                 <li>
-                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                                    <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">GPD</a>
                                 </li>
                             </ul>
                         </div>

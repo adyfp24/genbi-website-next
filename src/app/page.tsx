@@ -1,7 +1,7 @@
 'use client'
 import ProkerSection from '@/components/fragments/proker-section';
 import Footer from '@/components/layouts/footer';
-import Navbar from '@/components/layouts/navbar'
+import Navbar from '@/components/layouts/navbar';
 import React from 'react'
 import 'animate.css'
 import lootieFile from '../../public/lootie/Ease-In-Animation-About-GenBI.json';
@@ -17,14 +17,7 @@ const AnimationOnScroll = dynamic(
     { ssr: false }
   );
 
-/*************  ✨ Codeium Command ⭐  *************/
-/**
- * This is the main landing page of the website.
- * It contains the hero section, introduction to GenBI, and benefits of joining GenBI.
- * It also includes a call-to-action button to register for the program.
- */
-/******  ec976ccb-00d0-429d-9c47-e97d0de2fa49  *******/const LandingPage: React.FC = () => {
-
+const LandingPage: React.FC = () => {
     return (
         <div className='w-full'>
             <Navbar />

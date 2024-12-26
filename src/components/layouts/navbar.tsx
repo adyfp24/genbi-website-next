@@ -39,7 +39,7 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
               <img src="/images/GenBI-logo.png" className="w-24 h-auto" alt="GenBI Logo" />
             </a>
 
-            <ul className="flex flex-col text-dark text-lg font-medium p-4 md:p-0 mt-4 border md:space-x-7 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
+            <ul className="flex bg-white flex-col text-dark text-lg font-medium md:p-0 mt-4 md:space-x-7 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
               <li onClick={() => router.push('/')} className={`block py-2 px-2 ${currentPath === '/' ? 'text-pr500' : 'text-pr900'} md:dark:bg-transparent hover:cursor-pointer hover:text-pr500`}>
                 Beranda
               </li>
