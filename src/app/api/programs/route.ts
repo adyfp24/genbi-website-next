@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import prisma from "@/lib/prisma";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
     try {
         const allProgram = await prisma.program.findMany();
         if(allProgram.length === 0) {

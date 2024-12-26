@@ -36,6 +36,7 @@ model Blog {
   content     String
   bannerImg   String
   categoryId  Int
+  isHighlight Boolean
   Category    Program       @relation(fields: [categoryId], references: [id])
   BlogKeyword BlogKeyword[]
   createdAt   DateTime      @default(now())

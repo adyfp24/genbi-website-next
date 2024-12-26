@@ -11,7 +11,7 @@ const BlogSection = () => {
   return (
     <>
       <section id='blog-list' className="p-4 mb-10">
-        <div className="max-w-7xl px-12 mx-auto">
+        <div className="max-w-7xl px-6 md:px-12 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           {loading && <Spinner />}
           {error && <p>Error: {error}</p>}

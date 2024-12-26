@@ -9,112 +9,92 @@ import { parseDate } from '@/lib/helper'
 import React from 'react'
 
 const BlogPage = () => {
-    const { blogs, loading, error } = useBlog();
+    const { blogs, highlightedBlogs, loading, error } = useBlog();
     const router = useRouter();
+    const blogsData = blogs.filter((blog) => blog.isHighlight === false);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
 
     return (
         <>
             <Navbar bgColor='bg-white' />
 
-            <section id='blog-filter' className='mt-4'>
+            <section id='blog-filter' className='pt-20'>
                 <BlogFilter />
             </section>
 
-            <section id='blog-highlight' className='mt-6 mb-8'>
-                <div className="max-w-7xl mx-auto flex p-4">
-                    <div onClick={() => { router.push('/blog/1') }} className='w-1/2 mr-3 hover:cursor-pointer'>
-                        <div className=''>
-                            <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
-                        </div>
-                        <div className='py-4'>
-                            <div className="text-sm text-gray-500 mb-2">
-                                20 Januari 2024
-                            </div>
-                            <h3 className="text-lg font-semibold mb-2">
-                                "GenBI Jember Mengadakan Lomba Kampanye QRIS"
-                            </h3>
-                            <h3 className="text-base font-thin mb-2">
-                                "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."
-                            </h3>
-                            <div className="flex flex-wrap gap-2 mt-4">
-                                <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
-                                    Kampus
-                                </span>
-                                <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">
-                                    QRIS
-                                </span>
-                                <span className="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm">
-                                    Sosialisasi
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='w-1/2 flex-col ml-3'>
-                        <div onClick={() => { router.push('/blog/2') }} className='flex mb-6 hover:cursor-pointer'>
-                            <div className='w-1/2'>
-                                <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
-                            </div>
-                            <div className='p-4 w-1/2'>
-                                <div className="text-sm text-gray-500 mb-2">
-                                    20 Januari 2024
-                                </div>
-                                <h3 className="text-base font-semibold mb-2">
-                                    "GenBI Jember Mengadakan Lomba Kampanye QRIS"
-                                </h3>
-                                <h3 className="text-base font-thin mb-2">
-                                    "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk ..."
-                                </h3>
-                                <div className="flex flex-wrap gap-2 mt-4">
-                                    <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
-                                        Kampus
-                                    </span>
-                                    <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">
-                                        QRIS
-                                    </span>
-                                    <span className="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm">
-                                        Sosialisasi
-                                    </span>
+            <section id='blog-highlight' className='md:mt-6'>
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row p-5">
+                    {highlightedBlogs.length > 0 ? (
+                        <>
+                            <div
+                                onClick={() => router.push('/blog/' + highlightedBlogs[0]?.id)}
+                                className='w-full md:w-1/2 mr-3 hover:cursor-pointer'
+                            >
+                                <img
+                                    className='w-full h-56 md:h-96'
+                                    src={highlightedBlogs[0]?.bannerImg}
+                                    alt={highlightedBlogs[0]?.title || "No Title"}
+                                />
+                                <div className='py-4'>
+                                    <div className="text-sm text-gray-500 mb-2">
+                                        {parseDate(highlightedBlogs[0]?.createdAt)}
+                                    </div>
+                                    <h3 className="text-lg font-medium md:font-semibold mb-2">
+                                        {highlightedBlogs[0]?.title || "No Title"}
+                                    </h3>
+                                    <h3 className="text-base font-thin mb-2">
+                                        {highlightedBlogs[0]?.caption || "No Caption"}
+                                    </h3>
                                 </div>
                             </div>
-                        </div>
-                        <div onClick={() => { router.push('/blog/3') }} className='flex hover:cursor-pointer'>
-                            <div className='w-1/2'>
-                                <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
-                            </div>
-                            <div className='p-4 w-1/2'>
-                                <div className="text-sm text-gray-500 mb-2">
-                                    20 Januari 2024
+
+                            {highlightedBlogs.length > 1 && (
+                                <div className='w-full md:w-1/2 flex flex-row md:flex-col space-x-3 md:ml-3'>
+                                    {highlightedBlogs.slice(1).map((blog, index) => (
+                                        <div
+                                            key={blog.id}
+                                            onClick={() => router.push('/blog/' + blog.id)}
+                                            className='flex flex-col md:flex-row mb-6 hover:cursor-pointer '
+                                        >
+                                            <div className='w-full rounded-xl'>
+                                                <img
+                                                    className='w-full h-full'
+                                                    src={blog.bannerImg}
+                                                    alt={blog.title || "No Title"}
+                                                />
+                                            </div>
+                                            <div className='pt-4 md:p-4 w-full'>
+                                                <div className="text-sm text-gray-500 mb-2">
+                                                    {parseDate(blog.createdAt)}
+                                                </div>
+                                                <h3 className="text-base font-semibold mb-2">
+                                                    {blog.title || "No Title"}
+                                                </h3>
+                                                <h3 className="text-base font-thin mb-2">
+                                                    {blog.caption || "No Caption"}
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
-                                <h3 className="text-base font-semibold mb-2">
-                                    "GenBI Jember Mengadakan Lomba Kampanye QRIS"
-                                </h3>
-                                <h3 className="text-base font-thin mb-2">
-                                    "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk..."
-                                </h3>
-                                <div className="flex flex-wrap gap-2 mt-4">
-                                    <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
-                                        Kampus
-                                    </span>
-                                    <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">
-                                        QRIS
-                                    </span>
-                                    <span className="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm">
-                                        Sosialisasi
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            )}
+                        </>
+                    ) : (
+                        <p className="text-center text-gray-500">Tidak ada blog yang di-highlight.</p>
+                    )}
                 </div>
             </section>
 
-            <section id='blog-list' className="p-4 mb-20">
-                <div className="max-w-7xl mx-auto p-4">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-                        {blogs.map((blog) => (
-                            <div onClick={() => { router.push('/blog/1') }} key={blog.id} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
+
+            <section id='blog-list'>
+                <div className="max-w-7xl mx-auto p-5">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-5 md:mb-10">
+                        {blogsData.map((blog) => (
+                            <div onClick={() => { router.push('/blog/' + blog.id) }} key={blog.id} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
                                 <div className=" ">
-                                    <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
+                                    <img className='w-full h-full' src={blog.bannerImg} alt={blog.title} />
                                 </div>
                                 <div className="py-4">
                                     <div className="flex justify-between">
@@ -148,7 +128,7 @@ const BlogPage = () => {
             </section>
 
 
-            <section id='pagination' className='pb-40'>
+            <section id='pagination' className='pb-70 md:pb-40'>
                 <div className="flex flex-col items-center">
                     <span className="text-sm text-gray-700 dark:text-gray-400">
                         <span className="font-semibold text-gray-900 dark:text-white">1</span> sampai <span className="font-semibold text-gray-900 dark:text-white">10</span> dari <span className="font-semibold text-gray-900 dark:text-white">100</span> Artikel

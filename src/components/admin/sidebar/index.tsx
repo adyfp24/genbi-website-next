@@ -5,8 +5,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import SidebarItem from "@/components/admin/sidebar/SidebarItem";
-import ClickOutside from "@/components/admin/ClickOutside";
-import useLocalStorage from "@/hooks/useLocalStorage";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -233,10 +231,10 @@ const menuGroups = [
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const pathname = usePathname();
-  const [pageName, setPageName] = useLocalStorage("selectedMenu", "dashboard");
+  // const [pageName, setPageName] = useLocalStorage("selectedMenu", "dashboard");
 
   return (
-    <ClickOutside onClick={() => setSidebarOpen(false)}>
+    
       <aside
         className={`fixed left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
@@ -289,8 +287,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <SidebarItem
                       key={menuIndex}
                       item={menuItem}
-                      pageName={pageName}
-                      setPageName={setPageName}
+                      pageName={"dashboard"}
+                      setPageName={"dashboard"}
                     />
                   ))}
                 </ul>
@@ -300,7 +298,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           {/* <!-- Sidebar Menu --> */}
         </div>
       </aside>
-    </ClickOutside>
   );
 };
 

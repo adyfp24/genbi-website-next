@@ -1,51 +1,55 @@
-import React, { useRef, useEffect } from "react";
+// "use client"
 
-interface Props {
-  children: React.ReactNode;
-  exceptionRef?: React.RefObject<HTMLElement>;
-  onClick: () => void;
-  className?: string;
-}
+// import React, { useRef, useEffect } from "react";
 
-const ClickOutside: React.FC<Props> = ({
-  children,
-  exceptionRef,
-  onClick,
-  className,
-}) => {
-  const wrapperRef = useRef<HTMLDivElement>(null);
+// interface Props {
+//   children: React.ReactNode;
+//   exceptionRef?: React.RefObject<HTMLElement>;
+//   onClick: () => void;
+//   className?: string;
+// }
 
-  useEffect(() => {
-    const handleClickListener = (event: MouseEvent) => {
-      let clickedInside: null | boolean = false;
-      if (exceptionRef) {
-        clickedInside =
-          (wrapperRef.current &&
-            wrapperRef.current.contains(event.target as Node)) ||
-          (exceptionRef.current && exceptionRef.current === event.target) ||
-          (exceptionRef.current &&
-            exceptionRef.current.contains(event.target as Node));
-      } else {
-        clickedInside =
-          wrapperRef.current &&
-          wrapperRef.current.contains(event.target as Node);
-      }
+// const ClickOutside: React.FC<Props> = ({
+//   children,
+//   exceptionRef,
+//   onClick,
+//   className,
+// }) => {
+//   const wrapperRef = useRef<HTMLDivElement>(null);
 
-      if (!clickedInside) onClick();
-    };
+//   useEffect(() => {
+//     if (typeof document !== "undefined") {
+//       const handleClickListener = (event: MouseEvent) => {
+//         let clickedInside: null | boolean = false;
+//         if (exceptionRef) {
+//           clickedInside =
+//             (wrapperRef.current &&
+//               wrapperRef.current.contains(event.target as Node)) ||
+//             (exceptionRef.current && exceptionRef.current === event.target) ||
+//             (exceptionRef.current &&
+//               exceptionRef.current.contains(event.target as Node));
+//         } else {
+//           clickedInside =
+//             wrapperRef.current &&
+//             wrapperRef.current.contains(event.target as Node);
+//         }
 
-    document.addEventListener("mousedown", handleClickListener);
+//         if (!clickedInside) onClick();
+//       };
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickListener);
-    };
-  }, [exceptionRef, onClick]);
+//       document.addEventListener("mousedown", handleClickListener);
 
-  return (
-    <div ref={wrapperRef} className={`${className || ""}`}>
-      {children}
-    </div>
-  );
-};
+//       return () => {
+//         document.removeEventListener("mousedown", handleClickListener);
+//       };
+//     }
+//   }, [exceptionRef, onClick]);
 
-export default ClickOutside;
+//   return (
+//     <div ref={wrapperRef} className={`${className || ""}`}>
+//       {children}
+//     </div>
+//   );
+// };
+
+// export default ClickOutside;

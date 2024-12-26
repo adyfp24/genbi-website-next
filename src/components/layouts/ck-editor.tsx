@@ -1,151 +1,151 @@
-// components/layouts/ck-editor.tsx
-import React, { useEffect, useRef } from "react";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+// import React, { useEffect, useRef } from "react";
+// import { CKEditor } from "@ckeditor/ckeditor5-react";
+// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-interface CKeditorProps {
-  onChange: (data: string) => void;
-  editorLoaded: boolean;
-  name: string;
-  value: string;
-}
+// interface CKeditorProps {
+//   onChange: (data: string) => void;
+//   editorLoaded: boolean;
+//   name: string;
+//   value: string;
+//   className?: string;  // Make className optional
+// }
 
-interface UploadResponse {
-  uploaded: boolean;
-  url: string;
-  error?: {
-    message: string;
-  };
-}
+// interface UploadResponse {
+//   uploaded: boolean;
+//   url: string;
+//   error?: {
+//     message: string;
+//   };
+// }
 
-class UploadAdapter {
-  private loader;
+// class UploadAdapter {
+//   private loader;
   
-  constructor(loader: any) {
-    this.loader = loader;
-  }
+//   constructor(loader: any) {
+//     this.loader = loader;
+//   }
 
-  upload(): Promise<{ default: string }> {
-    return this.loader.file.then(
-      (file: File) =>
-        new Promise((resolve, reject) => {
-          const formData = new FormData();
-          formData.append("file", file);
+//   upload(): Promise<{ default: string }> {
+//     return this.loader.file.then(
+//       (file: File) =>
+//         new Promise((resolve, reject) => {
+//           const formData = new FormData();
+//           formData.append("file", file);
 
-          console.log('Uploading file:', file.name, file.size);
-
-          fetch("/api/upload", {
-            method: "POST",
-            body: formData,
-          })
-            .then(async (response) => {
-              if (!response.ok) {
-                const errorData = await response.json().catch(() => null);
-                console.error('Upload response error:', {
-                  status: response.status,
-                  statusText: response.statusText,
-                  errorData
-                });
-                throw new Error(`HTTP error! status: ${response.status}`);
-              }
-              return response.json() as Promise<UploadResponse>;
-            })
-            .then((response) => {
-              console.log('Upload response:', response);
+//           fetch("/api/upload", {
+//             method: "POST",
+//             body: formData,
+//           })
+//             .then(async (response) => {
+//               if (!response.ok) {
+//                 const errorData = await response.json().catch(() => null);
+//                 throw new Error(`HTTP error! status: ${response.status}`);
+//               }
+//               return response.json() as Promise<UploadResponse>;
+//             })
+//             .then((response) => {
+//               if (response.error) {
+//                 throw new Error(response.error.message || 'Upload failed');
+//               }
               
-              if (response.error) {
-                throw new Error(response.error.message || 'Upload failed');
-              }
-              
-              if (!response.url) {
-                throw new Error('No URL in response');
-              }
+//               if (!response.url) {
+//                 throw new Error('No URL in response');
+//               }
 
-              resolve({
-                default: response.url
-              });
-            })
-            .catch((error) => {
-              console.error('Upload error:', error);
-              reject(error.message || 'Upload failed');
-            });
-        })
-    );
-  }
+//               // Store URLs as absolute paths
+//               const baseUrl = window.location.origin;
+//               const imageUrl = response.url.startsWith('http') 
+//                 ? response.url 
+//                 : `${baseUrl}${response.url}`;
 
-  abort(): void {
-    console.log('Upload aborted');
-  }
-}
+//               resolve({
+//                 default: imageUrl
+//               });
+//             })
+//             .catch((error) => {
+//               console.error('Upload error:', error);
+//               reject(error.message || 'Upload failed');
+//             });
+//         })
+//     );
+//   }
 
-const CKeditor: React.FC<CKeditorProps> = ({
-  onChange,
-  editorLoaded,
-  name,
-  value,
-}: CKeditorProps) => {
-  const editorRef = useRef<{
-    CKEditor: typeof CKEditor;
-    ClassicEditor: typeof ClassicEditor;
-  }>();
+//   abort(): void {
+//     console.log('Upload aborted');
+//   }
+// }
 
-  useEffect(() => {
-    editorRef.current = {
-      CKEditor: require("@ckeditor/ckeditor5-react").CKEditor,
-      ClassicEditor: require("@ckeditor/ckeditor5-build-classic"),
-    };
-  }, []);
+// export const CKeditorComponent: React.FC<CKeditorProps> = ({
+//   onChange,
+//   editorLoaded,
+//   name,
+//   value,
+//   className
+// }) => {
+//   function uploadPlugin(editor: any) {
+//     editor.plugins.get("FileRepository").createUploadAdapter = (loader: any) => {
+//       return new UploadAdapter(loader);
+//     };
+//   }
 
-  function uploadPlugin(editor: any) {
-    editor.plugins.get("FileRepository").createUploadAdapter = (loader: any) => {
-      return new UploadAdapter(loader);
-    };
-  }
+//   const processImageUrls = (content: string): string => {
+//     return content.replace(
+//       /<img[^>]+src="([^"]+)"/g,
+//       (match: string, url: string) => {
+//         const baseUrl = window.location.origin;
+//         const absoluteUrl = url.startsWith('http') 
+//           ? url 
+//           : `${baseUrl}${url}`;
+//         return match.replace(url, absoluteUrl);
+//       }
+//     );
+//   };
 
-  return (
-    <>
-      {editorLoaded ? (
-        <CKEditor
-          editor={ClassicEditor}
-          data={value}
-          onChange={(event: any, editor: any) => {
-            const data = editor.getData();
-            onChange(data);
-          }}
-          onError={(error: Error) => {
-            console.error('CKEditor error:', error);
-          }}
-          config={{
-            extraPlugins: [uploadPlugin],
-            toolbar: {
-              items: [
-                "heading",
-                "|",
-                "bold",
-                "italic",
-                "link",
-                "bulletedList",
-                "numberedList",
-                "|",
-                "outdent",
-                "indent",
-                "|",
-                "imageUpload",
-                "blockQuote",
-                "insertTable",
-                "mediaEmbed",
-                "undo",
-                "redo",
-              ],
-            },
-            language: "en",
-          }}
-        />
-      ) : (
-        <div>Editor loading</div>
-      )}
-    </>
-  );
-};
+//   return (
+//     <>
+//       {editorLoaded ? (
+//         <CKEditor
+//           editor={ClassicEditor}
+//           data={value}
+//           onChange={(_event: any, editor: any) => {
+//             const data = editor.getData();
+//             const processedData = processImageUrls(data);
+//             onChange(processedData);
+//           }}
+//           config={{
+//             extraPlugins: [uploadPlugin],
+//             toolbar: {
+//               items: [
+//                 "heading",
+//                 "|",
+//                 "bold",
+//                 "italic",
+//                 "link",
+//                 "bulletedList",
+//                 "numberedList",
+//                 "|",
+//                 "outdent",
+//                 "indent",
+//                 "|",
+//                 "imageUpload",
+//                 "blockQuote",
+//                 "insertTable",
+//                 "mediaEmbed",
+//                 "undo",
+//                 "redo",
+//               ],
+//             },
+//             language: "en",
+//           }}
+//         />
+//       ) : (
+//         <div>Editor loading</div>
+//       )}
+//     </>
+//   );
+// };
 
-export default CKeditor;
+// // Named export
+// export { CKeditorComponent as CKeditor };
+// // Default export
+// export default CKeditorComponent;

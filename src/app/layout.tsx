@@ -1,19 +1,18 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import { FaqProvider } from "@/context/faqContext";
-import { TestimoniProvider } from "@/context/testimoniContext";
 import AppProvider from "@/provider/AppProvider";
+import { Suspense } from "react";
 
 const manrope = localFont({
   src: "./fonts/manrope/Manrope-Regular.ttf",
   variable: "--font-manrope",
 });
 
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export default function RootLayout({
   children,
@@ -26,7 +25,9 @@ export default function RootLayout({
         className={`${manrope.variable} antialiased`}
       >
         <AppProvider>
-          {children}
+          <Suspense fallback={<>Loading...</>}>
+            {children}
+          </Suspense>
         </AppProvider>
       </body>
     </html>
