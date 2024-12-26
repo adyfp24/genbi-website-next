@@ -1,6 +1,11 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import dynamic from 'next/dynamic';
+const AnimationOnScroll = dynamic(
+    () => import('react-animation-on-scroll').then(mod => mod.AnimationOnScroll),
+    { ssr: false }
+  );
+
 
 interface iProkerDetail {
   title: string;

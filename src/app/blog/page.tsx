@@ -20,20 +20,20 @@ const BlogPage = () => {
         <>
             <Navbar bgColor='bg-white' />
 
-            <section id='blog-filter' className='mt-4'>
+            <section id='blog-filter' className='pt-20'>
                 <BlogFilter />
             </section>
 
-            <section id='blog-highlight' className='mt-6 mb-8'>
-                <div className="max-w-7xl mx-auto flex p-4">
+            <section id='blog-highlight' className='md:mt-6 mb-8'>
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row p-4">
                     {highlightedBlogs.length > 0 ? (
                         <>
                             <div
                                 onClick={() => router.push('/blog/' + highlightedBlogs[0]?.id)}
-                                className='w-1/2 mr-3 hover:cursor-pointer'
+                                className='w-full md:w-1/2 mr-3 hover:cursor-pointer'
                             >
                                 <img
-                                    className='w-full h-full'
+                                    className='w-full h-56 md:h-96'
                                     src={highlightedBlogs[0]?.bannerImg}
                                     alt={highlightedBlogs[0]?.title || "No Title"}
                                 />
@@ -41,7 +41,7 @@ const BlogPage = () => {
                                     <div className="text-sm text-gray-500 mb-2">
                                         {parseDate(highlightedBlogs[0]?.createdAt)}
                                     </div>
-                                    <h3 className="text-lg font-semibold mb-2">
+                                    <h3 className="text-lg font-medium md:font-semibold mb-2">
                                         {highlightedBlogs[0]?.title || "No Title"}
                                     </h3>
                                     <h3 className="text-base font-thin mb-2">
@@ -51,21 +51,21 @@ const BlogPage = () => {
                             </div>
 
                             {highlightedBlogs.length > 1 && (
-                                <div className='w-1/2 flex-col ml-3'>
+                                <div className='w-full md:w-1/2 flex flex-row md:flex-col space-x-3 md:ml-3'>
                                     {highlightedBlogs.slice(1).map((blog, index) => (
                                         <div
                                             key={blog.id}
                                             onClick={() => router.push('/blog/' + blog.id)}
-                                            className='flex mb-6 hover:cursor-pointer'
+                                            className='flex flex-col md:flex-row mb-6 hover:cursor-pointer '
                                         >
-                                            <div className='w-1/2'>
+                                            <div className='w-full rounded-xl'>
                                                 <img
                                                     className='w-full h-full'
                                                     src={blog.bannerImg}
                                                     alt={blog.title || "No Title"}
                                                 />
                                             </div>
-                                            <div className='p-4 w-1/2'>
+                                            <div className='pt-4 md:p-4 w-full'>
                                                 <div className="text-sm text-gray-500 mb-2">
                                                     {parseDate(blog.createdAt)}
                                                 </div>
@@ -88,7 +88,7 @@ const BlogPage = () => {
             </section>
 
 
-            <section id='blog-list' className="p-4 mb-20">
+            <section id='blog-list' className="p-4 pt-32 mb-20">
                 <div className="max-w-7xl mx-auto p-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
                         {blogsData.map((blog) => (

@@ -4,7 +4,12 @@ import RulesSection from '@/components/fragments/rules-section'
 import Footer from '@/components/layouts/footer'
 import Navbar from '@/components/layouts/navbar'
 import React from 'react'
-import { AnimationOnScroll } from 'react-animation-on-scroll'
+import dynamic from 'next/dynamic';
+const AnimationOnScroll = dynamic(
+    () => import('react-animation-on-scroll').then(mod => mod.AnimationOnScroll),
+    { ssr: false }
+  );
+
 
 const InformasiPage: React.FC = () => {
     return (

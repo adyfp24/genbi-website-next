@@ -11,7 +11,7 @@ export async function roleMiddleware(req: NextRequest){
             return NextResponse.redirect(new URL("/login", req.url));
         }
         if(token.role !== "superadmin"){
-            return NextResponse.redirect(new URL("/403", req.url));
+            return NextResponse.redirect(new URL("/informasi", req.url));
         }
     }
 }

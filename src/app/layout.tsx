@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import AppProvider from "@/provider/AppProvider";
+import { Suspense } from "react";
 
 const manrope = localFont({
   src: "./fonts/manrope/Manrope-Regular.ttf",
@@ -24,7 +25,9 @@ export default function RootLayout({
         className={`${manrope.variable} antialiased`}
       >
         <AppProvider>
-          {children}
+          <Suspense fallback={<>Loading...</>}>
+            {children}
+          </Suspense>
         </AppProvider>
       </body>
     </html>

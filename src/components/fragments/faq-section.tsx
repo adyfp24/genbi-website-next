@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { useFaq } from '@/context/faqContext';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import Spinner from '../elements/spinner';
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import dynamic from 'next/dynamic';
+const AnimationOnScroll = dynamic(
+    () => import('react-animation-on-scroll').then(mod => mod.AnimationOnScroll),
+    { ssr: false }
+  );
+
 
 const FaqSection: React.FC = () => {
     const { faqs, loading, error } = useFaq();

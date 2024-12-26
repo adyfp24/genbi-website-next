@@ -10,10 +10,20 @@ import TestimonialSection from '@/components/fragments/testimonial-section';
 import FaqSection from '@/components/fragments/faq-section';
 import CountUp from 'react-countup';
 import BlogSection from '@/components/fragments/blog-section';
-import { AnimationOnScroll } from 'react-animation-on-scroll';
 import AnimationObserver from '@/components/layouts/animation-observer';
+import dynamic from 'next/dynamic';
+const AnimationOnScroll = dynamic(
+    () => import('react-animation-on-scroll').then(mod => mod.AnimationOnScroll),
+    { ssr: false }
+  );
 
-const LandingPage: React.FC = () => {
+/*************  ✨ Codeium Command ⭐  *************/
+/**
+ * This is the main landing page of the website.
+ * It contains the hero section, introduction to GenBI, and benefits of joining GenBI.
+ * It also includes a call-to-action button to register for the program.
+ */
+/******  ec976ccb-00d0-429d-9c47-e97d0de2fa49  *******/const LandingPage: React.FC = () => {
 
     return (
         <div className='w-full'>
