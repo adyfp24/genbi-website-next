@@ -36,9 +36,9 @@ export const BlogProvider
                 const response = await fetch('/api/blog')
                 if (!response.ok) throw new Error('Error fetching blog data')
                 const data = await response.json()
-                if (data.success && Array.isArray(data.data)) {
-                    setBlogs(data.data)
-                    getBlogHighlight(data.data)
+                if (data.success && Array.isArray(data.data.blogs)) {
+                    setBlogs(data.data.blogs)
+                    getBlogHighlight(data.data.blogs)
                 }
             } catch (error: any) {
                 setError(error.message)
@@ -143,7 +143,7 @@ export const BlogProvider
         }
 
         useEffect(() => {
-            getAllBlog()
+            getAllBlog();
         }, [])
 
         return <BlogContext.Provider
