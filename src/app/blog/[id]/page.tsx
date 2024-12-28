@@ -11,12 +11,12 @@ import React, { useEffect } from 'react'
 
 const BlogDetail = () => {
   const params = useParams();
-  const blogId = typeof params.id === 'string' ? params.id : params.id?.[0];
+  const blogSlug = typeof params.id === 'string' ? params.id : params.id?.[0];
   const { getBlogById, blog } = useBlog();
 
   useEffect(() => {
-    if (blogId) {
-      getBlogById(blogId);
+    if (blogSlug) {
+      getBlogById(blogSlug);
     }
   }, [])
 

@@ -29,7 +29,7 @@ const BlogPage = () => {
                     {highlightedBlogs.length > 0 ? (
                         <>
                             <div
-                                onClick={() => router.push('/blog/' + highlightedBlogs[0]?.id)}
+                                onClick={() => router.push('/blog/' + highlightedBlogs[0]?.slug)}
                                 className='w-full md:w-1/2 mr-3 hover:cursor-pointer'
                             >
                                 <img
@@ -54,8 +54,8 @@ const BlogPage = () => {
                                 <div className='w-full md:w-1/2 flex flex-row md:flex-col space-x-3 md:ml-3'>
                                     {highlightedBlogs.slice(1).map((blog, index) => (
                                         <div
-                                            key={blog.id}
-                                            onClick={() => router.push('/blog/' + blog.id)}
+                                            key={blog.slug}
+                                            onClick={() => router.push('/blog/' + blog.slug)}
                                             className='flex flex-col md:flex-row mb-6 hover:cursor-pointer '
                                         >
                                             <div className='w-full rounded-xl'>
@@ -92,7 +92,7 @@ const BlogPage = () => {
                 <div className="max-w-7xl mx-auto p-5">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-5 md:mb-10">
                         {blogsData.map((blog) => (
-                            <div onClick={() => { router.push('/blog/' + blog.id) }} key={blog.id} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
+                            <div onClick={() => { router.push('/blog/' + blog.slug) }} key={blog.id} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
                                 <div className=" ">
                                     <img className='w-full h-full' src={blog.bannerImg} alt={blog.title} />
                                 </div>

@@ -1,33 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
-export async function GET(req: NextRequest, {params} : {params : {id: string}}){
-    try{
-        const blogId =  Number(params.id)
+export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+    try {
+        const blogSlug = params.id;
 
         const blog = await prisma.blog.findFirst({
             where: {
-                id: blogId
+                slug: blogSlug,
             }
         })
 
-        if(!blog){
+        if (!blog) {
             return NextResponse.json({
                 "success": false,
                 "message": "data blog dengan id tersebut tidak ditemukan",
-                "data" : null
+                "data": null
             })
         }
 
         return NextResponse.json({
             "success": true,
             "message": "data blog berhasil diapatkan",
-            "data" : blog
+            "data": blog
         })
-    }catch(error){
+    } catch (error) {
         return NextResponse.json({
             "success": false,
             "message": "internal server error " + error
-        }, {status: 500})
+        }, { status: 500 })
     }
 }

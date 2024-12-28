@@ -52,7 +52,7 @@ export const BlogProvider
             setError(null)
             try {
                 const response = await fetch(`/api/blog/${id}`)
-                if (!response.ok) throw new Error('Error fetching blog by ID')
+                if (!response.ok) throw new Error('Error fetching blog by ID/slug')
                 const data = await response.json()
                 setBlog(data.data)
             } catch (error: any) {
