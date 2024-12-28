@@ -175,7 +175,7 @@ const AboutPage: React.FC = () => {
       <section id="structur-section" className="pb-64 md:pb-50">
         <div className="max-w-7xl mx-auto flex md:space-x-8 justify-center items-center flex-col-reverse sm:flex-row px-5 md:px-12">
           <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start mb-6 sm:mb-0">
-            <h2 className="text-pr900 text-3xl sm:text-5xl mb-5 md:mb-8 font-medium md:font-semibold text-center md:text-start">Keanggotaan dan Susunan Kepengurusan GenBI Jember</h2>
+            <h2 className="text-pr900 text-3xl sm:text-4xl mb-5 md:mb-8 font-medium md:font-semibold text-center md:text-start">Keanggotaan dan Susunan Kepengurusan GenBI Jember</h2>
             <p className="mb-8 text-justify">GenBI Jember telah memiliki anggota aktif sebanyak 175 mahasiswa yang tersebar dari tiga Perguruan Tinggi besar di
               Jember meliputi Universitas Jember, Politeknik Negeri Jember, dan UIN KHAS Jember.</p>
             <button className="w-2/3 md:w-1/3 px-4 py-2 bg-pr500 text-center rounded-lg text-white hover:bg-pr200 font-medium">
