@@ -1,12 +1,16 @@
 import prisma from "@/lib/prisma";
 import { NextResponse, NextRequest } from "next/server"
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(
+    req: NextRequest,
+    { params }: {
+        params: Promise<{ id: string }>;
+    }) {
     try {
-        const instansiId = parseInt(params.id)
+        const instansiId = (await params).id;
         const instansi = await prisma.instansi.findFirst({
             where: {
-                id: instansiId
+                id: Number(instansiId)
             }
         })
 
@@ -32,13 +36,17 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     }
 }
 
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(
+    req: NextRequest,
+    { params }: {
+        params: Promise<{ id: string }>;
+    }) {
     try {
-        const instansiId = parseInt(params.id)
+        const instansiId = (await params).id;
         const data = await req.json();
         const updatedInstansi = await prisma.instansi.update({
             where: {
-                id: instansiId
+                id: Number(instansiId)
             },
             data: {
                 ...data
@@ -66,12 +74,16 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(
+    req: NextRequest,
+    { params }: {
+        params: Promise<{ id: string }>;
+    }) {
     try {
-        const instansiId = parseInt(params.id);
+        const instansiId = (await params).id;
         const deletedInstansi = await prisma.instansi.delete({
             where: {
-                id: instansiId
+                id: Number(instansiId)
             }
         })
 
@@ -85,7 +97,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { id: strin
         return NextResponse.json({
             "success": true,
             "message": "data instansi berhasil diperbaru"
-        }, {status: 200})
+        }, { status: 200 })
     } catch (err) {
         return NextResponse.json({
             "success": false,

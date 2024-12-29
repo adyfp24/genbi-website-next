@@ -14,15 +14,15 @@ const RelatedBlog: React.FC<{ blogKategoriId: string }> = ({ blogKategoriId }) =
 
     return (
         <>
-            <div className='flex mx-auto max-w-7xl p-4 justify-between'>
-                <div className='w-1/3'>
-                    <h3 className='text-5xl font-semibold text-pr900 mb-2'>Artikel terkait buatmu</h3>
-                    <h6 className='text-=gray-600 mb-6 text-lg font-light'>Bacaan seru cuma buat kamu.</h6>
+            <div className='flex md:flex-row flex-col mx-auto max-w-7xl p-5 justify-between'>
+                <div className='w-full md:w-1/3 mb-5'>
+                    <h3 className='text-3xl md:text-4xl font-semibold text-pr900 mb-2'>Artikel terkait buatmu</h3>
+                    <h6 className='text-=gray-600 mb-5 text-lg font-light'>Bacaan seru cuma buat kamu.</h6>
                     <button className='py-2 px-4 border bg-pr600 text-lg rounded-lg text-white font-semibold'>
                         Lihat semua
                     </button>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 w-2/3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 w-full md:w-2/3">
                         {[1, 2].map((_, index) => (
                             <div onClick={() => { router.push('/blog/1') }} key={index} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
                                 <div className=" ">

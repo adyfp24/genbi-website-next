@@ -11,12 +11,15 @@ const BlogSection = () => {
   return (
     <>
       <section id='blog-list' className="p-4 mb-10">
-        <div className="max-w-7xl px-6 md:px-12 mx-auto">
+        <div className="max-w-7xl px-5 md:px-12 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           {loading && <Spinner />}
           {error && <p>Error: {error}</p>}
-            {blogs.map((blog) => (
-              <div onClick={() => { router.push('/blog/1') }} key={blog.id} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
+            {blogs
+            .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+            .slice(0, 3)
+            .map((blog) => (
+              <div onClick={() => { router.push('/blog/' + blog.slug) }} key={blog.slug} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
                 <div className=" ">
                   <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
                 </div>

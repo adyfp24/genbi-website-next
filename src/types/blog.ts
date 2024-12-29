@@ -11,6 +11,7 @@ interface Blog {
     id: number;
     title: string;
     caption: string;
+    slug: string;
     content: string;
     bannerImg: string;
     categoryId: number;

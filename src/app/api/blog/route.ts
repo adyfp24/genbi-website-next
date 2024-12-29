@@ -3,36 +3,60 @@ import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import { writeFile } from "fs/promises";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
     try {
-        const allBlog = await prisma.blog.findMany({
-            include: {
-                Category: true,
-                BlogKeyword: {
-                    include: {
-                        Keyword: true
-                    }
-                }
-            }
-        });
-        if (allBlog.length === 0) {
+        const { searchParams } = new URL(req.url);
+        const page = parseInt(searchParams.get("page") || "1", 10);
+        const limit = parseInt(searchParams.get("limit") || "9", 10); 
+
+        const offset = (page - 1) * limit;
+
+        const [blogs, totalBlogs] = await Promise.all([
+            prisma.blog.findMany({
+                skip: offset,
+                take: limit,
+                include: {
+                    Category: true,
+                    BlogKeyword: {
+                        include: {
+                            Keyword: true,
+                        },
+                    },
+                },
+                orderBy: {
+                    createdAt: "desc",
+                },
+            }),
+            prisma.blog.count(), 
+        ]);
+
+        if (blogs.length === 0) {
             return NextResponse.json({
-                "success": true,
-                "message": "data blog belum tersedia",
-                "data": null
-            }, { status: 200 })
+                success: true,
+                message: "No blogs available.",
+                data: null,
+            }, { status: 200 });
         }
+
         return NextResponse.json({
-            "success": true,
-            "message": "data blog berhasil didapatkan",
-            "data": allBlog
-        })
+            success: true,
+            message: "Blogs retrieved successfully.",
+            data: {
+                blogs,
+                pagination: {
+                    page,
+                    limit,
+                    total: totalBlogs,
+                    totalPages: Math.ceil(totalBlogs / limit),
+                },
+            },
+        });
     } catch (error) {
         return NextResponse.json({
-            "success": false,
-            "message": "internal server error",
-            "error": (error as Error).message
-        })
+            success: false,
+            message: "Internal server error.",
+            error: (error as Error).message,
+        }, { status: 500 });
     }
 }
 
@@ -42,6 +66,7 @@ export async function POST(req: NextRequest) {
         const formData = await req.formData();
 
         const title = formData.get("title") as string;
+        const slug = title.replace(/\s+/g, "-").toLowerCase();
         const caption = formData.get("caption") as string;
         const content = formData.get("content") as string;
         const categoryId = parseInt(formData.get("categoryId") as string);
@@ -63,6 +88,7 @@ export async function POST(req: NextRequest) {
                     title,
                     caption,
                     content,
+                    slug,
                     isHighlight: false,
                     bannerImg: `/images/blog/${filename}`,
                     categoryId,
