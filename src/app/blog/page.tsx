@@ -51,7 +51,7 @@ const BlogPage = () => {
                             </div>
 
                             {highlightedBlogs.length > 1 && (
-                                <div className='w-full md:w-1/2 flex flex-row md:flex-col space-x-3 md:ml-3'>
+                                <div className='w-full md:w-1/2 flex flex-row md:flex-col md:space-x-0 space-x-3 md:ml-3'>
                                     {highlightedBlogs.slice(1).map((blog, index) => (
                                         <div
                                             key={blog.slug}

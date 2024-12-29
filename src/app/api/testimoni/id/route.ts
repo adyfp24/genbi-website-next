@@ -1,11 +1,16 @@
 import { NextResponse, NextRequest } from "next/server";
 import prisma from "@/lib/prisma";
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(
+    req: NextRequest,
+    {params}: { 
+       params: Promise<{ id: string }>;
+    }){
     try {
+        const id = (await params).id;
         const testimoni = await prisma.testimoni.findFirst({
             where: {
-                id: Number(params.id)
+                id: Number(id)
             }
         })
 
@@ -30,12 +35,17 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     }
 }
 
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(
+    req: NextRequest,
+    {params}: { 
+       params: Promise<{ id: string }>;
+    }){
     try {
+        const id = (await params).id;
         const data: TestimoniUpdateRequest = await req.json();
         const updatedTestimoni = await prisma.testimoni.update({
             where: {
-                id: Number(params.id)
+                id: Number(id)
             },
             data: {
                 ...data
@@ -63,11 +73,16 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(
+    req: NextRequest,
+    {params}: { 
+       params: Promise<{ id: string }>;
+    }){
     try {
+        const id = (await params).id;
         await prisma.testimoni.delete({
             where: {
-                id: Number(params.id)
+                id: Number(id)
             }
         })
 
