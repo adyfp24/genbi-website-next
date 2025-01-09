@@ -35,10 +35,10 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
     const section = document.getElementById(sectionId);
     if (section) {
       const offsetTop = section.offsetTop;
-  
+
       window.scrollTo({
-        top: offsetTop - 30, 
-        behavior: 'smooth',  
+        top: offsetTop - 30,
+        behavior: 'smooth',
       });
     }
   };
@@ -95,26 +95,45 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
           <button
             onClick={toggleDropdown}
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-pr900 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-pr900 rounded-lg md:hidden"
             aria-controls="navbar-multi-level"
             aria-expanded={isDropdownOpen ? 'true' : 'false'}
           >
             <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
+
+            {isDropdownOpen ? (
+              <svg
+                className="w-5 h-5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                className="w-5 h-5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 17 14"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M1 1h15M1 7h15M1 13h15"
+                />
+              </svg>
+            )}
           </button>
 
           <div className={`w-full md:flex md:w-auto ${isDropdownOpen ? 'block' : 'hidden'}`} id="navbar-multi-level">

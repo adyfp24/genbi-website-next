@@ -94,9 +94,9 @@ const ProkerSection: React.FC = () => {
   return (
     <div>
       <section id="work-program-section">
-        <div className="w-full text-white mx-auto  flex flex-col items-center bg-pr800 pt-20">
-          <h2 className="text-center mx-3 text-3xl md:text-4xl font-bold mb-5">Program Kerja GenBI Jember</h2>
-          <p className="text-center text-pr200 w-full px-5 md:w-2/3  mb-5">
+        <div className="w-full text-white mx-auto flex flex-col items-center bg-pr800 pt-20">
+          <h2 className="text-center mx-3 text-4xl font-medium md:font-semibold mb-5">Program Kerja GenBI Jember</h2>
+          <p className="text-center text-white w-full px-5 md:w-2/3  mb-5">
             GenBI Jember aktif dalam berbagai program yang mendukung pengembangan diri dan kontribusi
             sosial. Dari kegiatan sosial hingga pelatihan leadership, setiap program dirancang
             untuk mendorong anggotanya menjadi agen perubahan bagi masyarakat.
@@ -116,7 +116,7 @@ const ProkerSection: React.FC = () => {
             <div className="flex flex-col md:flex-row flex-wrap w-full justify-between max-w-7xl px-5 md:px-12 mx-auto mb-10">
               <AnimationOnScroll animateIn="animate__fadeInLeft" className="w-full md:w-3/5">
                 <div className="flex flex-col justify-center">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-5">{prokerDetail.title}</h2>
+                  <h2 className="text-3xl md:text-4xl font-medium md:font-semibold mb-5">{prokerDetail.title}</h2>
                   <p className="text-white md:pr-24 mb-5">{prokerDetail.description}</p>
                   <div className="flex w-full">
                     <ul className="w-full grid grid-cols-2 gap-4">
