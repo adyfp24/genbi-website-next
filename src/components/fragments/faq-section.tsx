@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useFaq } from '@/context/faqContext';
-import { ChevronDown, ChevronUp } from 'lucide-react';
 import Spinner from '../elements/spinner';
 import dynamic from 'next/dynamic';
 const AnimationOnScroll = dynamic(
     () => import('react-animation-on-scroll').then(mod => mod.AnimationOnScroll),
     { ssr: false }
-  );
+);
 
 
 const FaqSection: React.FC = () => {
@@ -21,11 +20,11 @@ const FaqSection: React.FC = () => {
     console.log({ faqs, loading, error });
 
     return (
-        <section className="p-4 bg-gray-50 pt-20 pb-70 md:pb-56">
+        <section className="bg-gray-50 pt-20 pb-70 md:pb-56">
             <AnimationOnScroll animateIn='animate__fadeInUp'>
-                <div className="max-w-7xl px-6 md:px-12 mx-auto flex flex-col md:flex-row">
+                <div className="max-w-7xl px-5 md:px-12 mx-auto flex flex-col md:flex-row">
                     <div className='w-full md:w-1/3'>
-                        <h2 className="text-4xl text-pr900 font-bold mb-4">Pertanyaan yang Sering Ditanyakan</h2>
+                        <h2 className="text-4xl text-pr900 font-medium md:font-semibold mb-4">Pertanyaan yang Sering Ditanyakan</h2>
                         <p className="text-gray-600 mb-6 mr-10">
                             Punya pertanyaan tentang Beasiswa Bank Indonesia atau GenBI Jember? Temukan jawabannya di sini!
                         </p>
@@ -38,15 +37,43 @@ const FaqSection: React.FC = () => {
                         {faqs.map((faq, index) => (
                             <div key={faq.id} className="bg-white p-4 rounded-lg">
                                 <div
-                                    className="flex justify-between items-center cursor-pointer"
+                                    className="flex justify-between items-center cursor-pointer w-full"
                                     onClick={() => handleDropdownFaq(index)}
                                 >
-                                    <span>{faq.question}</span>
+                                    <span className="w-4/5 font-medium text-gray-900">{faq.question}</span>
+                                    <div className="w-1/5 flex justify-end">
                                     {openFaqIndex === index ? (
-                                        <ChevronUp className="w-6 h-6" />
+                                        <svg
+                                            className=" w-6 h-6 md:w-6 md:h-6"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                                                stroke="#98A2B3"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
                                     ) : (
-                                        <ChevronDown className="w-6 h-6" />
+                                        <svg
+                                            className="ms-5 w-6 h-6 md:w-6 md:h-6"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M12 8V16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                                                stroke="#98A2B3"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
                                     )}
+                                    </div>
                                 </div>
                                 {openFaqIndex === index && (
                                     <p className="text-gray-600 mt-3">{faq.answer}</p>
@@ -54,6 +81,7 @@ const FaqSection: React.FC = () => {
                             </div>
                         ))}
                     </div>
+
                 </div>
             </AnimationOnScroll>
         </section>

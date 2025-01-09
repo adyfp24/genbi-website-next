@@ -1,10 +1,12 @@
 "use client";
 
+import dynamic from 'next/dynamic';
 import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import SidebarItem from "@/components/admin/sidebar/SidebarItem";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -44,8 +46,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Dashboard",
-        route: "#",
-        children: [{ label: "eCommerce", route: "/" }],
+        route: "/dashboard/admin",
       },
     ]
   },
@@ -88,7 +89,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Program Kerja",
-        route: "/program-kerja",
+        route: "/dashboard/admin/program-kerja",
       },
       {
         icon: (
@@ -107,7 +108,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Testimoni",
-        route: "/testimoni",
+        route: "/dashboard/admin/testimoni",
       },
       {
         icon: (
@@ -126,7 +127,7 @@ const menuGroups = [
           </svg>
         ),
         label: "FAQ",
-        route: "/faq",
+        route: "/dashboard/admin/faq",
       },
     ]
   },
@@ -150,7 +151,7 @@ const menuGroups = [
           </svg>
         ),
         label: "Informasi Beasiswa",
-        route: "/informasi-beasiswa",
+        route: "/dashboard/admin/informasi-beasiswa",
       },
       {
         icon: (
@@ -231,7 +232,7 @@ const menuGroups = [
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const pathname = usePathname();
-  // const [pageName, setPageName] = useLocalStorage("selectedMenu", "dashboard");
+  const [pageName, setPageName] = useLocalStorage("selectedMenu", "dashboard");
 
   return (
     
@@ -287,8 +288,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <SidebarItem
                       key={menuIndex}
                       item={menuItem}
-                      pageName={"dashboard"}
-                      setPageName={"dashboard"}
+                      pageName={pageName}
+                      setPageName={setPageName}
                     />
                   ))}
                 </ul>

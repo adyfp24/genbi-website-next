@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "lint": "next lint",
     "seed": "node prisma/seeders/index.ts"
   },
@@ -17,6 +17,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@prisma/client": "^6.1.0",
+    "@tinymce/tinymce-react": "^5.1.1",
     "animate.css": "^4.1.1",
     "bcrypt": "^5.1.1",
     "formidable": "^3.5.2",
@@ -29,6 +30,7 @@
     "react-apexcharts": "^1.7.0",
     "react-countup": "^6.5.3",
     "react-dom": "^18",
+    "react-intersection-observer": "^9.14.1",
     "react-loading-skeleton": "^3.5.0",
     "react-lottie-player": "^2.1.0",
     "react-social-icons": "^6.18.0",

@@ -34,7 +34,7 @@ export async function GET(req: NextRequest) {
             return NextResponse.json({
                 success: true,
                 message: "No blogs available.",
-                data: null,
+                data: [],
             }, { status: 200 });
         }
 

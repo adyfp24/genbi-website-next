@@ -12,12 +12,15 @@ import CountUp from 'react-countup';
 import BlogSection from '@/components/fragments/blog-section';
 import AnimationObserver from '@/components/layouts/animation-observer';
 import dynamic from 'next/dynamic';
+import LandingBlogSection from '@/components/fragments/landing-blog-section';
+import { useRouter } from 'next/navigation';
 const AnimationOnScroll = dynamic(
     () => import('react-animation-on-scroll').then(mod => mod.AnimationOnScroll),
     { ssr: false }
   );
 
 const LandingPage: React.FC = () => {
+    const router = useRouter();
     return (
         <div className='w-full'>
             <Navbar />
@@ -58,19 +61,19 @@ const LandingPage: React.FC = () => {
                         </svg>
                     </a>
                     <h1
-                        style={{ fontWeight: 450 }}
+                        style={{ fontWeight: 500 }}
                         className="text-start md:text-center mb-5 mt-5 mx-6 font-normal tracking-tight text-pr900 leading-none text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[86px]"
                     >
                         Jadilah bagian dari Generasi Baru <br /> Indonesia Jember!
                     </h1>
-                    <p className="text-justify mb-6 md:mb-10 text-base mx-6 md:mx-36 text-pr700 lg:text-xl font-normal sm:px-16 lg:px-50">
+                    <p className="text-justify md:text-center mb-6 md:mb-10 text-base mx-6 md:mx-36 text-pr700 lg:text-xl font-normal sm:px-16 lg:px-50">
                         Bersama GenBI Jember wujudkan mimpi dan kontribusi nyata untuk negeri. Ayo bergabung dengan komunitas mahasiswa inspiratif yang
                         siap membuat perubahan! Dukung indonesia lebih maju, mulai dari langkah kecilmu disini.
                     </p>
-                    <div className="mx-6 flex flex-col-reverse space-y-reverse space-y-2 md:flex-row md:justify-center">
+                    <div className="mx-6 flex flex-col-reverse space-y-reverse space-y-2 md:space-y-0 md:flex-row md:justify-center">
                         <a
                             href="#"
-                            className="inline-flex bg-white hover:bg-gray-200 justify-center items-center py-2 md:py-4 px-7 text-lg border border-gray-300 font-medium md:font-semibold text-center text-dark rounded-lg focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                            className="inline-flex bg-white hover:bg-gray-200 justify-center items-center py-2 md:py-4 px-7 text-lg border border-gray-300 font-medium md:font-semibold text-center text-gray-900 rounded-lg focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
                         >
                             <img className="w-5 mr-2" src="/images/icon/play-circle.png" alt="" />
                             Tonton Video
@@ -95,8 +98,8 @@ const LandingPage: React.FC = () => {
                 <div className='max-w-7xl flex flex-wrap items-center justify-between mx-auto px-5 md:px-12'>
                     <AnimationOnScroll animateIn='animate__fadeInLeft'>
                         <div className='w-full md:w-2/3'>
-                            <h2 className='text-pr900 text-4xl font-semibold mb-4 md:mr-24'>Kerja Sama Bank Indonesia dengan Perguruan Tinggi Negeri di Jember</h2>
-                            <p className='text-xl md:mr-20 text-left'>Kantor Perwakilan Bank Indonesia Jember bekerja sama dengan beberapa perguruan tinggi negeri
+                            <h2 className='text-pr900 text-4xl font-medium md:font-semibold mb-4 md:mr-24'>Kerja Sama Bank Indonesia dengan Perguruan Tinggi Negeri di Jember</h2>
+                            <p className='md:mr-20 text-left font-normal text-gray-600'>Kantor Perwakilan Bank Indonesia Jember bekerja sama dengan beberapa perguruan tinggi negeri
                                 untuk mendukung generasi muda melalui program Beasiswa Bank Indonesia. Dengan total 175 penerima dari Universitas Jember,
                                 Politeknik Negeri Jember, dan UIN KHAS Jember.
                             </p>
@@ -109,28 +112,37 @@ const LandingPage: React.FC = () => {
                                 <div className='p-4 border rounded-3xl w-full'>
                                     <img className='mb-3' src="/images/unej-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp enableScrollSpy={true} start={0} end={126} duration={2.0} />
+                                        <CountUp  start={0} end={75} duration={2.0} />
                                     </h2>
-                                    <h6 className='font-semibold'>Universitas Jember</h6>
-                                    <p>Jumlah penerima beasiswa Bank Indonesia</p>
+                                    <h6 className='font-semibold text-gray-900'>Universitas Jember</h6>
+                                    <p className='text-gray-600'>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
 
                                 <div className='p-4 border rounded-3xl'>
                                     <img className='mb-3' src="/images/polije-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp enableScrollSpy={true} start={0} end={110} duration={2.0} />
+                                        <CountUp  start={0} end={50} duration={2.0} />
                                     </h2>
-                                    <h6 className='font-semibold'>Politeknik Negeri Jember</h6>
-                                    <p>Jumlah penerima beasiswa Bank Indonesia</p>
+                                    <h6 className='font-semibold text-gray-600'>Politeknik Negeri Jember</h6>
+                                    <p className='text-gray-600'>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
 
                                 <div className='p-4 border rounded-3xl'>
                                     <img className='mb-3' src="/images/uin-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp enableScrollSpy={true} start={0} end={75} duration={2.0} />
+                                        <CountUp  start={0} end={75} duration={2.0} />
                                     </h2>
-                                    <h6 className='font-semibold'>UIN KHAS Jember</h6>
-                                    <p>Jumlah penerima beasiswa Bank Indonesia</p>
+                                    <h6 className='font-semibold text-gray-600'>UIN KHAS Jember</h6>
+                                    <p className='text-gray-600'>Jumlah penerima beasiswa Bank Indonesia</p>
+                                </div>
+
+                                <div className='p-4 border rounded-3xl'>
+                                    <img className='mb-3' src="/images/unmuh-logo.png" alt="" />
+                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>
+                                        <CountUp  start={0} end={50} duration={2.0} />
+                                    </h2>
+                                    <h6 className='font-semibold text-gray-600'>UNMUH Jember</h6>
+                                    <p className='text-gray-600'>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
                             </div>
                         </AnimationOnScroll>
@@ -148,9 +160,9 @@ const LandingPage: React.FC = () => {
             <section id='benefit-section' className='mt-22'>
                 <div className='max-w-7xl px-5 md:px-12 w-full h-full flex flex-col mx-auto mb-14 md:mb-28'>
                     <AnimationOnScroll animateIn='animate__fadeIn'>
-                        <div className='flex flex-col w-5/6 md:w-4/5 mx-auto items-center justify-center text-center'>
-                            <h4 className='font-semibold text-pr900 text-4xl mb-5'>Benefit yang akan kamu dapatkan jika menjadi penerima Beasiswa Bank Indonesia</h4>
-                            <p className='text-gray-700 text-xl'>Dapatkan banyak keuntungan saat menjadi bagian dari Generasi Baru Indonesia Jember.
+                        <div className='flex flex-col w-full md:w-4/5 mx-auto items-center justify-center text-center'>
+                            <h4 className='font-medium md:font-semibold text-pr900 text-4xl mb-5'>Benefit yang akan kamu dapatkan jika menjadi penerima Beasiswa Bank Indonesia</h4>
+                            <p className='text-gray-600 text-xl'>Dapatkan banyak keuntungan saat menjadi bagian dari Generasi Baru Indonesia Jember.
                                 Mulai dari bantuan pendidikan hingga pengembangan diri, semuanya disiapkan untuk mendukung masa depanmu.
                             </p>
                         </div>
@@ -159,17 +171,17 @@ const LandingPage: React.FC = () => {
                         <div className='flex flex-col md:flex-row w-full mt-12 md:mt-22 justify-between'>
                             <div className='w-full md:w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
                                 <img className='mb-5' src="/images/benefit-1.png" alt="" />
-                                <h6 className='font-semibold mb-2 text-lg'>Total Bantuan Biaya Pendidikan Dengan Total 24 Juta</h6>
+                                <h6 className='font-medium md:font-semibold mb-2 text-lg'>Bantuan Biaya Pendidikan Dengan Total 24 Juta</h6>
                                 <p className='text-gray-700'>Bantuan dana pendidikan sebesar 24 juta untuk mendukung perjalanan akademismu</p>
                             </div>
                             <div className='w-full md:w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
                                 <img className='mb-5' src="/images/benefit-2.png" alt="" />
-                                <h6 className='font-semibold mb-2 text-lg'>Menjadi Anggota Aktif Komunitas Generasi Baru Indonesia Jember</h6>
+                                <h6 className='font-medium md:font-semibold mb-2 text-lg'>Menjadi Anggota Aktif Komunitas Generasi Baru Indonesia Jember</h6>
                                 <p className='text-gray-700'>Tempat kamu berkolaborasi dan berbagi ide dengan sesama mahasiswa bervisi-misi besar</p>
                             </div>
                             <div className='w-full md:w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
                                 <img className='mb-5' src="/images/benefit-3.png" alt="" />
-                                <h6 className='font-semibold mb-2 text-lg'>Pembinaan Softskill dan Leadership bagi Seluruh Penerima Beasiswa</h6>
+                                <h6 className='font-medium md:font-semibold mb-2 text-lg'>Pembinaan Softskill dan Leadership bagi Seluruh Penerima Beasiswa</h6>
                                 <p className='text-gray-700'>Pelatihan softskill dan leadership yang dirancang khusus untuk penerima beasiswa</p>
                             </div>
                         </div>
@@ -180,7 +192,7 @@ const LandingPage: React.FC = () => {
             <section id="about-us-section">
                 <div className='max-w-7xl px-5 md:px-12 flex flex-col sm:flex-row mx-auto p-4 items-center mb-14 md:mb-28 justify-between'>
                     <div className='w-full md:w-1/2 md:pr-12 md:mb-12 md:pb-12'>
-                        <h4 className='mb-8 text-4xl font-semibold text-pr900'>Tentang Program Beasiswa Bank Indonesia - GenBI Jember</h4>
+                        <h4 className='mb-8 text-4xl font-medium md:font-semibold text-pr900'>Tentang Program Beasiswa Bank Indonesia - GenBI Jember</h4>
                         <p className='mb-8 text-xl text-gray-600'>Beasiswa Bank Indonesia adalah program dukungan pendidikan bagi mahasiswa berprestasi di seluruh Indonesia.
                             Selain bantuan finansial, penerima beasiswa juga mendapatkan pembinaan softskill dan leadership untuk mempersiapkan
                             mereka menjadi pemimpin masa depan yang mampu berkontribusi bagi negeri.
@@ -207,20 +219,20 @@ const LandingPage: React.FC = () => {
 
             <ProkerSection />
 
-            <div className=" mt-16">
+            <div className="mt-16">
                 {/* Header Section */}
-                <header className="p-4">
+                <header className="">
                     <div className="max-w-7xl px-5 md:px-12 mx-auto">
                         <div className="flex justify-between items-center">
                             <div className="text-blue-600 font-medium">Insight GenBI</div>
-                            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+                            <button onClick={() => router.push('/blog')} className="hidden md:block bg-blue-500 text-white px-4 py-2 rounded-lg">
                                 Lihat semua
                             </button>
                         </div>
 
-                        <div className="mt-8 flex justify-between items-end">
+                        <div className="mt-4 md:mt-8 flex justify-between items-end mb-6">
                             <div className='max-w-3xl'>
-                                <h1 className="text-4xl font-bold text-navy-900 mb-4">
+                                <h1 className="text-4xl font-medium md:font-semibold text-pr900 mb-4">
                                     Dapatkan informasi terbaru dari Generasi Baru Indonesia Jember
                                 </h1>
                                 <p className="text-gray-600">
@@ -232,7 +244,7 @@ const LandingPage: React.FC = () => {
                 </header>
 
                 {/* News Cards Section */}
-                <BlogSection />
+                <LandingBlogSection />
 
                 {/* FAQ Section */}
                 <FaqSection />

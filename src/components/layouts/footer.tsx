@@ -5,14 +5,14 @@ const Footer: React.FC = () => {
     <div className="relative w-full">
       {/* CTA Section */}
       <section
-        className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-pr800 py-14 text-white p-10 w-5/6 rounded-2xl shadow-lg"
+        className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-pr800 py-14 text-white p-6 md:p-10 w-5/6 rounded-2xl shadow-lg"
         style={{ zIndex: 10 }}
       >
         <div className="">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="w-full md:w-4/6 mb-4 md:mb-0">
               <h2 className="text-2xl font-medium mb-2">Siap Jadi Bagian dari GenBI Jember?</h2>
-              <p className="text-xl text-pr200 font-light mb-1">
+              <p className="text-lg text-pr200 font-light mb-1">
                 Jangan lewatkan kesempatan untuk bergabung mahasiswa inspiratif dan dapatkan beasiswa Bank Indonesia! Mulai perjalananmu bersama GenBI Jember!
               </p>
             </div>
