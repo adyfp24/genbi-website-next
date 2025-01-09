@@ -63,11 +63,11 @@ const LandingPage: React.FC = () => {
                     >
                         Jadilah bagian dari Generasi Baru <br /> Indonesia Jember!
                     </h1>
-                    <p className="text-justify mb-6 md:mb-10 text-base mx-6 md:mx-36 text-pr700 lg:text-xl font-normal sm:px-16 lg:px-50">
+                    <p className="text-justify md:text-center mb-6 md:mb-10 text-base mx-6 md:mx-36 text-pr700 lg:text-xl font-normal sm:px-16 lg:px-50">
                         Bersama GenBI Jember wujudkan mimpi dan kontribusi nyata untuk negeri. Ayo bergabung dengan komunitas mahasiswa inspiratif yang
                         siap membuat perubahan! Dukung indonesia lebih maju, mulai dari langkah kecilmu disini.
                     </p>
-                    <div className="mx-6 flex flex-col-reverse space-y-reverse space-y-2 md:flex-row md:justify-center">
+                    <div className="mx-6 flex flex-col-reverse space-y-reverse space-y-2 md:space-y-0 md:flex-row md:justify-center">
                         <a
                             href="#"
                             className="inline-flex bg-white hover:bg-gray-200 justify-center items-center py-2 md:py-4 px-7 text-lg border border-gray-300 font-medium md:font-semibold text-center text-dark rounded-lg focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
@@ -109,7 +109,7 @@ const LandingPage: React.FC = () => {
                                 <div className='p-4 border rounded-3xl w-full'>
                                     <img className='mb-3' src="/images/unej-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp enableScrollSpy={true} start={0} end={126} duration={2.0} />
+                                        <CountUp  start={0} end={126} duration={2.0} />
                                     </h2>
                                     <h6 className='font-semibold'>Universitas Jember</h6>
                                     <p>Jumlah penerima beasiswa Bank Indonesia</p>
@@ -118,7 +118,7 @@ const LandingPage: React.FC = () => {
                                 <div className='p-4 border rounded-3xl'>
                                     <img className='mb-3' src="/images/polije-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp enableScrollSpy={true} start={0} end={110} duration={2.0} />
+                                        <CountUp  start={0} end={110} duration={2.0} />
                                     </h2>
                                     <h6 className='font-semibold'>Politeknik Negeri Jember</h6>
                                     <p>Jumlah penerima beasiswa Bank Indonesia</p>
@@ -127,7 +127,7 @@ const LandingPage: React.FC = () => {
                                 <div className='p-4 border rounded-3xl'>
                                     <img className='mb-3' src="/images/uin-logo.png" alt="" />
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp enableScrollSpy={true} start={0} end={75} duration={2.0} />
+                                        <CountUp  start={0} end={75} duration={2.0} />
                                     </h2>
                                     <h6 className='font-semibold'>UIN KHAS Jember</h6>
                                     <p>Jumlah penerima beasiswa Bank Indonesia</p>
