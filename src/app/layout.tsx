@@ -25,9 +25,9 @@ export default function RootLayout({
         className={`${manrope.variable} antialiased`}
       >
         <AppProvider>
-          <Suspense fallback={<>Loading...</>}>
+          {/* <Suspense fallback={<>Loading...</>}> */}
             {children}
-          </Suspense>
+          {/* </Suspense> */}
         </AppProvider>
       </body>
     </html>
