@@ -19,7 +19,7 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        setIsScrolled(true); 
+        setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
@@ -27,14 +27,19 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
 
     window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll); 
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const handleScrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      const offsetTop = section.offsetTop;
+  
+      window.scrollTo({
+        top: offsetTop - 30, 
+        behavior: 'smooth',  
+      });
     }
   };
 
@@ -50,7 +55,7 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
         });
       },
       {
-        threshold: 0.5, 
+        threshold: 0.5,
       }
     );
 
@@ -68,21 +73,20 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
 
   const handleProgramKerjaClick = () => {
     if (currentPath !== '/') {
-      router.push('/'); 
+      router.push('/');
       setTimeout(() => {
-        handleScrollToSection('work-program-section'); 
+        handleScrollToSection('work-program-section');
       }, 100);
     } else {
-      handleScrollToSection('work-program-section'); 
+      handleScrollToSection('work-program-section');
     }
   };
 
   return (
     <div>
       <nav
-        className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-md' : bgColor
-        }`}
+        className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : bgColor
+          }`}
       >
         <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto px-6 md:px-12 p-4">
           <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse mr-10 md:hidden">
@@ -121,25 +125,22 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
             <ul className="flex bg-transparent flex-col text-dark text-lg font-medium md:p-0 mt-4 md:space-x-7 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
               <li
                 onClick={() => router.push('/')}
-                className={`block py-2 px-2 ${
-                  currentPath === '/'  && activeSection !== 'work-program-section' ? 'text-pr500' : 'text-pr900'
-                } md:dark:bg-transparent hover:cursor-pointer hover:text-pr500`}
+                className={`block py-2 px-2 ${currentPath === '/' && activeSection !== 'work-program-section' ? 'text-pr500' : 'text-pr900'
+                  } md:dark:bg-transparent hover:cursor-pointer hover:text-pr500`}
               >
                 Beranda
               </li>
               <li
                 onClick={() => router.push('/informasi')}
-                className={`block py-2 px-2 ${
-                  currentPath === '/informasi' ? 'text-pr500' : 'text-pr900'
-                } md:dark:bg-transparent hover:cursor-pointer hover:text-pr500`}
+                className={`block py-2 px-2 ${currentPath === '/informasi' ? 'text-pr500' : 'text-pr900'
+                  } md:dark:bg-transparent hover:cursor-pointer hover:text-pr500`}
               >
                 Informasi Beasiswa
               </li>
               <li
                 onClick={() => router.push('/about')}
-                className={`block py-2 px-2 ${
-                  currentPath === '/about' ? 'text-pr500' : 'text-pr900'
-                } md:dark:bg-transparent hover:cursor-pointer hover:text-pr500`}
+                className={`block py-2 px-2 ${currentPath === '/about' ? 'text-pr500' : 'text-pr900'
+                  } md:dark:bg-transparent hover:cursor-pointer hover:text-pr500`}
               >
                 Tentang
               </li>
@@ -151,9 +152,8 @@ const Navbar: React.FC<{ bgColor?: string }> = ({ bgColor = "bg-pr50" }) => {
               </li>
               <li
                 onClick={() => router.push('/blog')}
-                className={`block py-2 px-2 ${
-                  currentPath === '/blog' ? 'text-pr500' : 'text-pr900'
-                } md:dark:bg-transparent hover:cursor-pointer hover:text-pr500`}
+                className={`block py-2 px-2 ${currentPath === '/blog' ? 'text-pr500' : 'text-pr900'
+                  } md:dark:bg-transparent hover:cursor-pointer hover:text-pr500`}
               >
                 Artikel
               </li>
