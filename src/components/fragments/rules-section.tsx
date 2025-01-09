@@ -34,7 +34,7 @@ const RulesSection: React.FC = () => {
     return (
         <section id="syarat-penerimaan" className="w-full bg-gray-100 py-20">
             <div className="max-w-7xl px-5 md:px-12 flex flex-col mx-auto">
-                <h3 className="text-4xl fomt-medium md:font-semibold text-pr900 mb-5">Cek Syarat Beasiswa Sesuai Kampusmu!</h3>
+                <h3 className="text-4xl font-medium md:font-semibold text-pr900 mb-5">Cek Syarat Beasiswa Sesuai Kampusmu!</h3>
                 <p className="w-full md:w-2/3 text-gray-600 text-xl mb-10">
                     Setiap perguruan tinggi memiliki persyaratan khusus untuk Beasiswa Bank Indonesia. Pilih universitas atau institusimu dan temukan syarat lengkapnya, agar kamu siap mendaftar dan meraih kesempatan ini.
                 </p>
@@ -49,8 +49,8 @@ const RulesSection: React.FC = () => {
                                 }`}
                             >
                                 <img className="w-12 mb-4" src={university.logo} alt={`${university.name} logo`} />
-                                <h4 className="mb-2 text-2xl font-semibold">{university.name}</h4>
-                                <p className="mb-4 text-gray-800">{university.description}</p>
+                                <h4 className="mb-2 text-2xl font-medium">{university.name}</h4>
+                                <p className="mb-4 text-gray-600">{university.description}</p>
                                 <a
                                     href="#"
                                     className="inline-flex text-lg font-medium text-pr700 focus:outline-none rounded-lg focus:z-10"
