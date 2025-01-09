@@ -12,12 +12,15 @@ import CountUp from 'react-countup';
 import BlogSection from '@/components/fragments/blog-section';
 import AnimationObserver from '@/components/layouts/animation-observer';
 import dynamic from 'next/dynamic';
+import LandingBlogSection from '@/components/fragments/landing-blog-section';
+import { useRouter } from 'next/navigation';
 const AnimationOnScroll = dynamic(
     () => import('react-animation-on-scroll').then(mod => mod.AnimationOnScroll),
     { ssr: false }
   );
 
 const LandingPage: React.FC = () => {
+    const router = useRouter();
     return (
         <div className='w-full'>
             <Navbar />
@@ -222,7 +225,7 @@ const LandingPage: React.FC = () => {
                     <div className="max-w-7xl px-5 md:px-12 mx-auto">
                         <div className="flex justify-between items-center">
                             <div className="text-blue-600 font-medium">Insight GenBI</div>
-                            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+                            <button onClick={() => router.push('/blog')} className="hidden md:block bg-blue-500 text-white px-4 py-2 rounded-lg">
                                 Lihat semua
                             </button>
                         </div>
@@ -241,7 +244,7 @@ const LandingPage: React.FC = () => {
                 </header>
 
                 {/* News Cards Section */}
-                <BlogSection />
+                <LandingBlogSection />
 
                 {/* FAQ Section */}
                 <FaqSection />
