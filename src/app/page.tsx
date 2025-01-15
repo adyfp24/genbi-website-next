@@ -114,7 +114,7 @@ const LandingPage: React.FC = () => {
                                     <h2 className='text-5xl mb-3 font-bold text-pr500'>
                                         <CountUp  start={0} end={75} duration={2.0} />
                                     </h2>
-                                    <h6 className='font-semibold text-gray-900'>Universitas Jember</h6>
+                                    <h6 className='font-semibold text-gray-600'>Universitas Jember</h6>
                                     <p className='text-gray-600'>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
 
