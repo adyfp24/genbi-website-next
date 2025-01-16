@@ -2,6 +2,7 @@ import { useBlog } from '@/context/blogContext'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import Spinner from '../elements/spinner'
+import 'animate.css'
 import { parseDate } from '@/lib/helper'
 
 const LandingBlogSection = () => {

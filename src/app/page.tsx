@@ -2,8 +2,7 @@
 import ProkerSection from '@/components/fragments/proker-section';
 import Footer from '@/components/layouts/footer';
 import Navbar from '@/components/layouts/navbar';
-import React from 'react'
-import 'animate.css'
+import React, { useState } from 'react'
 import lootieFile from '../../public/lootie/Ease-In-Animation-About-GenBI.json';
 import LootieAnimation from '@/components/fragments/lootie-animation';
 import TestimonialSection from '@/components/fragments/testimonial-section';
@@ -17,10 +16,11 @@ import { useRouter } from 'next/navigation';
 const AnimationOnScroll = dynamic(
     () => import('react-animation-on-scroll').then(mod => mod.AnimationOnScroll),
     { ssr: false }
-  );
+);
 
 const LandingPage: React.FC = () => {
     const router = useRouter();
+
     return (
         <div className='w-full'>
             <Navbar />
@@ -107,39 +107,39 @@ const LandingPage: React.FC = () => {
                     </AnimationOnScroll>
                     <div className='flex flex-col md:flex-row w-full justify-between mt-12 md:mt-20'>
                         <AnimationOnScroll animateIn='animate__fadeIn' className='w-full md:w-1/2 mb-12 md:mb-0'>
-                            <div className='grid md:grid-cols-2 grid-cols-1 gap-2'>
+                            <div className='grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-y-8'>
 
-                                <div className='p-4 border rounded-3xl w-full'>
-                                    <img className='mb-3' src="/images/unej-logo.png" alt="" />
-                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp  start={0} end={75} duration={2.0} />
+                                <div className='p-4 rounded-3xl w-full hover:shadow-md'>
+                                    <img className='mb-3 w-15 h-auto' src="/images/unej-logo.png" alt="" />
+                                    <h2 className='text-5xl md:text-7xl mb-3 font-semibold text-pr500'>
+                                        <CountUp start={0} end={75} duration={2.0} />
                                     </h2>
                                     <h6 className='font-semibold text-gray-600'>Universitas Jember</h6>
                                     <p className='text-gray-600'>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
 
-                                <div className='p-4 border rounded-3xl'>
-                                    <img className='mb-3' src="/images/polije-logo.png" alt="" />
-                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp  start={0} end={50} duration={2.0} />
+                                <div className='p-4 hover:shadow-md rounded-3xl'>
+                                    <img className='mb-3 w-15 h-auto' src="/images/polije-logo.png" alt="" />
+                                    <h2 className='text-5xl md:text-7xl mb-3 font-semibold text-pr500'>
+                                        <CountUp start={0} end={50} duration={2.0} />
                                     </h2>
                                     <h6 className='font-semibold text-gray-600'>Politeknik Negeri Jember</h6>
                                     <p className='text-gray-600'>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
 
-                                <div className='p-4 border rounded-3xl'>
-                                    <img className='mb-3' src="/images/uin-logo.png" alt="" />
-                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp  start={0} end={75} duration={2.0} />
+                                <div className='p-4 hover:shadow-md rounded-3xl'>
+                                    <img className='mb-3 w-15 h-auto' src="/images/uin-logo.png" alt="" />
+                                    <h2 className='text-5xl md:text-7xl mb-3 font-semibold text-pr500'>
+                                        <CountUp start={0} end={75} duration={2.0} />
                                     </h2>
                                     <h6 className='font-semibold text-gray-600'>UIN KHAS Jember</h6>
                                     <p className='text-gray-600'>Jumlah penerima beasiswa Bank Indonesia</p>
                                 </div>
 
-                                <div className='p-4 border rounded-3xl'>
-                                    <img className='mb-3' src="/images/unmuh-logo.png" alt="" />
-                                    <h2 className='text-5xl mb-3 font-bold text-pr500'>
-                                        <CountUp  start={0} end={50} duration={2.0} />
+                                <div className='p-4 hover:shadow-md rounded-3xl'>
+                                    <img className='mb-3 w-15 h-auto' src="/images/unmuh-logo.png" alt="" />
+                                    <h2 className='text-5xl md:text-7xl mb-3 font-semibold text-pr500'>
+                                        <CountUp start={0} end={50} duration={2.0} />
                                     </h2>
                                     <h6 className='font-semibold text-gray-600'>UNMUH Jember</h6>
                                     <p className='text-gray-600'>Jumlah penerima beasiswa Bank Indonesia</p>
@@ -169,17 +169,17 @@ const LandingPage: React.FC = () => {
                     </AnimationOnScroll>
                     <AnimationOnScroll animateIn='animate__fadeInUp' >
                         <div className='flex flex-col md:flex-row w-full mt-12 md:mt-22 justify-between'>
-                            <div className='w-full md:w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
+                            <div className='hover:shadow-md w-full md:w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
                                 <img className='mb-5' src="/images/benefit-1.png" alt="" />
                                 <h6 className='font-medium md:font-semibold mb-2 text-lg'>Bantuan Biaya Pendidikan Dengan Total 24 Juta</h6>
                                 <p className='text-gray-700'>Bantuan dana pendidikan sebesar 24 juta untuk mendukung perjalanan akademismu</p>
                             </div>
-                            <div className='w-full md:w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
+                            <div className='hover:shadow-md w-full md:w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
                                 <img className='mb-5' src="/images/benefit-2.png" alt="" />
                                 <h6 className='font-medium md:font-semibold mb-2 text-lg'>Menjadi Anggota Aktif Komunitas Generasi Baru Indonesia Jember</h6>
                                 <p className='text-gray-700'>Tempat kamu berkolaborasi dan berbagi ide dengan sesama mahasiswa bervisi-misi besar</p>
                             </div>
-                            <div className='w-full md:w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
+                            <div className='hover:shadow-md w-full md:w-1/3 p-6 rounded-xl flex flex-col items-center justify-center text-center'>
                                 <img className='mb-5' src="/images/benefit-3.png" alt="" />
                                 <h6 className='font-medium md:font-semibold mb-2 text-lg'>Pembinaan Softskill dan Leadership bagi Seluruh Penerima Beasiswa</h6>
                                 <p className='text-gray-700'>Pelatihan softskill dan leadership yang dirancang khusus untuk penerima beasiswa</p>
@@ -191,18 +191,20 @@ const LandingPage: React.FC = () => {
 
             <section id="about-us-section">
                 <div className='max-w-7xl px-5 md:px-12 flex flex-col sm:flex-row mx-auto p-4 items-center mb-14 md:mb-28 justify-between'>
-                    <div className='w-full md:w-1/2 md:pr-12 md:mb-12 md:pb-12'>
-                        <h4 className='mb-8 text-4xl font-medium md:font-semibold text-pr900'>Tentang Program Beasiswa Bank Indonesia - GenBI Jember</h4>
-                        <p className='mb-8 text-xl text-gray-600'>Beasiswa Bank Indonesia adalah program dukungan pendidikan bagi mahasiswa berprestasi di seluruh Indonesia.
-                            Selain bantuan finansial, penerima beasiswa juga mendapatkan pembinaan softskill dan leadership untuk mempersiapkan
-                            mereka menjadi pemimpin masa depan yang mampu berkontribusi bagi negeri.
-                        </p>
-                        <button className='bg-pr600 text-white py-2 px-4 rounded-lg font-semibold w-full md:w-1/3'>Selengkapnya</button>
-                    </div>
+                    <AnimationOnScroll animateIn='animate__fadeInLeft'>
+                        <div className='w-full md:w-1/2 md:pr-12 md:mb-12 md:pb-12'>
+                            <h4 className='mb-8 text-4xl font-medium md:font-semibold text-pr900'>Tentang Program Beasiswa Bank Indonesia - GenBI Jember</h4>
+                            <p className='mb-8 text-xl text-gray-600'>Beasiswa Bank Indonesia adalah program dukungan pendidikan bagi mahasiswa berprestasi di seluruh Indonesia.
+                                Selain bantuan finansial, penerima beasiswa juga mendapatkan pembinaan softskill dan leadership untuk mempersiapkan
+                                mereka menjadi pemimpin masa depan yang mampu berkontribusi bagi negeri.
+                            </p>
+                            <button className='bg-pr600 text-white py-2 px-4 rounded-lg font-semibold w-full md:w-1/3'>Selengkapnya</button>
+                        </div>
+                    </AnimationOnScroll>
                     <div className='h-10'>
 
                     </div>
-                    <div className='md:w-[600px] w-[300px] flex md:justify-end md:mt-8 md:pt-8'>
+                    <div className=' flex md:justify-end md:mt-8 md:pt-8'>
                         <AnimationObserver threshold={0.5}>
                             <LootieAnimation
                                 animationData={lootieFile}
@@ -218,33 +220,34 @@ const LandingPage: React.FC = () => {
             </section>
 
             <ProkerSection />
-
             <div className="mt-16">
-                {/* Header Section */}
-                <header className="">
-                    <div className="max-w-7xl px-5 md:px-12 mx-auto">
-                        <div className="flex justify-between items-center">
-                            <div className="text-blue-600 font-medium">Insight GenBI</div>
-                            <button onClick={() => router.push('/blog')} className="hidden md:block bg-blue-500 text-white px-4 py-2 rounded-lg">
-                                Lihat semua
-                            </button>
-                        </div>
+                <AnimationOnScroll animateIn='animate__fadeIn'>
+                    {/* Header Section */}
+                    <header className="">
+                        <div className="max-w-7xl px-5 md:px-12 mx-auto">
+                            <div className="flex justify-between items-center">
+                                <div className="text-blue-600 font-medium">Insight GenBI</div>
+                                <button onClick={() => router.push('/blog')} className="hidden md:block bg-blue-500 text-white px-4 py-2 rounded-lg">
+                                    Lihat semua
+                                </button>
+                            </div>
 
-                        <div className="mt-4 md:mt-8 flex justify-between items-end mb-6">
-                            <div className='max-w-3xl'>
-                                <h1 className="text-4xl font-medium md:font-semibold text-pr900 mb-4">
-                                    Dapatkan informasi terbaru dari Generasi Baru Indonesia Jember
-                                </h1>
-                                <p className="text-gray-600">
-                                    Ikuti kabar terbaru dari kegiatan dan program kerja GenBI Jember. Dari pelatihan hingga aksi sosial, temukan cerita inspiratif dan update penting yang tidak boleh kamu lewatkan.
-                                </p>
+                            <div className="mt-4 md:mt-8 flex justify-between items-end mb-6">
+                                <div className='max-w-3xl'>
+                                    <h1 className="text-4xl font-medium md:font-semibold text-pr900 mb-4">
+                                        Dapatkan informasi terbaru dari Generasi Baru Indonesia Jember
+                                    </h1>
+                                    <p className="text-gray-600">
+                                        Ikuti kabar terbaru dari kegiatan dan program kerja GenBI Jember. Dari pelatihan hingga aksi sosial, temukan cerita inspiratif dan update penting yang tidak boleh kamu lewatkan.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </header>
+                    </header>
+                    {/* News Cards Section */}
+                    <LandingBlogSection />
+                </AnimationOnScroll>
 
-                {/* News Cards Section */}
-                <LandingBlogSection />
 
                 {/* FAQ Section */}
                 <FaqSection />
