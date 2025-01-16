@@ -1,36 +1,37 @@
 import React, { useState } from 'react';
 import { useTestimoni } from '@/context/testimoniContext';
-import styles from '../../css/testimoni.module.css'; 
+import styles from '../../css/testimoni.module.css';
 import Spinner from '../elements/spinner';
 
 const TestimonialSection: React.FC = () => {
   const { loading, error, testimonies } = useTestimoni();
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState<'left' | 'right' | ''>('');
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const handleLeftArrowClick = () => {
     setSlideDirection('left');
     setTimeout(() => {
-      setCurrentTestimonialIndex((prevIndex) => 
+      setCurrentTestimonialIndex((prevIndex) =>
         prevIndex === 0 ? testimonies.length - 1 : prevIndex - 1
       );
       setSlideDirection('');
-    }, 300); 
+    }, 300);
   };
 
   const handleRightArrowClick = () => {
     setSlideDirection('right');
     setTimeout(() => {
-      setCurrentTestimonialIndex((prevIndex) => 
+      setCurrentTestimonialIndex((prevIndex) =>
         prevIndex === testimonies.length - 1 ? 0 : prevIndex + 1
       );
       setSlideDirection('');
-    }, 200); 
+    }, 200);
   };
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center" style={{ height: '500px' }}> 
+      <div className="flex justify-center items-center" style={{ height: '500px' }}>
         <Spinner />
       </div>
     );
@@ -38,7 +39,7 @@ const TestimonialSection: React.FC = () => {
   if (error) return <p>Error loading testimonials.</p>;
   if (!testimonies || testimonies.length === 0) {
     return (
-      <div className="flex justify-center items-center" style={{ height: '500px' }}> 
+      <div className="flex justify-center items-center" style={{ height: '500px' }}>
         No testimonial data available
       </div>
     );
@@ -60,8 +61,7 @@ const TestimonialSection: React.FC = () => {
             <div className="flex mt-4 md:mt-6">
               <img
                 className="w-12 h-auto mr-6"
-                // src={currentTestimonial?.InstansiPenerima?.instansiImg || '/images/default-institute.png'}
-                src='/images/unej-logo.png'
+                src={currentTestimonial?.InstansiPenerima?.instansiImg}
                 alt="Institute"
               />
               <div>
@@ -94,9 +94,48 @@ const TestimonialSection: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="w-full md:w-2/5">
-            <img className="w-full rounded-r-3xl" src="/images/testi-image.png" alt="Testimonial image" />
+          <div className="w-full relative md:w-2/5">
+            {!isPlaying ? (
+              <div
+                className="relative w-full h-0 pb-[56.25%] md:pb-0 md:h-full rounded-none md:rounded-r-3xl overflow-hidden cursor-pointer"
+                onClick={() => setIsPlaying(true)}
+              >
+                {/* Thumbnail */}
+                <img
+                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  src="https://img.youtube.com/vi/-_1J4Ii-yUU/hqdefault.jpg"
+                  alt="YouTube Thumbnail"
+                />
+
+                {/* Overlay with play button */}
+                <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="64"
+                    height="64"
+                    fill="white"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M3 22v-20l18 10-18 10z" />
+                  </svg>
+                </div>
+              </div>
+            ) : (
+              <div className="relative w-full h-0 pb-[56.25%] md:pb-0 md:h-full rounded-none md:rounded-r-3xl overflow-hidden">
+                {/* YouTube Embed */}
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/-_1J4Ii-yUU?autoplay=1&mute=0"
+                  title="YouTube video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            )}
           </div>
+
+
         </div>
       </div>
     </section>
