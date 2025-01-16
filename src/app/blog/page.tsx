@@ -6,6 +6,7 @@ import Navbar from '@/components/layouts/navbar'
 import { useBlog } from '@/context/blogContext'
 import { useRouter } from 'next/navigation'
 import { parseDate } from '@/lib/helper'
+import { MdArrowBackIosNew } from "react-icons/md";
 import React from 'react'
 
 const BlogPage = () => {
@@ -25,7 +26,7 @@ const BlogPage = () => {
             </section>
 
             <section id='blog-highlight' className='md:mt-6'>
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row p-5">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row px-5 md:px-12">
                     {highlightedBlogs.length > 0 ? (
                         <>
                             <div
@@ -44,7 +45,7 @@ const BlogPage = () => {
                                     <h3 className="text-lg font-medium md:font-semibold mb-2">
                                         {highlightedBlogs[0]?.title || "No Title"}
                                     </h3>
-                                    <h3 className="text-base font-thin mb-2">
+                                    <h3 className="text-base font-thin mb-2 line-clamp-3">
                                         {highlightedBlogs[0]?.caption || "No Caption"}
                                     </h3>
                                 </div>
@@ -72,7 +73,7 @@ const BlogPage = () => {
                                                 <h3 className="text-base font-semibold mb-2">
                                                     {blog.title || "No Title"}
                                                 </h3>
-                                                <h3 className="text-base font-thin mb-2">
+                                                <h3 className="text-base font-thin mb-2 line-clamp-3">
                                                     {blog.caption || "No Caption"}
                                                 </h3>
                                             </div>
@@ -89,7 +90,7 @@ const BlogPage = () => {
 
 
             <section id='blog-list'>
-                <div className="max-w-7xl mx-auto p-5">
+                <div className="max-w-7xl mx-auto py-5 px-5 md:px-12">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-5 md:mb-10">
                         {blogsData.map((blog) => (
                             <div onClick={() => { router.push('/blog/' + blog.slug) }} key={blog.id} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
@@ -105,10 +106,10 @@ const BlogPage = () => {
                                             {parseDate(blog.createdAt)}
                                         </h6>
                                     </div>
-                                    <h3 className="text-lg font-semibold mb-2">
+                                    <h3 className="text-base font-semibold mb-2">
                                         {blog.title}
                                     </h3>
-                                    <h3 className="text-lg font-thin mb-2">
+                                    <h3 className="text-base font-thin mb-2 line-clamp-3">
                                         {blog.caption}
                                     </h3>
                                     <div className="flex flex-wrap gap-2 mt-4">
@@ -130,15 +131,13 @@ const BlogPage = () => {
 
             <section id='pagination' className='pb-70 md:pb-40'>
                 <div className="flex flex-col items-center">
-                    <span className="text-sm text-gray-700 dark:text-gray-400">
-                        <span className="font-semibold text-gray-900 dark:text-white">1</span> dari <span className="font-semibold text-gray-900 dark:text-white">10</span> 
-                    </span>
-                    <div className="inline-flex space-x-2 mt-2 xs:mt-0">
+                    <div className="inline-flex items-center space-x-4 mt-2 xs:mt-0">
                         <button className="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <svg className="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 5H1m0 0 4 4M1 5l4-4" />
-                            </svg>
+                            <MdArrowBackIosNew />
                         </button>
+                        <span className="text-sm text-gray-700 dark:text-gray-400">
+                            <span className="font-semibold text-gray-900 dark:text-white">1</span> dari <span className="font-semibold text-gray-900 dark:text-white">10</span>
+                        </span>
                         <button className="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 border-0 border-s border-gray-700 rounded-e hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                             <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />

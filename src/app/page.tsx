@@ -72,14 +72,17 @@ const LandingPage: React.FC = () => {
                     </p>
                     <div className="mx-6 flex flex-col-reverse space-y-reverse space-y-2 md:space-y-0 md:flex-row md:justify-center">
                         <a
-                            href="#"
+                            href="https://www.youtube.com/@genbijember3198/videos"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-flex bg-white hover:bg-gray-200 justify-center items-center py-2 md:py-4 px-7 text-lg border border-gray-300 font-medium md:font-semibold text-center text-gray-900 rounded-lg focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
                         >
                             <img className="w-5 mr-2" src="/images/icon/play-circle.png" alt="" />
                             Tonton Video
                         </a>
                         <a
-                            href="#"
+                            onClick={() => router.push('/about')}
+                            href=""
                             className="text-center justify-center inline-flex text-lg py-2 md:py-4 px-7 sm:ms-4 font-medium md:font-semibold text-white focus:outline-none bg-pr500 rounded-lg border border-gray-200 hover:bg-pr700 hover:text-white focus:z-10 dark:hover:bg-gray-70"
                         >
                             Tentang GenBI

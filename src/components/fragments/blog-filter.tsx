@@ -11,7 +11,7 @@ const BlogFilter: React.FC = () => {
 
     return (
         <>
-            <div className='font-thin text-gray-600 flex mx-auto max-w-7xl p-5 space-x-2'>
+            <div className='font-thin text-gray-600 flex mx-auto max-w-7xl py-5 px-5 md:px-12 space-x-2'>
                 <div className='md:w-5/6 w-1/3 flex flex-col md:flex-row'>
                     <div className='relative flex flex-col w-full md:w-1/3'>
                         {/* Dropdown button */}

@@ -14,7 +14,7 @@ const RelatedBlog: React.FC<{ blogKategoriId: string }> = ({ blogKategoriId }) =
 
     return (
         <>
-            <div className='flex md:flex-row flex-col mx-auto max-w-7xl p-5 justify-between'>
+            <div className='flex md:flex-row flex-col mx-auto max-w-7xl px-5 py-5 md:px-12 justify-between'>
                 <div className='w-full md:w-1/3 mb-5'>
                     <h3 className='text-3xl md:text-4xl font-semibold text-pr900 mb-2'>Artikel terkait buatmu</h3>
                     <h6 className='text-=gray-600 mb-5 text-lg font-light'>Bacaan seru cuma buat kamu.</h6>

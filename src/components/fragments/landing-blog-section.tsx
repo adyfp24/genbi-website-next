@@ -63,7 +63,7 @@ const LandingBlogSection = () => {
                                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
                                         {blogs[latestBlogIndex].title}
                                     </h3>
-                                    <h3 className="text-lg font-thin mb-2">
+                                    <h3 className="text-lg font-thin mb-2 line-clamp-3">
                                         {blogs[latestBlogIndex].caption}
                                     </h3>
                                     <div className="flex flex-wrap gap-2 mt-4">
