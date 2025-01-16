@@ -130,7 +130,7 @@ const LandingPage: React.FC = () => {
                                 <div className='p-4 hover:shadow-md rounded-3xl'>
                                     <img className='mb-3 w-15 h-auto' src="/images/uin-logo.png" alt="" />
                                     <h2 className='text-5xl md:text-7xl mb-3 font-semibold text-pr500'>
-                                        <CountUp start={0} end={75} duration={2.0} />
+                                        <CountUp start={0} end={50} duration={2.0} />
                                     </h2>
                                     <h6 className='font-semibold text-gray-600'>UIN KHAS Jember</h6>
                                     <p className='text-gray-600'>Jumlah penerima beasiswa Bank Indonesia</p>

@@ -86,7 +86,7 @@ const LandingBlogSection = () => {
                             <button onClick={handlePrevButton}>
                                 <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="-0.954545" y="0.954545" width="33.0909" height="33.0909" rx="16.5455" transform="matrix(-1 0 0 1 33.0909 0)" fill="white" />
-                                    <rect x="-0.954545" y="0.954545" width="33.0909" height="33.0909" rx="16.5455" transform="matrix(-1 0 0 1 33.0909 0)" stroke={`${disablePrevButton ? '#9DC1FF' : '#11336B'}`} stroke-width="1.90909" />
+                                    <rect x="-0.954545" y="0.954545" width="33.0909" height="33.0909" rx="16.5455" transform="matrix(-1 0 0 1 33.0909 0)" stroke={`${disablePrevButton ? '#9DC1FF' : '#11336B'}`} strokeWidth="1.90909" />
                                     <mask id="mask0_3216_14778" mask-type="alpha" maskUnits="userSpaceOnUse" x="7" y="7" width="21" height="21">
                                         <rect width="20.5454" height="20.5454" transform="matrix(-1 0 0 1 28 7)" fill="#D9D9D9" />
                                     </mask>
@@ -98,7 +98,7 @@ const LandingBlogSection = () => {
                             <button onClick={handleNextButton}>
                                 <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="0.954545" y="0.954545" width="33.0909" height="33.0909" rx="16.5455" fill="white" />
-                                    <rect x="0.954545" y="0.954545" width="33.0909" height="33.0909" rx="16.5455" stroke={`${disableNextButton ? '#9DC1FF' : '#11336B'}`} stroke-width="1.90909" />
+                                    <rect x="0.954545" y="0.954545" width="33.0909" height="33.0909" rx="16.5455" stroke={`${disableNextButton ? '#9DC1FF' : '#11336B'}`} strokeWidth="1.90909" />
                                     <mask id="mask0_3216_14782" mask-type="alpha" maskUnits="userSpaceOnUse" x="7" y="6" width="22" height="22">
                                         <rect x="7.54297" y="6.90686" width="20.55" height="20.55" fill="#D9D9D9" />
                                     </mask>

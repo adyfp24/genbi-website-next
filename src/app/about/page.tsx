@@ -63,7 +63,7 @@ const AboutPage: React.FC = () => {
                 <button onClick={handlePrevButton}>
                   <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="-0.954545" y="0.954545" width="33.0909" height="33.0909" rx="16.5455" transform="matrix(-1 0 0 1 33.0909 0)" fill="white" />
-                    <rect x="-0.954545" y="0.954545" width="33.0909" height="33.0909" rx="16.5455" transform="matrix(-1 0 0 1 33.0909 0)" stroke={`${disablePrevButton ? '#9DC1FF' : '#11336B'}`} stroke-width="1.90909" />
+                    <rect x="-0.954545" y="0.954545" width="33.0909" height="33.0909" rx="16.5455" transform="matrix(-1 0 0 1 33.0909 0)" stroke={`${disablePrevButton ? '#9DC1FF' : '#11336B'}`} strokeWidth="1.90909" />
                     <mask id="mask0_3216_14778" mask-type="alpha" maskUnits="userSpaceOnUse" x="7" y="7" width="21" height="21">
                       <rect width="20.5454" height="20.5454" transform="matrix(-1 0 0 1 28 7)" fill="#D9D9D9" />
                     </mask>
@@ -75,7 +75,7 @@ const AboutPage: React.FC = () => {
                 <button onClick={handleNextButton}>
                   <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.954545" y="0.954545" width="33.0909" height="33.0909" rx="16.5455" fill="white" />
-                    <rect x="0.954545" y="0.954545" width="33.0909" height="33.0909" rx="16.5455" stroke={`${disableNextButton ? '#9DC1FF' : '#11336B'}`} stroke-width="1.90909" />
+                    <rect x="0.954545" y="0.954545" width="33.0909" height="33.0909" rx="16.5455" stroke={`${disableNextButton ? '#9DC1FF' : '#11336B'}`} strokeWidth="1.90909" />
                     <mask id="mask0_3216_14782" mask-type="alpha" maskUnits="userSpaceOnUse" x="7" y="6" width="22" height="22">
                       <rect x="7.54297" y="6.90686" width="20.55" height="20.55" fill="#D9D9D9" />
                     </mask>
@@ -94,7 +94,7 @@ const AboutPage: React.FC = () => {
 
       <section id="visi-section" className="mb-8 bg-pr50">
         <h2 className="md:hidden block text-2xl md:text-3xl font-semibold text-pr900 text-center pt-8">Visi Misi GenBI</h2>
-        <div className="max-w-7xl flex md:flex-row flex-col-reverse md:space-y-8 mx-auto py-6 md:py-14 px-5">
+        <div className="max-w-7xl flex md:flex-row flex-col-reverse md:space-y-8 mx-auto py-6 md:py-14 px-5 md:px-12">
           <div className="w-full md:w-2/3 flex flex-col items-star justify-center space-y-3 pt-5 md:pt-0 md:pr-8">
             <h2 className="hidden md:block text-2xl md:text-3xl font-semibold text-pr900 md:mb-6">Visi Misi GenBI</h2>
             <h6 className="text-lg md:text-xl text-pr900 font-semibold md:mb-6">Visi</h6>
@@ -152,15 +152,15 @@ const AboutPage: React.FC = () => {
         <div className="text-white flex flex-col md:flex-row justify-center items-center px-5 max-w-6xl mx-auto">
           <div className="w-full sm:w-1/3 flex flex-col justify-center items-center mx-6 mb-6 sm:mb-0">
             <img className="w-12 mb-2" src="/images/icon/school.png" alt="" />
-            <h4 className="mb-4 text-6xl font-bold">3</h4>
+            <h4 className="mb-4 text-6xl font-bold">4</h4>
             <h4 className="mb-4 text-3xl font-semibold">Komisariat</h4>
-            <p className="text-center font-thin">GenBI Jember memiliki 3 komisariat dari Perguruan Tinggi Negeri yang ada di Jember</p>
+            <p className="text-center font-thin">GenBI Jember memiliki 4 komisariat dari Perguruan Tinggi Negeri yang ada di Jember</p>
           </div>
           <div className="w-full sm:w-1/3 flex flex-col justify-center items-center mx-6 mb-6 sm:mb-0">
             <img className="w-12 mb-2" src="/images/icon/group.png" alt="" />
-            <h4 className="mb-4 text-6xl font-bold">175</h4>
+            <h4 className="mb-4 text-6xl font-bold">225</h4>
             <h4 className="mb-4 text-3xl font-semibold">Anggota</h4>
-            <p className="text-center font-thin">GenBI Jember memiliki 175 anggota dari 3 Perguruan Tinggi Negeri yang ada di Jember</p>
+            <p className="text-center font-thin">GenBI Jember memiliki 225 anggota dari 4 Perguruan Tinggi Negeri yang ada di Jember</p>
           </div>
           <div className="w-full sm:w-1/3 flex flex-col justify-center items-center mx-6">
             <img className="w-12 mb-2" src="/images/icon/hub.png" alt="" />

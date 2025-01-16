@@ -15,6 +15,7 @@ const RulesSection: React.FC = () => {
                 '/images/persyaratan/unej/slide2.png',
                 '/images/persyaratan/unej/slide3.png',
             ],
+            url: 'https://www.instagram.com/genbi_jember'
         },
         {
             id: 'polije',
@@ -26,6 +27,7 @@ const RulesSection: React.FC = () => {
                 '/images/persyaratan/polije/slide2.png',
                 '/images/persyaratan/polije/slide3.png',
             ],
+            url: 'https://www.instagram.com/genbi_jember'
         },
         {
             id: 'uin',
@@ -37,6 +39,7 @@ const RulesSection: React.FC = () => {
                 '/images/persyaratan/uin/slide2.png',
                 '/images/persyaratan/uin/slide3.png',
             ],
+            url: 'https://www.instagram.com/genbi_jember'
         },
         {
             id: 'unmuh',
@@ -49,7 +52,8 @@ const RulesSection: React.FC = () => {
                 '/images/persyaratan/unmuh/slide3.jpg',
                 '/images/persyaratan/unmuh/slide4.jpg',
                 '/images/persyaratan/unmuh/slide5.jpg',
-            ]
+            ],
+            url: 'https://www.instagram.com/genbi_jember'
         },
     ];
 
@@ -98,8 +102,10 @@ const RulesSection: React.FC = () => {
                                 <h4 className="mb-2 text-xl font-medium">{university.name}</h4>
                                 <p className="mb-4 text-gray-600">{university.description}</p>
                                 <a
-                                    href="#"
+                                    href={university.url}
                                     className="inline-flex text-lg font-medium text-pr700 focus:outline-none rounded-lg focus:z-10"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                 >
                                     Selengkapnya <i className="fa fa-arrow-right ml-2"></i>
                                 </a>
