@@ -69,12 +69,7 @@ const LandingBlogSection = () => {
                                     </h3>
                                     <div className="flex flex-wrap gap-2 mt-4">
                                         {blogs[latestBlogIndex].BlogKeyword.map((keyword) => (
-                                            <span
-                                                key={keyword.id}
-                                                className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm"
-                                            >
-                                                {keyword.Keyword.name}
-                                            </span>
+                                            <KeywordBadge key={keyword.id} name={keyword.Keyword.name} />
                                         ))}
                                     </div>
                                 </div>
