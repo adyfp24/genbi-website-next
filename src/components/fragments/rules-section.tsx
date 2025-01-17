@@ -24,7 +24,7 @@ const RulesSection: React.FC = () => {
             logo: '/images/polije-logo.png',
             rulesImage: [
                 '/images/persyaratan/polije/Slide1.PNG',
-                '/images/persyaratan/polije/Slide2.png',
+                '/images/persyaratan/polije/Slide2.PNG',
                 '/images/persyaratan/polije/Slide3.PNG',
             ],
             url: 'https://www.instagram.com/genbi_jember'
