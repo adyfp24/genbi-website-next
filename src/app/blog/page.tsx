@@ -8,14 +8,52 @@ import { useRouter } from 'next/navigation'
 import { parseDate } from '@/lib/helper'
 import { MdArrowBackIosNew } from "react-icons/md";
 import React from 'react'
+import Spinner from '@/components/elements/spinner'
 
 const BlogPage = () => {
     const { blogs, highlightedBlogs, loading, error } = useBlog();
     const router = useRouter();
     const blogsData = blogs.filter((blog) => blog.isHighlight === false);
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error}</p>;
+    if (loading) {
+        return (
+            <div className="w-screen h-screen flex justify-center items-center">
+                <Spinner />
+            </div>
+        );
+    }
+    
+    if (error) {
+        return (
+            <div className="w-screen h-screen flex justify-center items-center bg-gray-100">
+                <div className="bg-white shadow-lg rounded-lg p-6 max-w-md text-center border border-red-500">
+                    <svg
+                        className="w-16 h-16 text-red-500 mx-auto mb-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M18.364 5.636a9 9 0 11-12.728 12.728 9 9 0 0112.728-12.728zm-4.95 7.071l2.122-2.122m0 0l-2.122-2.121m2.122 2.121L12 12m0 0l-2.121 2.122m2.121-2.122L9.879 9.878"
+                        />
+                    </svg>
+                    <h2 className="text-2xl font-semibold text-red-600 mb-2">Error</h2>
+                    <p className="text-gray-700">Oops, something went wrong:</p>
+                    <p className="text-gray-600 mt-2">{error}</p>
+                    <button
+                        onClick={() => window.location.reload()}
+                        className="mt-4 bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-4 rounded"
+                    >
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <>

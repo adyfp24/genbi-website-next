@@ -9,6 +9,7 @@ import { FaArrowDown } from "react-icons/fa";
 const InformasiPage: React.FC = () => {
     return (
         <>
+        <div className='scroll-smooth'>
             <Navbar bgColor='bg-pr50' />
             <section id='jumbotron' className='w-full flex flex-col pt-20 md:px-16 bg-pr50'>
                 <div className='flex flex-col max-w-7xl px-5 md:px-12 mx-auto mt-12'>
@@ -43,8 +44,8 @@ const InformasiPage: React.FC = () => {
                     </h3>
                     <div className="mb-10 flex flex-col space-y-2 sm:flex-row sm:justify-start sm:space-y-0">
                         <a
-                            href="#"
-                            className="inline-flex bg-white hover:bg-gray-200 justify-center rounded-lg items-center py-2 md:py-4 px-7 text-lg border border-gray-300 font-semibold text-center text-gray-900 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                            href="#syarat-penerimaan"
+                            className="inline-flex bg-white hover:bg-gray-200 justify-center rounded-lg items-center py-2 md:py-4 px-7 text-lg border border-gray-300 font-semibold text-center text-gray-900  dark:focus:ring-blue-900"
                         >
                             <FaArrowDown className='w-5 me-2' />
                             Selengkapnya
@@ -164,6 +165,7 @@ const InformasiPage: React.FC = () => {
             </section>
 
             <Footer />
+            </div>
         </>
     )
 }

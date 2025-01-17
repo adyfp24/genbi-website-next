@@ -75,14 +75,13 @@ const LandingPage: React.FC = () => {
                             href="https://www.youtube.com/@genbijember3198/videos"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex bg-white hover:bg-gray-200 justify-center items-center py-2 md:py-4 px-7 text-lg border border-gray-300 font-medium md:font-semibold text-center text-gray-900 rounded-lg focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                            className="inline-flex bg-white hover:bg-gray-200 justify-center items-center py-2 md:py-4 px-7 text-lg border border-gray-300 font-medium md:font-semibold text-center text-gray-900 rounded-lg 0 dark:focus:ring-blue-900"
                         >
                             <img className="w-5 mr-2" src="/images/icon/play-circle.png" alt="" />
                             Tonton Video
                         </a>
                         <a
                             onClick={() => router.push('/about')}
-                            href=""
                             className="text-center justify-center inline-flex text-lg py-2 md:py-4 px-7 sm:ms-4 font-medium md:font-semibold text-white focus:outline-none bg-pr500 rounded-lg border border-gray-200 hover:bg-pr700 hover:text-white focus:z-10 dark:hover:bg-gray-70"
                         >
                             Tentang GenBI
@@ -194,7 +193,7 @@ const LandingPage: React.FC = () => {
 
             <section id="about-us-section">
                 <div className='max-w-7xl px-5 md:px-12 flex flex-col sm:flex-row mx-auto p-4 items-center mb-14 md:mb-28 justify-between'>
-                    <AnimationOnScroll animateIn='animate__fadeInLeft'>
+                    {/* <AnimationOnScroll animateIn='animate__fadeIn'> */}
                         <div className='w-full md:w-1/2 md:pr-12 md:mb-12 md:pb-12'>
                             <h4 className='mb-8 text-4xl font-medium md:font-semibold text-pr900'>Tentang Program Beasiswa Bank Indonesia - GenBI Jember</h4>
                             <p className='mb-8 text-xl text-gray-600'>Beasiswa Bank Indonesia adalah program dukungan pendidikan bagi mahasiswa berprestasi di seluruh Indonesia.
@@ -203,11 +202,11 @@ const LandingPage: React.FC = () => {
                             </p>
                             <button className='bg-pr600 text-white py-2 px-4 rounded-lg font-semibold w-full md:w-1/3'>Selengkapnya</button>
                         </div>
-                    </AnimationOnScroll>
-                    <div className='h-10'>
+                    {/* </AnimationOnScroll> */}
+                    <div className='h-10 md:h-0'>
 
                     </div>
-                    <div className=' flex md:justify-end md:mt-8 md:pt-8'>
+                    <div className='flex md:justify-end md:mt-2 md:pt-2'>
                         <AnimationObserver threshold={0.5}>
                             <LootieAnimation
                                 animationData={lootieFile}

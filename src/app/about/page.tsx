@@ -109,7 +109,7 @@ const AboutPage: React.FC = () => {
             </ul>
           </div>
           <div className="w-full md:w-1/3">
-            <img className="w-full h-auto" src="/images/about-1.png" alt="" />
+            <img className="w-full h-auto" src="/images/visi-misi.png" alt="" />
           </div>
         </div>
       </section>
@@ -182,9 +182,9 @@ const AboutPage: React.FC = () => {
               Lihat Selengkapnya
             </button>
           </div>
-          <div className="w-full md:w-1/2 flex justify-center items-center mb-5">
+          <div className="w-full md:w-1/2 flex justify-end items-center mb-5">
             <div>
-              <img className="w-full h-90" src="/images/about-1.png" alt="" />
+              <img className="w-full h-90" src="/images/susunan-anggota.png" alt="" />
             </div>
           </div>
         </div>

@@ -19,6 +19,6 @@
     --pr-900: #11336b;
   }
 
-body{
-  
+  html {
+    scroll-behavior: smooth;
 }
