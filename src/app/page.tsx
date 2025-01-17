@@ -13,6 +13,7 @@ import AnimationObserver from '@/components/layouts/animation-observer';
 import dynamic from 'next/dynamic';
 import LandingBlogSection from '@/components/fragments/landing-blog-section';
 import { useRouter } from 'next/navigation';
+import AnimatedText from '@/components/elements/animated-text';
 const AnimationOnScroll = dynamic(
     () => import('react-animation-on-scroll').then(mod => mod.AnimationOnScroll),
     { ssr: false }
@@ -46,7 +47,7 @@ const LandingPage: React.FC = () => {
                 </div>
 
                 {/* Hero Content */}
-                <div className="relative z-10 pt-10 text-center">
+                <div className="animate__animated animate__fadeInDown animate__slow relative z-10 pt-10 text-center">
                     <a href="" className="max-w-7xl text-center mx-4 inline-flex items-center text-pr700 px-1 pr-1 md:pr-2 py-1 bg-pr100 rounded-3xl text-xs md:text-base">
                         <span className="px-1 md:px-2 bg-pr50 rounded-2xl mr-1 md:mr-2 text-xs md:text-base">Pendaftaran GenBI 2025 dibuka!</span>
                         Daftar disini
@@ -60,17 +61,23 @@ const LandingPage: React.FC = () => {
                             />
                         </svg>
                     </a>
-                    <h1
+                    {/* <h1
                         style={{ fontWeight: 500 }}
                         className="text-start md:text-center mb-5 mt-5 mx-6 font-normal tracking-tight text-pr900 leading-none text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[86px]"
                     >
                         Jadilah bagian dari Generasi Baru <br /> Indonesia Jember!
-                    </h1>
-                    <p className="text-justify md:text-center mb-6 md:mb-10 text-base mx-6 md:mx-36 text-pr700 lg:text-xl font-normal sm:px-16 lg:px-50">
-                        Bersama GenBI Jember wujudkan mimpi dan kontribusi nyata untuk negeri. Ayo bergabung dengan komunitas mahasiswa inspiratif yang
-                        siap membuat perubahan! Dukung indonesia lebih maju, mulai dari langkah kecilmu disini.
-                    </p>
-                    <div className="mx-6 flex flex-col-reverse space-y-reverse space-y-2 md:space-y-0 md:flex-row md:justify-center">
+                    </h1> */}
+                    <AnimatedText
+                        text="Jadilah  bagian  dari  Generasi  Baru  Indonesia  Jember!"
+                        className="text-start md:text-center mb-5 mt-5 mx-6 font-normal tracking-tight text-pr900 leading-none text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[86px]"
+                    />
+                    <div className='animate__animated animate__fadeIn'>
+                        <p className="text-justify md:text-center mb-6 md:mb-10 text-base mx-6 md:mx-36 text-pr700 lg:text-xl font-normal sm:px-16 lg:px-50">
+                            Bersama GenBI Jember wujudkan mimpi dan kontribusi nyata untuk negeri. Ayo bergabung dengan komunitas mahasiswa inspiratif yang
+                            siap membuat perubahan! Dukung indonesia lebih maju, mulai dari langkah kecilmu disini.
+                        </p>
+                    </div>
+                    <div className="animate__animated animate__fadeIn animate__slow mx-6 flex flex-col-reverse space-y-reverse space-y-2 md:space-y-0 md:flex-row md:justify-center">
                         <a
                             href="https://www.youtube.com/@genbijember3198/videos"
                             target="_blank"
@@ -90,7 +97,7 @@ const LandingPage: React.FC = () => {
                 </div>
 
                 {/* Hero Image */}
-                <div className="animate__animated animate__fadeInUp z-10 mt-6 md:mt-10 w-full flex justify-center items-center relative">
+                <div className="animate__animated animate__fadeInUp animate__slow z-10 mt-6 md:mt-10 w-full flex justify-center items-center relative">
                     <img className="w-full md:w-2/3 h-auto flex justify-center rounded-3xl" src="/images/hero-image.png" alt="" />
                 </div>
             </section>
@@ -194,14 +201,14 @@ const LandingPage: React.FC = () => {
             <section id="about-us-section">
                 <div className='max-w-7xl px-5 md:px-12 flex flex-col sm:flex-row mx-auto p-4 items-center mb-14 md:mb-28 justify-between'>
                     {/* <AnimationOnScroll animateIn='animate__fadeIn'> */}
-                        <div className='w-full md:w-1/2 md:pr-12 md:mb-12 md:pb-12'>
-                            <h4 className='mb-8 text-4xl font-medium md:font-semibold text-pr900'>Tentang Program Beasiswa Bank Indonesia - GenBI Jember</h4>
-                            <p className='mb-8 text-xl text-gray-600'>Beasiswa Bank Indonesia adalah program dukungan pendidikan bagi mahasiswa berprestasi di seluruh Indonesia.
-                                Selain bantuan finansial, penerima beasiswa juga mendapatkan pembinaan softskill dan leadership untuk mempersiapkan
-                                mereka menjadi pemimpin masa depan yang mampu berkontribusi bagi negeri.
-                            </p>
-                            <button className='bg-pr600 text-white py-2 px-4 rounded-lg font-semibold w-full md:w-1/3'>Selengkapnya</button>
-                        </div>
+                    <div className='w-full md:w-1/2 md:pr-12 md:mb-12 md:pb-12'>
+                        <h4 className='mb-8 text-4xl font-medium md:font-semibold text-pr900'>Tentang Program Beasiswa Bank Indonesia - GenBI Jember</h4>
+                        <p className='mb-8 text-xl text-gray-600'>Beasiswa Bank Indonesia adalah program dukungan pendidikan bagi mahasiswa berprestasi di seluruh Indonesia.
+                            Selain bantuan finansial, penerima beasiswa juga mendapatkan pembinaan softskill dan leadership untuk mempersiapkan
+                            mereka menjadi pemimpin masa depan yang mampu berkontribusi bagi negeri.
+                        </p>
+                        <button className='bg-pr600 text-white py-2 px-4 rounded-lg font-semibold w-full md:w-1/3'>Selengkapnya</button>
+                    </div>
                     {/* </AnimationOnScroll> */}
                     <div className='h-10 md:h-0'>
 
