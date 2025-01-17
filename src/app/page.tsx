@@ -68,7 +68,7 @@ const LandingPage: React.FC = () => {
                         Jadilah bagian dari Generasi Baru <br /> Indonesia Jember!
                     </h1> */}
                     <AnimatedText
-                        text="Jadilah  bagian  dari  Generasi  Baru  Indonesia  Jember!"
+                        text="Jadilah bagian dari Generasi Baru Indonesia Jember!"
                         className="text-start md:text-center mb-5 mt-5 mx-6 font-normal tracking-tight text-pr900 leading-none text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[86px]"
                     />
                     <div className='animate__animated animate__fadeIn'>
