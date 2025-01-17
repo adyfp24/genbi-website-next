@@ -9,6 +9,7 @@ import { parseDate } from '@/lib/helper'
 import { MdArrowBackIosNew } from "react-icons/md";
 import React from 'react'
 import Spinner from '@/components/elements/spinner'
+import KeywordBadge from '@/components/elements/keyword-badge'
 
 const BlogPage = () => {
     const { blogs, highlightedBlogs, loading, error } = useBlog();
@@ -22,7 +23,7 @@ const BlogPage = () => {
             </div>
         );
     }
-    
+
     if (error) {
         return (
             <div className="w-screen h-screen flex justify-center items-center bg-gray-100">
@@ -83,9 +84,14 @@ const BlogPage = () => {
                                     <h3 className="text-lg font-medium md:font-semibold mb-2">
                                         {highlightedBlogs[0]?.title || "No Title"}
                                     </h3>
-                                    <h3 className="text-base font-thin mb-2 line-clamp-3">
+                                    <h3 className="text-base font-thin mb-2 line-clamp-2">
                                         {highlightedBlogs[0]?.caption || "No Caption"}
                                     </h3>
+                                    <div className="flex flex-wrap gap-2 mt-4">
+                                        {highlightedBlogs[0]?.BlogKeyword.map((keyword) => (
+                                            <KeywordBadge key={keyword.id} name={keyword.Keyword.name} />
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
 
@@ -111,9 +117,14 @@ const BlogPage = () => {
                                                 <h3 className="text-base font-semibold mb-2">
                                                     {blog.title || "No Title"}
                                                 </h3>
-                                                <h3 className="text-base font-thin mb-2 line-clamp-3">
+                                                <h3 className="text-base font-thin mb-2 line-clamp-2">
                                                     {blog.caption || "No Caption"}
                                                 </h3>
+                                                <div className="flex flex-wrap gap-2 mt-4">
+                                                    {blog.BlogKeyword.map((keyword) => (
+                                                        <KeywordBadge key={keyword.id} name={keyword.Keyword.name} />
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
                                     ))}
@@ -147,16 +158,13 @@ const BlogPage = () => {
                                     <h3 className="text-base font-semibold mb-2">
                                         {blog.title}
                                     </h3>
-                                    <h3 className="text-base font-thin mb-2 line-clamp-3">
+                                    <h3 className="text-base font-thin mb-2 line-clamp-2">
                                         {blog.caption}
                                     </h3>
                                     <div className="flex flex-wrap gap-2 mt-4">
                                         {blog.BlogKeyword.map((keyword) => (
-                                            <span key={keyword.id} className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
-                                                {keyword.Keyword.name}
-                                            </span>
-                                        ))
-                                        }
+                                            <KeywordBadge key={keyword.id} name={keyword.Keyword.name} />
+                                        ))}
                                     </div>
                                 </div>
                             </div>
@@ -170,15 +178,27 @@ const BlogPage = () => {
             <section id='pagination' className='pb-70 md:pb-40'>
                 <div className="flex flex-col items-center">
                     <div className="inline-flex items-center space-x-4 mt-2 xs:mt-0">
-                        <button className="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <MdArrowBackIosNew />
+                        <button className="">
+                            <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.5 9.16683L7.33333 5.00016L11.5 0.833496M5.66667 9.16683L1.5 5.00016L5.66667 0.833496" stroke="#667085" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </button>
+                        <button className="">
+                            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 15L8 10L13 5" stroke="#667085" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
                         </button>
                         <span className="text-sm text-gray-700 dark:text-gray-400">
                             <span className="font-semibold text-gray-900 dark:text-white">1</span> dari <span className="font-semibold text-gray-900 dark:text-white">10</span>
                         </span>
-                        <button className="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 border-0 border-s border-gray-700 rounded-e hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                            <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        <button className="">
+                            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 15L13 10L8 5" stroke="#2979FF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </button>
+                        <button className="">
+                            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.5 14.1668L9.66667 10.0002L5.5 5.8335M11.3333 14.1668L15.5 10.0002L11.3333 5.8335" stroke="#2979FF" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                         </button>
                     </div>

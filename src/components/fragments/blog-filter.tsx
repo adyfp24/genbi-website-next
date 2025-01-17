@@ -9,6 +9,36 @@ const BlogFilter: React.FC = () => {
         setDropdownKategoriOpen(!dropdownKategoriOpen)
     }
 
+    const keywordList: string[] = [
+        'Pelatihan',
+        'Webinar',
+        'Relawan',
+        'Mentoring',
+        'Kewirausahaan',
+        'Edukasi',
+        'Lomba',
+        'Pemberdayaan',
+        'Sosialisasi',
+        'Penghijauan',
+        'Karier',
+        'Literasi',
+        'Kepemimpinan',
+    ]
+
+    const kategoriList: string[] = [
+        'GenBI Mengajar',
+        'GenBI Peduli Lingkungan',
+        'GenBI Sosial Action',
+        'GenBI QRIS',
+        'GenBI Intelektual',
+        'GenBI Personality Development',
+        'GenBI Farming',
+        'GenBI Goes to Campus',
+        'GenBI Preneur',
+        'GenBI PDD',
+        'GenBI Humas',
+    ]
+
     return (
         <>
             <div className="font-thin text-gray-600 flex mx-auto max-w-7xl py-5 px-5 md:px-12 space-x-2 relative">
@@ -19,7 +49,7 @@ const BlogFilter: React.FC = () => {
                             onClick={handleDropdownKategori}
                             id="button-kategori"
                             data-dropdown-toggle="dropdown"
-                            className="z-0 relative w-full text-dark bg-white hover:bg-gray-100 border border-gray-200 focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            className="z-0 relative w-full text-dark bg-white hover:bg-gray-100 border border-gray-200 focus:outline-none inline-flex font-medium rounded-lg text-base px-5 py-2.5 text-center  items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                             type="button"
                         >
                             Kategori
@@ -37,41 +67,15 @@ const BlogFilter: React.FC = () => {
                         {/* Dropdown menu */}
                         <div
                             id="dropdown"
-                            className={`absolute top-full mt-2 z-20 ${dropdownKategoriOpen ? 'block' : 'hidden'} bg-white divide-y divide-gray-100 rounded-lg shadow  dark:bg-gray-700 w-full`}
+                            className={`absolute top-full mt-1 z-20 ${dropdownKategoriOpen ? 'block' : 'hidden'} bg-white divide-y divide-gray-100 rounded-lg shadow  dark:bg-gray-700 w-full h-50 overflow-y-auto`}
                         >
                             <ul className="py-2 text-base text-gray-700 dark:text-gray-200 w-full" aria-labelledby="dropdownDefaultButton">
-                                <li>
-                                    <a
-                                        href="#"
-                                        className="block px-4 py-2 hover:bg-pr50 hover:text-pr500 dark:hover:bg-gray-600 dark:hover:text-white"
+                                {kategoriList.map((kategori, index) => (
+                                    <li key={index} className="block px-4 py-2 hover:cursor-pointer hover:bg-pr50 hover:text-pr500 dark:hover:bg-gray-600 dark:hover:text-white"
                                     >
-                                        Genbi Mengajar
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        className="block px-4 py-2 hover:bg-pr50 hover:text-pr500 dark:hover:bg-gray-600 dark:hover:text-white"
-                                    >
-                                        Genbi QRIS
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        className="block px-4 py-2 hover:bg-pr50 hover:text-pr500 dark:hover:bg-gray-600 dark:hover:text-white"
-                                    >
-                                        Intelektual
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        className="block px-4 py-2 hover:bg-pr50 hover:text-pr500 dark:hover:bg-gray-600 dark:hover:text-white"
-                                    >
-                                        GPD
-                                    </a>
-                                </li>
+                                        {kategori}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
@@ -79,24 +83,15 @@ const BlogFilter: React.FC = () => {
                     {/* Overflow Section with Scroll Button */}
                     <div className="relative hidden md:flex space-x-2 ml-4 overflow-x-auto">
                         <div id="scroll-container" className="flex space-x-2 overflow-x-auto scrollbar-hide">
-                            <button className="text-white w-1/7 text-dark bg-pr500 hover:bg-gray-100 border border-gray-200  focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center">
+                            <button className="text-white  text-dark bg-pr500 hover:bg-gray-100 border border-gray-200  focus:outline-none font-medium rounded-lg text-base px-5  text-center inline-flex items-center">
                                 Semua
                             </button>
-                            <button className="text-dark w-1/7 text-dark bg-white hover:bg-gray-100 border border-gray-200 focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center">
-                                Pelatihan
-                            </button>
-                            <button className="text-dark w-1/7 text-dark bg-white hover:bg-gray-100 border border-gray-200  focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center">
-                                Webinar
-                            </button>
-                            <button className="text-dark w-1/7 text-dark bg-white hover:bg-gray-100 border border-gray-200 focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center">
-                                Relawan
-                            </button>
-                            <button className="text-dark w-1/7 text-dark bg-white hover:bg-gray-100 border border-gray-200 focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center">
-                                Mentoring
-                            </button>
-                            <button className="text-dark w-1/7 text-dark bg-white hover:bg-gray-100 border border-gray-200  focus:outline-none font-medium rounded-lg text-base px-5 py-2.5 text-center inline-flex items-center">
-                                Kewirausahaan
-                            </button>
+                            {keywordList.map((keyword, index) => (
+                                <button key={index} className="text-dark  bg-white hover:bg-gray-100 border border-gray-200 focus:outline-none font-medium rounded-lg text-base px-5 text-center inline-flex items-center">
+                                    {keyword}
+                                </button>
+
+                            ))}
                         </div>
 
                         {/* Scroll Button */}

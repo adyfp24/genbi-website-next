@@ -95,7 +95,7 @@ const RulesSection: React.FC = () => {
                             <div
                                 key={university.id}
                                 onClick={() => handleCardClick(university.id)}
-                                className={`cursor-pointer w-full flex flex-col justify-center h-1/3 border-l-4 pl-4 ${selectedCard === university.id ? 'border-pr500' : 'border-gray-200'
+                                className={`cursor-pointer w-full flex flex-col justify-center h-1/3 border-l-4 pl-4 py-2 md:py-0 ${selectedCard === university.id ? 'border-pr500' : 'border-gray-200'
                                     }`}
                             >
                                 <img className="w-8 mb-4" src={university.logo} alt={`${university.name} logo`} />

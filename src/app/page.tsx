@@ -148,7 +148,7 @@ const LandingPage: React.FC = () => {
                                 </div>
                             </div>
                         </AnimationOnScroll>
-                        <AnimationOnScroll animateIn='animate__fadeInUp' className='w-full md:w-1/2'>
+                        <AnimationOnScroll animateIn='animate__rotateInUpRight' className='w-full md:w-1/2'>
                             <div className=''>
                                 <img className='md:ml-3' src="/images/genbi-pengurus.png" alt="" />
                             </div>

@@ -24,7 +24,7 @@ const RelatedBlog: React.FC<{ blogKategoriId: string }> = ({ blogKategoriId }) =
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 w-full md:w-2/3">
                         {[1, 2].map((_, index) => (
-                            <div onClick={() => { router.push('/blog/1') }} key={index} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
+                            <div onClick={() => {}} key={index} className="bg-white rounded-lg overflow-hidden hover:cursor-pointer">
                                 <div className=" ">
                                     <img className='w-full h-full' src="/images/blog-sample.png" alt="" />
                                 </div>
@@ -36,19 +36,19 @@ const RelatedBlog: React.FC<{ blogKategoriId: string }> = ({ blogKategoriId }) =
                                         {index === 0 && "GenBI Jember Mengadakan Lomba Kampanye QRIS"}
                                         {index === 1 && "Talkshow Entrepreneurship Jadi Ujung Tombak Inflasi"}
                                     </h3>
-                                    <h3 className="text-lg font-thin mb-2">
+                                    <h3 className="text-lg font-thin mb-2 line-clamp-2">
                                         {index === 0 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
                                         {index === 1 && "Lomba Kampanye QRIS merupakan sebuah ajang perlombaan untuk mengunggah karya dalam bentuk..."}
                                     </h3>
                                     <div className="flex flex-wrap gap-2 mt-4">
-                                        <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
-                                            {index === 0 ? 'Preneur' : index === 1 ? 'Seminar' : 'Kampus'}
+                                        <span className="px-2 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-extralight">
+                                            {index === 0 ? 'Karir' : index === 1 ? 'Seminar' : 'Kampus'}
                                         </span>
-                                        <span className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">
-                                            QRIS
+                                        <span className="px-2 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-extralight">
+                                            Sosialisasi
                                         </span>
-                                        <span className="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm">
-                                            {index === 0 ? 'Lomba' : index === 1 ? 'Preneur' : 'Sosialisasi'}
+                                        <span className="px-2 py-1 bg-pink-100 text-pink-600 rounded-full text-sm font-extralight">
+                                            {index === 0 ? 'Lomba' : index === 1 ? 'Karir' : 'Sosialisasi'}
                                         </span>
                                     </div>
                                 </div>

@@ -118,8 +118,8 @@ const BlogDetail = () => {
             </div>
           </section>
 
-          <section id='blog-section' className='mt-2'>
-            <div className='max-w-7xl mx-auto px-5 md:px-12' dangerouslySetInnerHTML={{ __html: blog.content || <Skeleton count={2} /> }} />
+          <section id='blog-section' className='mt-6'>
+            <div className='max-w-7xl text-gray-600 mx-auto px-5 md:px-12' dangerouslySetInnerHTML={{ __html: blog.content || <Skeleton count={2} /> }} />
           </section>
 
           <section id='blog-footer' className='mt-2'>

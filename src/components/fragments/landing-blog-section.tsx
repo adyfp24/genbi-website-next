@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Spinner from '../elements/spinner'
 import 'animate.css'
 import { parseDate } from '@/lib/helper'
+import KeywordBadge from '../elements/keyword-badge'
 
 const LandingBlogSection = () => {
     const { loading, error, blogs } = useBlog()
@@ -63,7 +64,7 @@ const LandingBlogSection = () => {
                                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
                                         {blogs[latestBlogIndex].title}
                                     </h3>
-                                    <h3 className="text-lg font-thin mb-2 line-clamp-3">
+                                    <h3 className="text-lg font-thin mb-2 line-clamp-2">
                                         {blogs[latestBlogIndex].caption}
                                     </h3>
                                     <div className="flex flex-wrap gap-2 mt-4">
@@ -150,17 +151,12 @@ const LandingBlogSection = () => {
                                         <h3 className="text-lg font-semibold mb-2">
                                             {blog.title}
                                         </h3>
-                                        <h3 className="text-lg font-thin mb-2">
+                                        <h3 className="text-lg font-thin mb-2 line-clamp-2">
                                             {blog.caption}
                                         </h3>
                                         <div className="flex flex-wrap gap-2 mt-4">
                                             {blog.BlogKeyword.map((keyword) => (
-                                                <span
-                                                    key={keyword.id}
-                                                    className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm"
-                                                >
-                                                    {keyword.Keyword.name}
-                                                </span>
+                                                <KeywordBadge key={keyword.id} name={keyword.Keyword.name} />
                                             ))}
                                         </div>
                                     </div>

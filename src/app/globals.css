@@ -17,6 +17,34 @@
     --pr-700: #1d56b5;
     --pr-800: #17438c;
     --pr-900: #11336b;
+    --bgPelatihan: #FFF1F3;
+    --textPelatihan: #F63D68;
+    --bgWebinar: #eaf2ff;
+    --textWebinar: #2979ff;
+    --bgRelawan: #FFFAEB;
+    --textRelawan: #B54708;
+    --bgMentoring: #ECFDF3;
+    --textMentoring: #027A48;
+    --bgKewirausahaan: #F0F9FF; 
+    --textKewirausahaan: #026AA2; 
+    --bgBaksos: #F0F9FF; 
+    --textBaksos: #026AA2; 
+    --bgEdukasi: #F0F9FF; 
+    --textEdukasi: #175CD3; 
+    --bgLomba: #EEF4FF; 
+    --textLomba: #3538CD; 
+    --bgPemberdayaan: #F4F3FF; 
+    --textPemberdayaan: #5925DC; 
+    --bgSosialisasi: #FDF2FA; 
+    --textSosialisasi: #C11574; 
+    --bgPenghijauan: #FFF1F3; 
+    --textPenghijauan: #C01048; 
+    --bgKarir: #FFF4ED; 
+    --textKarir: #B93815; 
+    --bgLiterasi: #F8F9FC; 
+    --textLiterasi: #4E5BA6; 
+    --bgKepemimpinan: #FDF4FF; 
+    --textKepemimpinan: #D444F1; 
   }
 
   html {
