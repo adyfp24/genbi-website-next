@@ -11,9 +11,9 @@ const RulesSection: React.FC = () => {
             description: 'Syarat khusus bagi kamu, mahasiswa Universitas Jember!',
             logo: '/images/unej-logo.png',
             rulesImage: [
-                '/images/persyaratan/unej/slide1.png',
-                '/images/persyaratan/unej/slide2.png',
-                '/images/persyaratan/unej/slide3.png',
+                '/images/persyaratan/unej/Slide1.png',
+                '/images/persyaratan/unej/Slide2.png',
+                '/images/persyaratan/unej/Slide3.png',
             ],
             url: 'https://www.instagram.com/genbi_jember'
         },
@@ -23,9 +23,9 @@ const RulesSection: React.FC = () => {
             description: 'Simak syarat-syarat berikut bagi mahasiswa Politeknik Negeri Jember!',
             logo: '/images/polije-logo.png',
             rulesImage: [
-                '/images/persyaratan/polije/slide1.png',
-                '/images/persyaratan/polije/slide2.png',
-                '/images/persyaratan/polije/slide3.png',
+                '/images/persyaratan/polije/Slide1.png',
+                '/images/persyaratan/polije/Slide2.png',
+                '/images/persyaratan/polije/Slide3.png',
             ],
             url: 'https://www.instagram.com/genbi_jember'
         },
@@ -35,9 +35,9 @@ const RulesSection: React.FC = () => {
             description: 'Pastikan kamu memenuhi syarat sebagai mahasiswa UIN KHAS Jember!',
             logo: '/images/uin-logo.png',
             rulesImage: [
-                '/images/persyaratan/uin/slide1.png',
-                '/images/persyaratan/uin/slide2.png',
-                '/images/persyaratan/uin/slide3.png',
+                '/images/persyaratan/uin/Slide1.png',
+                '/images/persyaratan/uin/Slide2.png',
+                '/images/persyaratan/uin/Slide3.png',
             ],
             url: 'https://www.instagram.com/genbi_jember'
         },
