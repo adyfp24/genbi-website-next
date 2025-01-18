@@ -10,13 +10,13 @@ const TestimonialSection: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   // Helper function untuk mendapatkan ID video dari URL YouTube
-  const getYoutubeVideoId = (testimonialId: string) => {
+  const getYoutubeVideoId = (testimonialId: number) => {
     switch (testimonialId) {
-      case "1":
+      case 1:
         return "PoyaemKK_7g";
-      case "2":
+      case 2:
         return "w_o4E88YFkA";
-      case "3":
+      case 3:
         return "PQAfkm8r9P8";
       default:
         return "w_o4E88YFkA"; // default fallback
