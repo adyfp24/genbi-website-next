@@ -109,7 +109,7 @@ const AboutPage: React.FC = () => {
             </ul>
           </div>
           <div className="w-full md:w-1/3">
-            <img className="w-full h-auto" src="/images/visi-misi.png" alt="" />
+            <img className="w-full h-auto" src="/images/about2.png" alt="" />
           </div>
         </div>
       </section>
@@ -119,28 +119,32 @@ const AboutPage: React.FC = () => {
         <h2 className="text-3xl font-semibold text-pr900 text-center mb-10">Tujuan GenBI</h2>
         <div className="max-w-6xl mx-auto px-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            <div className="bg-pr25 flex flex-col items-start justify-center p-6 rounded-3xl shadow-sm border border-pr50 shadow-gray-300">
-              <div className="mb-3 h-12 w-12 bg-pr100"></div>
+            <div className="bg-pr25 flex flex-col items-start justify-around  p-6 rounded-3xl shadow-sm border border-pr50 shadow-gray-300">
+              <div className="mb-5 h-12 w-12 flex items-center justify-center">
+                <img src="/images/icon/icon-about1.png" alt="" />
+              </div>
               <h6 className="font-semibold mb-3">Frontliners Bank Indonesia</h6>
               <p>
-                Berperan dalam mengkomunikasikan kelembagaan dan berbagai kebijakan Bank Indonesia kepada sesama mahasiswa dan masyarakat umum,
-                sekaligus menciptakan generasi muda yang tangguh dan siap menjadi ujung tombak perubahan,
+                Berperan dalam mengkomunikasikan kelembagaan dan kebijakan Bank Indonesia kepada sesama mahasiswa dan masyarakat umum,
+                sekaligus menciptakan generasi muda yang tangguh dan siap menjadi ujung tombak perubahan.
               </p>
             </div>
-            <div className="bg-pr25 flex flex-col items-start justify-center p-6 rounded-3xl shadow-sm border border-pr50 shadow-gray-300">
-              <div className="mb-3 h-12 w-12 bg-pr100"></div>
-              <h6 className="font-semibold mb-3">Frontliners Bank Indonesia</h6>
+            <div className="bg-pr25 flex flex-col items-start justify-around p-6 rounded-3xl shadow-sm border border-pr50 shadow-gray-300">
+              <div className="mb-5 h-12 w-12 flex items-center justify-center">
+                <img src="/images/icon/icon-about2.png" alt="" />
+              </div>
+              <h6 className="font-semibold mb-3">Change Agents</h6>
               <p>
-                Berperan dalam mengkomunikasikan kelembagaan dan berbagai kebijakan Bank Indonesia kepada sesama mahasiswa dan masyarakat umum,
-                sekaligus menciptakan generasi muda yang tangguh dan siap menjadi ujung tombak perubahan,
+                Berperan sebagai agen perubahan dan role model di kalangan pelajar, mahasiswa, dan masyarakat, sehingga mampu membentuk individu yang aktif melakukan perubahan positif di masyarakat dan lingkungannya.
               </p>
             </div>
-            <div className="bg-pr25 flex flex-col items-start justify-center p-6 rounded-3xl shadow-sm border border-pr50 shadow-gray-300">
-              <div className="mb-3 h-12 w-12 bg-pr100"></div>
-              <h6 className="font-semibold mb-3">Frontliners Bank Indonesia</h6>
+            <div className="bg-pr25 flex flex-col items-start justify-around p-6 rounded-3xl shadow-sm border border-pr50 shadow-gray-300">
+              <div className="mb-5 h-12 w-12 flex items-center justify-center">
+                <img src="/images/icon/icon-about3.png" alt="" />
+              </div>
+              <h6 className="font-semibold mb-3">Future Leader</h6>
               <p>
-                Berperan dalam mengkomunikasikan kelembagaan dan berbagai kebijakan Bank Indonesia kepada sesama mahasiswa dan masyarakat umum,
-                sekaligus menciptakan generasi muda yang tangguh dan siap menjadi ujung tombak perubahan,
+                Mengembangkan generasi muda dengan jiwa kepemimpinan yang tangguh, sehingga mereka mampu menjadi pemimpin masa depan yang unggul dan berkontribusi di berbagai bidang dalam membangun masyarakat yang lebih baik.
               </p>
             </div>
           </div>
@@ -184,7 +188,7 @@ const AboutPage: React.FC = () => {
           </div>
           <div className="w-full md:w-1/2 flex justify-end items-center mb-5">
             <div>
-              <img className="w-full h-90" src="/images/susunan-anggota.png" alt="" />
+              <img className="w-full h-90" src="/images/about3.png" alt="" />
             </div>
           </div>
         </div>
