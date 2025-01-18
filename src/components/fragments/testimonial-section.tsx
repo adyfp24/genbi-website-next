@@ -47,6 +47,29 @@ const TestimonialSection: React.FC = () => {
 
   const currentTestimonial = testimonies[currentTestimonialIndex];
 
+  // Dynamic video URL and thumbnail based on the currentTestimonial.id
+  let videoUrl = '';
+  let thumbnailUrl = '';
+
+  switch (currentTestimonial.id) {
+    case '1':
+      videoUrl = 'https://www.youtube.com/embed/PoyaemKK_7g?autoplay=1&mute=0';
+      thumbnailUrl = 'https://img.youtube.com/vi/PoyaemKK_7g/hqdefault.jpg';
+      break;
+    case '2':
+      videoUrl = 'https://www.youtube.com/embed/w_o4E88YFkA?autoplay=1&mute=0';
+      thumbnailUrl = 'https://img.youtube.com/vi/w_o4E88YFkA/hqdefault.jpg';
+      break;
+    case '3':
+      videoUrl = 'https://www.youtube.com/embed/PQAfkm8r9P8?autoplay=1&mute=0';
+      thumbnailUrl = 'https://img.youtube.com/vi/PQAfkm8r9P8/hqdefault.jpg';
+      break;
+    default:
+      videoUrl = '';
+      thumbnailUrl = '';
+      break;
+  }
+
   return (
     <section id="testimonial-section" className="mb-32">
       <div
@@ -100,10 +123,10 @@ const TestimonialSection: React.FC = () => {
                 className="relative w-full h-0 pb-[56.25%] md:pb-0 md:h-full rounded-none md:rounded-r-3xl overflow-hidden cursor-pointer"
                 onClick={() => setIsPlaying(true)}
               >
-                {/* Thumbnail */}
+                {/* Dynamic Thumbnail */}
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://img.youtube.com/vi/-_1J4Ii-yUU/hqdefault.jpg"
+                  src={thumbnailUrl}
                   alt="YouTube Thumbnail"
                 />
 
@@ -122,10 +145,10 @@ const TestimonialSection: React.FC = () => {
               </div>
             ) : (
               <div className="relative w-full h-0 pb-[56.25%] md:pb-0 md:h-full rounded-none md:rounded-r-3xl overflow-hidden">
-                {/* YouTube Embed */}
+                {/* Dynamic YouTube Embed */}
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/-_1J4Ii-yUU?autoplay=1&mute=0"
+                  src={videoUrl}
                   title="YouTube video"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -134,8 +157,6 @@ const TestimonialSection: React.FC = () => {
               </div>
             )}
           </div>
-
-
         </div>
       </div>
     </section>
