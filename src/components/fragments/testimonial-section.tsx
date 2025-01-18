@@ -103,7 +103,7 @@ const TestimonialSection: React.FC = () => {
                 {/* Thumbnail */}
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
-                  src="https://img.youtube.com/vi/-_1J4Ii-yUU/hqdefault.jpg"
+                  src="https://img.youtube.com/vi/w_o4E88YFkA/hqdefault.jpg"
                   alt="YouTube Thumbnail"
                 />
 
@@ -125,7 +125,7 @@ const TestimonialSection: React.FC = () => {
                 {/* YouTube Embed */}
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/-_1J4Ii-yUU?autoplay=1&mute=0"
+                  src="https://www.youtube.com/embed/w_o4E88YFkA?autoplay=1&mute=0"
                   title="YouTube video"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -134,8 +134,6 @@ const TestimonialSection: React.FC = () => {
               </div>
             )}
           </div>
-
-
         </div>
       </div>
     </section>
