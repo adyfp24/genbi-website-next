@@ -47,21 +47,6 @@ const TestimonialSection: React.FC = () => {
 
   const currentTestimonial = testimonies[currentTestimonialIndex];
 
-  // Determine the video URL and thumbnail based on the currentTestimonial.id
-  let videoUrl = '';
-  let thumbnailUrl = '';
-
-  if (currentTestimonial.id === 1) {
-    videoUrl = 'https://www.youtube.com/embed/PoyaemKK_7g?autoplay=1&mute=0';
-    thumbnailUrl = 'https://img.youtube.com/vi/PoyaemKK_7g/hqdefault.jpg';
-  } else if (currentTestimonial.id === 2) {
-    videoUrl = 'https://www.youtube.com/embed/w_o4E88YFkA?autoplay=1&mute=0';
-    thumbnailUrl = 'https://img.youtube.com/vi/w_o4E88YFkA/hqdefault.jpg';
-  } else if (currentTestimonial.id === 3) {
-    videoUrl = 'https://www.youtube.com/embed/PQAfkm8r9P8?autoplay=1&mute=0';
-    thumbnailUrl = 'https://img.youtube.com/vi/PQAfkm8r9P8/hqdefault.jpg';
-  }
-
   return (
     <section id="testimonial-section" className="mb-32">
       <div
@@ -118,7 +103,7 @@ const TestimonialSection: React.FC = () => {
                 {/* Thumbnail */}
                 <img
                   className="absolute top-0 left-0 w-full h-full object-cover"
-                  src={thumbnailUrl}
+                  src="https://img.youtube.com/vi/-_1J4Ii-yUU/hqdefault.jpg"
                   alt="YouTube Thumbnail"
                 />
 
@@ -140,7 +125,7 @@ const TestimonialSection: React.FC = () => {
                 {/* YouTube Embed */}
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src={videoUrl}
+                  src="https://www.youtube.com/embed/-_1J4Ii-yUU?autoplay=1&mute=0"
                   title="YouTube video"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -149,6 +134,8 @@ const TestimonialSection: React.FC = () => {
               </div>
             )}
           </div>
+
+
         </div>
       </div>
     </section>
