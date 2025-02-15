@@ -47,14 +47,14 @@ const InformasiPage: React.FC = () => {
                         <div className="mb-10 flex flex-col space-y-2 sm:flex-row sm:justify-start sm:space-y-0">
                             <a
                                 href="#syarat-penerimaan"
-                                className="inline-flex bg-white hover:bg-gray-200 justify-center rounded-lg items-center py-2 md:py-4 px-7 text-lg border border-gray-300 font-semibold text-center text-gray-900  dark:focus:ring-blue-900"
+                                className="inline-flex bg-white hover:bg-gray-200 justify-center rounded-lg items-center py-2 md:py-4 px-7 text-lg border border-gray-300 font-semibold text-center text-gray-900  dark:focus:ring-blue-900 hover:cursor-pointer"
                             >
                                 <FaArrowDown className='w-5 me-2' />
                                 Selengkapnya
                             </a>
                             <a
                                 onClick={() => router.push('/about')}
-                                className="inline-flex justify-center items-center text-lg py-2 md:py-4 px-7 sm:ms-4 font-medium md:font-semibold text-white focus:outline-none bg-pr100 rounded-lg hover:bg-pr700 hover:text-white focus:z-10 dark:hover:bg-gray-70"
+                                className="inline-flex justify-center items-center text-lg py-2 md:py-4 px-7 sm:ms-4 font-medium md:font-semibold text-white focus:outline-none bg-pr100 rounded-lg hover:bg-pr700 hover:text-white focus:z-10 dark:hover:bg-gray-70 hover:cursor-pointer"
                             >
                                 Tentang Genbi
                             </a>
