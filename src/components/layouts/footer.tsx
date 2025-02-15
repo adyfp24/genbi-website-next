@@ -17,9 +17,9 @@ const Footer: React.FC = () => {
               </p>
             </div>
             <div className="w-full md:w-2/6 flex justify-center md:justify-end">
-              <button className="bg-white text-gray-400 px-4 py-2 rounded-lg font-semibold w-full md:w-1/2">
+              {/* <button className="bg-white text-gray-400 px-4 py-2 rounded-lg font-semibold w-full md:w-1/2">
                 Daftar Sekarang
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

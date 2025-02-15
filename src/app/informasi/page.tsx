@@ -4,9 +4,11 @@ import RulesSection from '@/components/fragments/rules-section'
 import Footer from '@/components/layouts/footer'
 import Navbar from '@/components/layouts/navbar'
 import React from 'react'
+import { useRouter } from 'next/navigation';
 import { FaArrowDown } from "react-icons/fa";
 
 const InformasiPage: React.FC = () => {
+    const router = useRouter();
     return (
         <>
         <div className='scroll-smooth'>
@@ -51,10 +53,14 @@ const InformasiPage: React.FC = () => {
                             Selengkapnya
                         </a>
                         <a
-                            href="#"
+                             onClick={() => router.push('/about')}
+                             className="text-center justify-center inline-flex text-lg py-2 md:py-4 px-7 sm:ms-4 font-medium md:font-semibold text-white focus:outline-none bg-pr500 rounded-lg border border-gray-200 hover:bg-pr700 hover:text-white focus:z-10 dark:hover:bg-gray-70"
+                         >
+                             Tentang GenBI
+                         </a>
                             className="inline-flex justify-center items-center text-lg py-2 md:py-4 px-7 sm:ms-4 font-medium md:font-semibold text-white focus:outline-none bg-pr100 rounded-lg hover:bg-pr700 hover:text-white focus:z-10 dark:hover:bg-gray-70"
                         >
-                            Daftar Sekarang
+                            Tentang Genbi
                         </a>
                     </div>
                 </div>

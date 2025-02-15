@@ -48,7 +48,7 @@ const LandingPage: React.FC = () => {
 
                 {/* Hero Content */}
                 <div className="relative z-10 pt-10 text-center">
-                    <a href="" className="animate__animated animate__fadeInDown animate__slow max-w-7xl text-center mx-4 inline-flex items-center text-pr700 px-1 pr-1 md:pr-2 py-1 bg-pr100 rounded-3xl text-xs md:text-base">
+                    {/* <a href="" className="animate__animated animate__fadeInDown animate__slow max-w-7xl text-center mx-4 inline-flex items-center text-pr700 px-1 pr-1 md:pr-2 py-1 bg-pr100 rounded-3xl text-xs md:text-base">
                         <span className="px-1 md:px-2 bg-pr50 rounded-2xl mr-1 md:mr-2 text-xs md:text-base">Pendaftaran GenBI 2025 dibuka!</span>
                         Daftar disini
                         <svg className="w-3.5 h-3.5 ms-2 me-2 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -60,7 +60,7 @@ const LandingPage: React.FC = () => {
                                 d="M1 5h12m0 0L9 1m4 4L9 9"
                             />
                         </svg>
-                    </a>
+                    </a> */}
                     {/* <h1
                         style={{ fontWeight: 500 }}
                         className="text-start md:text-center mb-5 mt-5 mx-6 font-normal tracking-tight text-pr900 leading-none text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[86px]"
