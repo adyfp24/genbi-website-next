@@ -24,7 +24,7 @@ export default function RootLayout({
       <head>
         <title>GenBI Jember</title>
         <meta name="description" content="GenBI Jember" />
-        <link rel="icon" href="favicon.ico"/>
+        <link rel="icon" href="icon.ico"/>
       </head>
       <body
         className={`${manrope.variable} antialiased`}
