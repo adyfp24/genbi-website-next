@@ -109,7 +109,7 @@ const LandingPage: React.FC = () => {
                         <div className='w-full md:w-2/3'>
                             <h2 className='text-pr900 text-4xl font-medium md:font-semibold mb-4 md:mr-24'>Kerja Sama Bank Indonesia dengan Perguruan Tinggi Negeri di Jember</h2>
                             <p className='md:mr-20 text-left font-normal text-gray-600'>Kantor Perwakilan Bank Indonesia Jember bekerja sama dengan beberapa perguruan tinggi negeri
-                                untuk mendukung generasi muda melalui program Beasiswa Bank Indonesia. Dengan total 175 penerima dari Universitas Jember,
+                                untuk mendukung generasi muda melalui program Beasiswa Bank Indonesia. Dengan total 225 penerima dari Universitas Jember,
                                 Politeknik Negeri Jember, dan UIN KHAS Jember.
                             </p>
                         </div>
